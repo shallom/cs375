@@ -654,7 +654,7 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
-  SMYBOL sym = searchlev(tok->stringval, 0);
+  SYMBOL sym = searchlev(tok->stringval, 0);
   
   int type = tok->datatype;
 
