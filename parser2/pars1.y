@@ -265,17 +265,27 @@ TOKEN unaryop(TOKEN op, TOKEN lhs) {
 }
 
 int isReal(TOKEN tok) {
+  printf("IS REAL: \n");
   SYMBOL sym = searchst(tok->stringval);
-  if (sym->basicdt == REAL) 
+  dbugprinttok(tok);
+  if (sym->basicdt == REAL) {
+    print("TRUE\n");
     return 1;
+  }
+    print("FALSE\n");
+
   return 0;
 }
 
 int isInteger(TOKEN tok) {
+  printf("IS INTEGER: \n");
+  dbugprinttok(tok);
   SYMBOL sym = searchst(tok->stringval);
-  if (sym->basicdt == INTEGER)
+  if (sym->basicdt == INTEGER) {
     return 1;
-  return 0;
+  }
+    print("FALSE\n");
+    return 0;
 }
 
 TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
