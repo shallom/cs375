@@ -269,10 +269,10 @@ int isReal(TOKEN tok) {
   SYMBOL sym = searchst(tok->stringval);
   dbugprinttok(tok);
   if (sym->basicdt == REAL) {
-    print("TRUE\n");
+    printf("TRUE\n");
     return 1;
   }
-    print("FALSE\n");
+    printf("FALSE\n");
 
   return 0;
 }
@@ -284,7 +284,7 @@ int isInteger(TOKEN tok) {
   if (sym->basicdt == INTEGER) {
     return 1;
   }
-    print("FALSE\n");
+    printf("FALSE\n");
     return 0;
 }
 
