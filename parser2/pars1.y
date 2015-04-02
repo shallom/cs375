@@ -648,6 +648,9 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
+  SYMBOL sym = searchst(tok->stringval);
+  tok->symtype = sym;
+  return tok;
   // int type = tok->datatype;
   // if(type == INTEGER) {
   //   tok->symtype = searchst("integer");
@@ -662,26 +665,26 @@ TOKEN findtype(TOKEN tok) {
   //   tok->symtype = searchst(tok->stringval);
   // }
 
-  SYMBOL sym, typ;        /* symbol table entry and its type */
-  sym = searchst(tok->stringval);     /* look up the name in the table */
+  // SYMBOL sym, typ;        /* symbol table entry and its type */
+  // sym = searchst(tok->stringval);     /* look up the name in the table */
         
-     //tok->symentry = sym;                /* point token to its sym entry  */
-    //printf("This is what symentry looks like: %")
-     //typ = sym->datatype;                /* get the type of the symbol    */
+  //    //tok->symentry = sym;                /* point token to its sym entry  */
+  //   //printf("This is what symentry looks like: %")
+  //    //typ = sym->datatype;                /* get the type of the symbol    */
 
      
-   if(sym->kind == BASICTYPE ) //then the token is itself a basic datatype (Integer, Real, String, Bool)
-   {
-      tok->symtype = sym; 
-      tok->datatype = sym->basicdt; 
+  //  if(sym->kind == BASICTYPE ) //then the token is itself a basic datatype (Integer, Real, String, Bool)
+  //  {
+  //     tok->symtype = sym; 
+  //     tok->datatype = sym->basicdt; 
         
-   }
-  else if(sym->kind == TYPESYM)
-  {
-      tok->symtype = sym->datatype;
+  //  }
+  // else if(sym->kind == TYPESYM)
+  // {
+  //     tok->symtype = sym->datatype;
       
-  }
-  return tok;
+  // }
+  // return tok;
 }
 
 void  instconst(TOKEN idtok, TOKEN consttok) {
