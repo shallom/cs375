@@ -1,0 +1,72 @@
+makefuncall
+ token 11741648  OP       funcall  dtype  0  link 0  operands 11741392
+ token 11741392  ID        graph1  dtype  0  link 11741520
+ token 11741520  ID        output  dtype  0  link 0
+Symbol table level 0
+ 11718672        real  BASIC  basicdt   1          siz     8
+ 11718768     integer  BASIC  basicdt   0          siz     4
+ 11718864        char  BASIC  basicdt   2          siz     1
+ 11718960     boolean  BASIC  basicdt   3          siz     4
+ 11719056         exp  knd 5 0  typ 11719152  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11719344       trexp  knd 5 0  typ 11719440  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11719632         sin  knd 5 0  typ 11719728  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11719920         cos  knd 5 0  typ 11720016  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11720208       trsin  knd 5 0  typ 11720304  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11720496        sqrt  knd 5 0  typ 11720592  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11720784       round  knd 5 0  typ 11720880  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 11721072      iround  knd 5 0  typ 11721168  lvl  0  siz     0  off     0
+(FUNCTION integer
+          real)
+ 11721360         ord  knd 5 0  typ 11721456  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 11721648         new  knd 5 0  typ 11721744  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 11721936       trnew  knd 5 0  typ 11722032  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 11722224       write  knd 5 0  typ 11722320  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 11722512     writeln  knd 5 0  typ 11722608  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 11722800      writef  knd 5 0  typ 11722896  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 11723088    writelnf  knd 5 0  typ 11723184  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 11723376      writei  knd 5 0  typ 11723472  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 11723664    writelni  knd 5 0  typ 11723760  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 11723952        read  knd 5 0  typ 11724048  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 11724240      readln  knd 5 0  typ 11724336  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 11724528         eof  knd 5 0  typ 11724624  lvl  0  siz     0  off     0
+(FUNCTION boolean
+          NULL)
+yyparse result =        1
+ token 0  NULL
+ppexpr called with bad pointer 0

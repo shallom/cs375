@@ -1,0 +1,101 @@
+abstract syntax tree (AST)
+accepting state
+address alignment
+alphabet
+ambiguity
+ambiguous grammar
+arity
+associativity
+augmented transition network (ATN)
+AVL tree
+base address
+basic type
+BNF
+bottom-up parsing
+cascading errors
+cast
+Chomsky hierarchy
+CKY parser
+code generation
+collision
+concatenation
+context-free grammar
+data area
+declaration
+derivation
+deterministic finite automaton
+disambiguating rules
+enumerated type
+equivalent grammars
+error production
+finite automaton
+grammar
+hash function
+hash table
+hash with buckets
+infix
+insertion
+intermediate language
+Kleene closure
+language denoted by a grammar
+left factoring
+left recursion
+left-associative
+leftmost derivation
+lexeme
+lexer
+lexical analysis
+lexical scoping
+mantissa
+NaN
+nondeterministic finite automaton
+nonterminal
+object language
+observability
+offset
+operand
+operator
+optimization
+overloading
+padding
+parse tree
+parsing
+pass
+postfix
+precedence
+prefix
+preorder
+production
+recognizer
+record
+recursive descent
+reduce-reduce conflict
+reduction step
+regular expression
+regular grammar
+regular language
+rehash
+reserved word
+right-associative
+scalar type
+semantics
+shift-reduce conflict
+shift-reduce parser
+SNaN
+start symbol, S
+storage allocation
+string
+subrange
+substring
+suffix
+symbol table
+syntax
+syntax-directed translation
+synthesized translation
+terminal
+token
+top-down parsing
+type
+type constructor
+type lattice
+variable

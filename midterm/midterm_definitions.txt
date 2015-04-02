@@ -1,0 +1,101 @@
+abstract syntax tree (ast): a tree representation of a program that is abstracted from the details of a particular programming language and its surface syntax.
+accepting state: a state of a finite automaton in which the input string is accepted as being a member of the language recognized by the automaton.
+address alignment: see alignment.
+alphabet: a set of symbols used in the definition of a language.
+ambiguity: a case where more than one interpretation is possible.
+ambiguous grammar: a grammar that allows some sentence or string to be generated or parsed in more than one way ( i.e., with distinct parse trees).
+arity: the number of arguments of a function.
+associativity: a specification of the order in which operations should be performed when two operators of the same precedence are adjacent. Most operators are left-associative, e.g. the expression A - B - C should be interpreted as ((A - B) - C).
+augmented transition network (atn): a formalism for describing parsers, especially for natural language. Similar to a finite automaton, but augmented in that arbitrary tests may be attached to transition arcs, subgrammars may be called recursively, and structure-building actions may be executed as an arc is traversed.
+avl tree: a self-balancing binary search tree.
+base address: the address of the beginning of a data area. This address is added to a relative address or offset to compute an absolute address.
+basic type: a data type that is implemented in computer hardware instructions, such as integer or real.
+bnf: Backus-Naur Form, a syntax for writing context-free grammars that describe computer languages.
+bottom-up parsing: a parsing method in which input words are matched against the right-hand sides of grammar productions in an attempt to build a parse tree from the bottom towards the top.
+cascading errors: a situation, e.g. in compiling a program, where one error causes many reported errors. For example, failure to declare a variable may cause an error every time that variable is referenced.
+cast: to coerce a given value to be of a specified type. In the C-like languages, a cast is specified by putting the desired type inside parentheses ahead of an expression: d = (double) i;
+chomsky hierarchy: the hierarchy of formal language types: regular ⊂ context free ⊂ context sensitive ⊂ recursively enumerable; each is a proper subset of the next class.
+cky parser: a kind of parser, due to Cocke, Kasami, and Younger, that efficiently produces all possible parses of an input. Also written CYK.
+code generation: the phase of a compiler in which executable output code is generated from intermediate code.
+collision: in a hash table, a case in which a symbol has the same hash function value as another symbol.
+concatenation: making a sequence that consists of the elements of a first sequence followed by those of a second sequence.
+context-free grammar: a grammar in which the left-hand side of each production consists of a single nonterminal symbol.
+data area: a contiguous area of memory, specified by its base address and size. Data within the area are referenced by the base address of the area and the offset, or relative address, of the data within the area.
+declaration: a statement in a programming language that provides information to the compiler, such as the structure of a data record, but does not specify executable code.
+derivation: a list of steps that shows how a sentence in a language is derived from a grammar by application of grammar rules.
+deterministic finite automaton: a finite automaton that has at most one transition from a state for each input symbol and no empty transitions. Abbreviated DFA.
+disambiguating rules: rules that allow an ambiguous situation to be resolved to a single outcome, e.g. rules of operator precedence.
+enumerated type: a scalar type consisting of a finite set of enumerated values, e.g. type boolean = (false, true);.
+equivalent grammars: grammars that denote the same language.
+error production: a grammar production, as in a Yacc grammar, that is executed if no other (legal) production matches the input.
+finite automaton: an abstract computer consisting of an alphabet of symbols, a finite set of states, a starting state, a subset of accepting states, and transition rules that specify transitions from one state to another depending on the input symbol. The machine begins in the starting state; for each input symbol, it makes a transition as specified by the transition rules. If the automaton is in an accepting state at the end of the input, the input is recognized. Also, finite state machine. Abbreviated FA.
+grammar: a formal specification of a language, consisting of a set of nonterminal symbols, a set of terminal symbols or words, and production rules that specify transformations of strings containing nonterminals into other strings.
+hash function: a deterministic function that converts converts a symbol or other input to a pseudo-randomized integer value.
+hash table: a table that associates key values with data by use of a hash function.
+hash with buckets: a form of hash table in which the hash code denotes a bucket or set of entries whose keys hash to that value.
+infix: an expression written with an operator between its operand, e.g. a + b . cf. prefix, postfix.
+insertion: placement of a new data item in its proper position in an ordered sequence, such as a list, array, or symbol table.
+intermediate language: an internal language used as the representation of a program during compilation, such as trees or quadruples. The source language is translated to intermediate language, which is then translated to the object language.
+kleene closure: zero or more occurrences of a grammar item; indicated by a superscript *.
+language denoted by a grammar: L(G), the set of strings that can be derived from a grammar, beginning with the start symbol.
+left factoring: a method of modifying a grammar to eliminate left recursion.
+left recursion: in a grammar, a case where A ⇒ A α for some nonterminal symbol A. In top-down parsing, left recursion will cause an infinite recursion. Also, describes such a production.
+left-associative: describes operators in an arithmetic expression such that if there are two adjacent occurrences of operators with the same precedence, the left one should be done first. Thus, a - b + c means (a - b) + c. Most operators are left-associative.
+leftmost derivation: a derivation in which the leftmost nonterminal of the string is replaced at each step.
+lexeme: a basic symbol in a language; e.g., a variable name would be a lexeme for a grammar of a programming language.
+lexer: lexical analyzer.
+lexical analysis: parsing and conversion to internal form of the simplest elements of a language, usually specified by a regular grammar, such as variable names, numbers, etc.
+lexical scoping: a convention in a block-structured programming language that a variable can only be referenced within the block in which it is defined; thus, the scope of a variable is determined at compile time. Also called static scoping. cf. dynamic scoping.
+mantissa: the fractional part of a floating-point number; also, significand.
+nan: Not a Number, a floating-point value that does not represent a valid number. This could result from use of uninitialized data (if memory is initialized to NaN's), arithmetic performed on a NaN, or an undefined operation such as 0/0. A NaN may be quiet, or signalling, in which case its generation or use generates a CPU exception.
+nondeterministic finite automaton: a finite automaton that has multiple state transitions from a single state for a given input symbol, or that has a null transition, not requiring an input symbol. Abbreviated NFA.
+nonterminal: a symbol that names a phrase in a grammar.
+object language: the output language of a compiler.
+observability: the ability to observe the state of a system. For software, the provision of built-in code to allow the internal operations of a program to be easily observed.
+offset: the location of data relative to the start of a data area.
+operand: a data value upon which an operation is performed.
+operator: a symbol that denotes an operation to be performed on data in an expression.
+optimization: transformation of a program to produce a program whose input-output behavior is equivalent to that of the original program, but that has lower cost, e.g. faster execution time.
+overloading: the assignment of multiple meanings to an operator, depending on the type of data to which it is applied; e.g., the symbol + could represent integer addition, floating-point addition, or matrix addition.
+padding: insertion of unused storage in order to achieve storage alignment.
+parse tree: a data structure that shows how a statement in a language is derived from the context-free grammar of the language; it may be annotated with additional information, e.g. for compilation purposes.
+parsing: the process of reading a source language, determining its structure, and producing intermediate code for it.
+pass: a phase of a compiler or assembler in which the entire source program (in its original form or some later representation) is processed.
+postfix: a way of writing expressions in which an operator appears after its operands: ab+.
+precedence: an ordering of operators that specifies that certain operators should be performed before others when no ordering is otherwise specified.
+prefix: 1. a contiguous set of symbols at the beginning of a string. 2. a way of writing expressions in which an operator appears before its operands: +ab.
+preorder: an order of visiting trees, in which a node is examined first, followed by recursive examination of its children, in left-to-right order, in the same fashion.
+production: a rule of a context-free grammar, specifying that a nonterminal symbol can be replaced by another string of symbols.
+recognizer: a program or abstract device that can read a string of symbols and decide whether the string is a member of a particular language.
+record: a data area consisting of contiguous component fields, which may be of different types.
+recursive descent: a method of writing a parser in which a grammar rule is written as a procedure that recognizes that phrase, calling subroutines as needed for sub-phrases and producing a parse tree or other data structure as output.
+reduce-reduce conflict: in a grammar for a shift-reduce parser, a case in which an input might be reduced by more than one production.
+reduction step: in shift-reduce parsing, the reduction of items at the top of the stack to a phrase that encompasses those items.
+regular expression: an algebraic expression that denotes a regular language. Regular expressions are usually easier to write than an equivalent regular grammar.
+regular grammar: a grammar that denotes a regular language; its productions can only have on the right-hand side either a terminal string or a terminal string followed by a single nonterminal.
+regular language: a language described by a regular grammar, or recognizable by a finite automaton, e.g. a simple item such as a variable name or a number in a programming language.
+rehash: 1. in a hash table storage scheme, to calculate a new hash value for an item when the previous hash value caused a collision with an existing item. 2. the algorithm used to calculate the new hash value.
+reserved word: a word in a programming language that is reserved for use as part of the language and may not be used as an identifier.
+right-associative: an operator in an arithmetic expression such that if there are two adjacent occurrences of operators with equal precedence, the right one should be done first.
+scalar type: a data type that occupies a fixed amount of storage.
+semantics: the meaning of a statement in a language. cf. syntax.
+shift-reduce conflict: in a grammar for a shift-reduce parser, a case in which an input might either be shifted onto the stack or reduced.
+shift-reduce parser: a parser that operates by alternately shifting input elements onto the top of a stack or reducing a group of elements from the top of the stack to form a larger element representing a phrase.
+snan: Signaling Not a Number, a special value defined by IEEE floating point. An attempt to do arithmetic on a SNaN will cause a processor fault and halt execution; if an array is initialized to SNaN values, this can detect errors of uninitialized data at no runtime cost.
+start symbol, s: the initial, or sentence nonterminal symbol S of a grammar.
+storage allocation: the assignment of memory locations to data and program code.
+string: a sequence of symbols or characters.
+subrange: a contiguous subsequence of a sequence, e.g. 1..10 is a subrange of integer.
+substring: a sequence of symbols that matches a contiguous subsequence of another string.
+suffix: a sequence of symbols at the end of a string.
+symbol table: a data structure that associates a name (symbol) with information about the named object.
+syntax: the rules by which legitimate statements can be constructed. cf. semantics.
+syntax-directed translation: in parsing a programming language, building the translation of a statement as directed by the syntactic form of the program.
+synthesized translation: a method of translating statements, e.g. in a programming language, such that the translation of a phrase is built up from the translations of its components.
+terminal: a symbol in a phrase structure grammar that is a part of the language described by the grammar, such as a word or character of the language. cf. nonterminal symbol.
+token: an occurrence of a word, name, or sequence of characters having a meaning as a unit in a language.
+top-down parsing: a predictive form of parsing, such as recursive descent, in which the parse tree of a statement is constructed starting at the root (sentence symbol).
+type: a description of a kind of variables, including a set of possible values and a set of operations.
+type constructor: an operator that makes a type from other types, e.g. array or record.
+type lattice: a lattice structure that shows which types are higher or derivable from others, e.g. float is higher than integer. When an operation is specified on different types, the arguments may be coerced to the least upper bound of the two types in the lattice.
+variable: an element of computer memory that can hold a value.
