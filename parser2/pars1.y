@@ -654,28 +654,26 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
-  SYMBOL sym = searchlev(tok->stringval, 0);
+  tok->symtype = searchst(tok->stringval);
   
-  int type = tok->datatype;
-
-  if(type == INTEGER) {
-    printf("FOUND TYPE TO BE INTEGER\n");
-    tok->symtype = searchst("integer");
-  }
-  else if(type == REAL) {
-    printf("FOUND TYPE TO BE REAL\n");
-    tok->symtype = searchst("real");
-  }
-  else if(type == BOOLETYPE) {
-    printf("FOUND TYPE TO BE BOOLEAN\n");
-    tok->symtype = searchst("boolean");
-  }
-  else{
-    printf("FOUND TYPE TO BE STRING\n");
-    tok->symtype = searchst(tok->stringval);
-  }
-  printf("FIND TYPE\n");
-  dbugprinttok(tok);
+  // if(sym->basicdt == INTEGER) {
+  //   printf("FOUND TYPE TO BE INTEGER\n");
+  //   tok->symtype = searchst("integer");
+  // }
+  // else if(type == REAL) {
+  //   printf("FOUND TYPE TO BE REAL\n");
+  //   tok->symtype = searchst("real");
+  // }
+  // else if(type == BOOLETYPE) {
+  //   printf("FOUND TYPE TO BE BOOLEAN\n");
+  //   tok->symtype = searchst("boolean");
+  // }
+  // else{
+  //   printf("FOUND TYPE TO BE STRING\n");
+  //   tok->symtype = searchst(tok->stringval);
+  // }
+  // printf("FIND TYPE\n");
+  // dbugprinttok(tok);
   return tok;
 }
 
