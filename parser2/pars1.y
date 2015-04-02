@@ -293,87 +293,87 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
   { op->operands = lhs;          /* link operands to operator       */
     lhs->link = rhs;             /* link second operand to first    */
     rhs->link = NULL;            /* terminate operand list          */
-    // if (lhs->tokentype == IDENTIFIERTOK) {
-    //   if (rhs->tokentype == IDENTIFIERTOK) {
-    //     // Both identifiers
-    //     if (isReal(lhs)) {
-    //       if (isInteger(rhs)) {
-    //         // Float Right side
-    //         printf("Both identifiers, left - real, right - int\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = rhs;
-    //         lhs->link = temp;
-    //       }
-    //     }
-    //     else {
-    //       if (isReal(rhs)) {
-    //         // Float left side
-    //         printf("Both identifiers, left - int, right - real\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = lhs;
-    //         temp->link = rhs;
-    //       }
-    //     }
-    //   }
-    //   else {
-    //     // Left identifier, right not
-    //     if (isReal(lhs)) {
-    //       // Cast right side
-    //       if (rhs->datatype == INTEGER) {
-    //         printf("left identifier, left - real, right - int\n");
-    //         rhs->datatype = REAL;
-    //         rhs->realval = (double) rhs->intval;
-    //       }
-    //     }
-    //     else {
-    //       if (rhs->datatype == REAL) {
-    //         // Float left side
-    //         printf("left identifier, left - int, right - real\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = lhs;
-    //         temp->link = rhs;
-    //       }
-    //     }
-    //   }
-    // }
-    // else {
-    //   if (rhs->tokentype == IDENTIFIERTOK) {
-    //     // right identifier, left not
-    //     if(lhs->datatype == REAL){
-    //       if(isInteger(rhs)) {
-    //         printf("right identifier, left - real, right - int\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = rhs;
-    //         lhs->link = temp;
-    //       }
-    //     }
-    //     else {
-    //       if(isReal(rhs)) {
-    //         printf("right identifier, left - int, right - real\n");
-    //         lhs->datatype = REAL;
-    //         lhs->realval = (double) lhs->intval;
-    //       }
-    //     }
-    //   }
-    //   else {
-    //     // right not, left not
-    //     if (lhs->datatype == REAL) {
-    //       if (rhs->datatype == INTEGER){
-    //         printf("Both not identifiers, left - real, right - int\n");
-    //         rhs->datatype = REAL;
-    //         rhs->realval = (double) rhs->intval;
+    if (lhs->tokentype == IDENTIFIERTOK) {
+      if (rhs->tokentype == IDENTIFIERTOK) {
+        // Both identifiers
+        if (isReal(lhs)) {
+          if (isInteger(rhs)) {
+            // Float Right side
+            printf("Both identifiers, left - real, right - int\n");
+            TOKEN temp = makeop(FLOATOP);
+            temp->operands = rhs;
+            lhs->link = temp;
+          }
+        }
+        else {
+          if (isReal(rhs)) {
+            // Float left side
+            printf("Both identifiers, left - int, right - real\n");
+            TOKEN temp = makeop(FLOATOP);
+            temp->operands = lhs;
+            temp->link = rhs;
+          }
+        }
+      }
+      else {
+        // Left identifier, right not
+        if (isReal(lhs)) {
+          // Cast right side
+          if (rhs->datatype == INTEGER) {
+            printf("left identifier, left - real, right - int\n");
+            rhs->datatype = REAL;
+            rhs->realval = (double) rhs->intval;
+          }
+        }
+        else {
+          if (rhs->datatype == REAL) {
+            // Float left side
+            printf("left identifier, left - int, right - real\n");
+            TOKEN temp = makeop(FLOATOP);
+            temp->operands = lhs;
+            temp->link = rhs;
+          }
+        }
+      }
+    }
+    else {
+      if (rhs->tokentype == IDENTIFIERTOK) {
+        // right identifier, left not
+        if(lhs->datatype == REAL){
+          if(isInteger(rhs)) {
+            printf("right identifier, left - real, right - int\n");
+            TOKEN temp = makeop(FLOATOP);
+            temp->operands = rhs;
+            lhs->link = temp;
+          }
+        }
+        else {
+          if(isReal(rhs)) {
+            printf("right identifier, left - int, right - real\n");
+            lhs->datatype = REAL;
+            lhs->realval = (double) lhs->intval;
+          }
+        }
+      }
+      else {
+        // right not, left not
+        if (lhs->datatype == REAL) {
+          if (rhs->datatype == INTEGER){
+            printf("Both not identifiers, left - real, right - int\n");
+            rhs->datatype = REAL;
+            rhs->realval = (double) rhs->intval;
 
-    //       }
-    //     }
-    //     else {
-    //       if (rhs->datatype == REAL) {
-    //         printf("Both not identifiers, left - int, right - real\n");
-    //         lhs->datatype = REAL;
-    //         lhs->realval = (double) lhs->intval;
-    //       }
-    //     }
-    //   }
-    // }
+          }
+        }
+        else {
+          if (rhs->datatype == REAL) {
+            printf("Both not identifiers, left - int, right - real\n");
+            lhs->datatype = REAL;
+            lhs->realval = (double) lhs->intval;
+          }
+        }
+      }
+    }
     if (DEBUG & DB_BINOP)
        { printf("binop\n");
          dbugprinttok(op);
