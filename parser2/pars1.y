@@ -264,18 +264,18 @@ TOKEN unaryop(TOKEN op, TOKEN lhs) {
     return op;
 }
 
-bool isReal(TOKEN tok) {
+int isReal(TOKEN tok) {
   SYMBOL sym = searchst(tok->stringval);
   if (sym->basicdt == REAL) 
-    return true;
-  return false;
+    return 1;
+  return 0;
 }
 
-bool isInteger(TOKEN tok) {
+int isInteger(TOKEN tok) {
   SYMBOL sym = searchst(tok->stringval);
   if (sym->basicdt == INTEGER)
-    return true;
-  return false;
+    return 1;
+  return 0;
 }
 
 TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
@@ -288,6 +288,7 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         if (isReal(lhs)) {
           if (isInteger(rhs)) {
             // Float Right side
+            printf("Both identifiers, left - real, right - int\n");
             TOKEN temp = makeop(FLOATOP);
             temp->operands = rhs;
             lhs->link = temp;
@@ -296,6 +297,7 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         else {
           if (isReal(rhs)) {
             // Float left side
+            printf("Both identifiers, left - int, right - real\n");
             TOKEN temp = makeop(FLOATOP);
             temp->operands = lhs;
             temp->link = rhs;
@@ -307,13 +309,15 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         if (isReal(lhs)) {
           // Cast right side
           if (rhs->datatype == INTEGER) {
+            printf("left identifier, left - real, right - int\n");
             rhs->datatype = REAL;
-            rhs->realnum = (double) rhs->intnum;
+            rhs->realval = (double) rhs->intval;
           }
         }
         else {
           if (rhs->datatype == REAL) {
             // Float left side
+            printf("left identifier, left - int, right - real\n");
             TOKEN temp = makeop(FLOATOP);
             temp->operands = lhs;
             temp->link = rhs;
@@ -326,6 +330,7 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         // right identifier, left not
         if(lhs->datatype == REAL){
           if(isInteger(rhs)) {
+            printf("right identifier, left - real, right - int\n");
             TOKEN temp = makeop(FLOATOP);
             temp->operands = rhs;
             lhs->link = temp;
@@ -333,8 +338,9 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         }
         else {
           if(isReal(rhs)) {
+            printf("right identifier, left - int, right - real\n");
             lhs->datatype = REAL;
-            lhs->realNum = (double) lhs->intnum;
+            lhs->realval = (double) lhs->intval;
           }
         }
       }
@@ -342,15 +348,17 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         // right not, left not
         if (lhs->datatype == REAL) {
           if (rhs->datatype == INTEGER){
+            printf("Both not identifiers, left - real, right - int\n");
             rhs->datatype = REAL;
-            rhs->realnum = (double) rhs->intnum;
+            rhs->realval = (double) rhs->intval;
 
           }
         }
         else {
           if (rhs->datatype == REAL) {
+            printf("Both not identifiers, left - int, right - real\n");
             lhs->datatype = REAL;
-            lhs->realnum = (double) lhs->intnum;
+            lhs->realval = (double) lhs->intval;
           }
         }
       }

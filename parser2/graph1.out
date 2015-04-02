@@ -1,318 +1,320 @@
 cons
- token 26493296  ID             x  dtype  0  link 26493424
- token 26493424  ID             y  dtype  0  link 0
+ token 30265712  ID             x  dtype  0  link 30265840
+ token 30265840  ID             y  dtype  0  link 0
 cons
- token 26493872  ID             i  dtype  0  link 26494000
- token 26494000  ID             n  dtype  0  link 0
+ token 30266288  ID             i  dtype  0  link 30266416
+ token 30266416  ID             n  dtype  0  link 0
 VARIABLES
 CONSTANTS
 EXPRESSION_TO_TERM
 ASSIGNMENT
 binop
- token 26494640  OP            :=  dtype  0  link 0  operands 26494576
- token 26494576  ID             i  dtype  0  link 26494704
- token 26494704  NUM            0  dtype  0  link 0
+ token 30267056  OP            :=  dtype  0  link 0  operands 30266992
+ token 30266992  ID             i  dtype  0  link 30267120
+ token 30267120  NUM            0  dtype  0  link 0
 TIMES
+right identifier, left - real, right - int
 makeop
- token 26495408  OP         float  dtype  0  link 0  operands 0
+ token 30267824  OP         float  dtype  0  link 0  operands 0
 binop
- token 26495216  OP             *  dtype  0  link 0  operands 26495152
- token 26495152  NUM 6.250000e-02  dtype  1  link 26495408
- token 26495280  ID             i  dtype  0  link 0
+ token 30267632  OP             *  dtype  0  link 0  operands 30267568
+ token 30267568  NUM 6.250000e-02  dtype  1  link 30267824
+ token 30267696  ID             i  dtype  0  link 0
 EXPRESSION_TO_TERM
 ASSIGNMENT
 binop
- token 26495088  OP            :=  dtype  0  link 0  operands 26495024
- token 26495024  ID             x  dtype  0  link 26495216
- token 26495216  OP             *  dtype  0  link 0  operands 26495152
+ token 30267504  OP            :=  dtype  0  link 0  operands 30267440
+ token 30267440  ID             x  dtype  0  link 30267632
+ token 30267632  OP             *  dtype  0  link 0  operands 30267568
 ASSIGNMENT IN STATE LINE
 NEGATIVE
 unaryop
- token 26495728  OP             -  dtype  0  link 0  operands 26495792
- token 26495792  ID             x  dtype  0  link 0
+ token 30268144  OP             -  dtype  0  link 0  operands 30268208
+ token 30268208  ID             x  dtype  0  link 0
 FUNCTION_CALL
 makefuncall
- token 26495920  OP       funcall  dtype  0  link 0  operands 26495600
- token 26495600  ID           exp  dtype  0  link 26495728
- token 26495728  OP             -  dtype  0  link 0  operands 26495792
+ token 30268336  OP       funcall  dtype  0  link 0  operands 30268016
+ token 30268016  ID           exp  dtype  0  link 30268144
+ token 30268144  OP             -  dtype  0  link 0  operands 30268208
 FUNCTION CALL
 TIMES
+right identifier, left - real, right - int
 makeop
- token 26496432  OP         float  dtype  0  link 0  operands 0
+ token 30268848  OP         float  dtype  0  link 0  operands 0
 binop
- token 26496240  OP             *  dtype  0  link 0  operands 26496176
- token 26496176  NUM 6.283180e+00  dtype  1  link 26496432
- token 26496304  ID             x  dtype  0  link 0
+ token 30268656  OP             *  dtype  0  link 0  operands 30268592
+ token 30268592  NUM 6.283180e+00  dtype  1  link 30268848
+ token 30268720  ID             x  dtype  0  link 0
 EXPRESSION_TO_TERM
 FUNCTION_CALL
 makefuncall
- token 26496496  OP       funcall  dtype  0  link 0  operands 26496048
- token 26496048  ID           sin  dtype  0  link 26496240
- token 26496240  OP             *  dtype  0  link 0  operands 26496176
+ token 30268912  OP       funcall  dtype  0  link 0  operands 30268464
+ token 30268464  ID           sin  dtype  0  link 30268656
+ token 30268656  OP             *  dtype  0  link 0  operands 30268592
 FUNCTION CALL
 TIMES
 binop
- token 26495984  OP             *  dtype  0  link 0  operands 26495920
- token 26495920  OP       funcall  dtype  0  link 26496496  operands 26495600
- token 26496496  OP       funcall  dtype  0  link 0  operands 26496048
+ token 30268400  OP             *  dtype  0  link 0  operands 30268336
+ token 30268336  OP       funcall  dtype  0  link 30268912  operands 30268016
+ token 30268912  OP       funcall  dtype  0  link 0  operands 30268464
 EXPRESSION_TO_TERM
 ASSIGNMENT
 binop
- token 26495536  OP            :=  dtype  0  link 0  operands 26495472
- token 26495472  ID             y  dtype  0  link 26495984
- token 26495984  OP             *  dtype  0  link 0  operands 26495920
+ token 30267952  OP            :=  dtype  0  link 0  operands 30267888
+ token 30267888  ID             y  dtype  0  link 30268400
+ token 30268400  OP             *  dtype  0  link 0  operands 30268336
 ASSIGNMENT IN STATE LINE
 TIMES
 binop
- token 26496944  OP             *  dtype  0  link 0  operands 26496880
- token 26496880  NUM           32  dtype  0  link 26497008
- token 26497008  ID             y  dtype  0  link 0
+ token 30269360  OP             *  dtype  0  link 0  operands 30269296
+ token 30269296  NUM           32  dtype  0  link 30269424
+ token 30269424  ID             y  dtype  0  link 0
 EXPRESSION_TO_TERM
 FUNCTION_CALL
 makefuncall
- token 26497136  OP       funcall  dtype  0  link 0  operands 26496752
- token 26496752  ID         round  dtype  0  link 26496944
- token 26496944  OP             *  dtype  0  link 0  operands 26496880
+ token 30269552  OP       funcall  dtype  0  link 0  operands 30269168
+ token 30269168  ID         round  dtype  0  link 30269360
+ token 30269360  OP             *  dtype  0  link 0  operands 30269296
 FUNCTION CALL
 EXPRESSION_TO_TERM
 binop
- token 26497200  OP             +  dtype  0  link 0  operands 26497136
- token 26497136  OP       funcall  dtype  0  link 26497264  operands 26496752
- token 26497264  NUM           34  dtype  0  link 0
+ token 30269616  OP             +  dtype  0  link 0  operands 30269552
+ token 30269552  OP       funcall  dtype  0  link 30269680  operands 30269168
+ token 30269680  NUM           34  dtype  0  link 0
 ASSIGNMENT
 binop
- token 26496688  OP            :=  dtype  0  link 0  operands 26496624
- token 26496624  ID             n  dtype  0  link 26497200
- token 26497200  OP             +  dtype  0  link 0  operands 26497136
+ token 30269104  OP            :=  dtype  0  link 0  operands 30269040
+ token 30269040  ID             n  dtype  0  link 30269616
+ token 30269616  OP             +  dtype  0  link 0  operands 30269552
 ASSIGNMENT IN STATE LINE
 EXPRESSION_TO_TERM
 FUNCTION_CALL
 makefuncall
- token 26497712  OP       funcall  dtype  0  link 0  operands 26497456
- token 26497456  ID         write  dtype  0  link 26497584
- token 26497584  STR               dtype  0  link 0
+ token 30270128  OP       funcall  dtype  0  link 0  operands 30269872
+ token 30269872  ID         write  dtype  0  link 30270000
+ token 30270000  STR               dtype  0  link 0
 FUNCTION CALL
 EXPRESSION_TO_TERM
 binop
- token 26498032  OP             -  dtype  0  link 0  operands 26497968
- token 26497968  ID             n  dtype  0  link 26498096
- token 26498096  NUM            1  dtype  0  link 0
+ token 30270448  OP             -  dtype  0  link 0  operands 30270384
+ token 30270384  ID             n  dtype  0  link 30270512
+ token 30270512  NUM            1  dtype  0  link 0
 ASSIGNMENT
 binop
- token 26497904  OP            :=  dtype  0  link 0  operands 26497840
- token 26497840  ID             n  dtype  0  link 26498032
- token 26498032  OP             -  dtype  0  link 0  operands 26497968
+ token 30270320  OP            :=  dtype  0  link 0  operands 30270256
+ token 30270256  ID             n  dtype  0  link 30270448
+ token 30270448  OP             -  dtype  0  link 0  operands 30270384
 ASSIGNMENT IN STATE LINE
 LAST EXPRESSION
 MULTIPLE STATEMENTS
 cons
- token 26497712  OP       funcall  dtype  0  link 26497904  operands 26497456
- token 26497904  OP            :=  dtype  0  link 0  operands 26497840
+ token 30270128  OP       funcall  dtype  0  link 30270320  operands 30269872
+ token 30270320  OP            :=  dtype  0  link 0  operands 30270256
 binop
- token 26498288  OP             =  dtype  0  link 0  operands 26498224
- token 26498224  ID             n  dtype  0  link 26498352
- token 26498352  NUM            0  dtype  0  link 0
+ token 30270704  OP             =  dtype  0  link 0  operands 30270640
+ token 30270640  ID             n  dtype  0  link 30270768
+ token 30270768  NUM            0  dtype  0  link 0
 equals number:
- token 26498224  ID             n  dtype  0  link 26498352
- token 26498288  OP             =  dtype  0  link 0  operands 26498224
- token 26498352  NUM            0  dtype  0  link 0
+ token 30270640  ID             n  dtype  0  link 30270768
+ token 30270704  OP             =  dtype  0  link 0  operands 30270640
+ token 30270768  NUM            0  dtype  0  link 0
 REPEAT UNTIL
- token 26498608  NUM            0  dtype  0  link 0
+ token 30271024  NUM            0  dtype  0  link 0
 makelabel
- token 26498544  OP         label  dtype  0  link 0  operands 26498608
+ token 30270960  OP         label  dtype  0  link 0  operands 30271024
 makeprogn
- token 26498480  OP         progn  dtype  0  link 0  operands 26498544
- token 26498544  OP         label  dtype  0  link 0  operands 26498608
+ token 30270896  OP         progn  dtype  0  link 0  operands 30270960
+ token 30270960  OP         label  dtype  0  link 0  operands 30271024
 makeprogn
- token 26498416  OP         progn  dtype  0  link 0  operands 26497712
- token 26497712  OP       funcall  dtype  0  link 26497904  operands 26497456
- token 26498736  NUM            0  dtype  0  link 0
+ token 30270832  OP         progn  dtype  0  link 0  operands 30270128
+ token 30270128  OP       funcall  dtype  0  link 30270320  operands 30269872
+ token 30271152  NUM            0  dtype  0  link 0
 makegoto
- token 26498672  OP          goto  dtype  0  link 0  operands 26498736
+ token 30271088  OP          goto  dtype  0  link 0  operands 30271152
 makeprogn
- token 26498800  OP         progn  dtype  0  link 0  operands 0
+ token 30271216  OP         progn  dtype  0  link 0  operands 0
  token 0  NULL
 makeif
- token 26498864  OP            if  dtype  0  link 0  operands 26498288
- token 26498288  OP             =  dtype  0  link 26498800  operands 26498224
- token 26498800  OP         progn  dtype  0  link 26498672  operands 0
- token 26498672  OP          goto  dtype  0  link 0  operands 26498736
+ token 30271280  OP            if  dtype  0  link 0  operands 30270704
+ token 30270704  OP             =  dtype  0  link 30271216  operands 30270640
+ token 30271216  OP         progn  dtype  0  link 30271088  operands 0
+ token 30271088  OP          goto  dtype  0  link 0  operands 30271152
 makerepeat
- token 26498480  OP         progn  dtype  0  link 0  operands 26498544
- token 26498544  OP         label  dtype  0  link 26498416  operands 26498608
- token 26498416  OP         progn  dtype  0  link 26498864  operands 26497712
- token 26498864  OP            if  dtype  0  link 0  operands 26498288
- token 26498288  OP             =  dtype  0  link 26498800  operands 26498224
- token 26498800  OP         progn  dtype  0  link 26498672  operands 0
- token 26498672  OP          goto  dtype  0  link 0  operands 26498736
+ token 30270896  OP         progn  dtype  0  link 0  operands 30270960
+ token 30270960  OP         label  dtype  0  link 30270832  operands 30271024
+ token 30270832  OP         progn  dtype  0  link 30271280  operands 30270128
+ token 30271280  OP            if  dtype  0  link 0  operands 30270704
+ token 30270704  OP             =  dtype  0  link 30271216  operands 30270640
+ token 30271216  OP         progn  dtype  0  link 30271088  operands 0
+ token 30271088  OP          goto  dtype  0  link 0  operands 30271152
 REPEATUNTIL
 EXPRESSION_TO_TERM
 FUNCTION_CALL
 makefuncall
- token 26499248  OP       funcall  dtype  0  link 0  operands 26498992
- token 26498992  ID       writeln  dtype  0  link 26499120
- token 26499120  STR            *  dtype  0  link 0
+ token 30271664  OP       funcall  dtype  0  link 0  operands 30271408
+ token 30271408  ID       writeln  dtype  0  link 30271536
+ token 30271536  STR            *  dtype  0  link 0
 FUNCTION CALL
 LAST EXPRESSION
 MULTIPLE STATEMENTS
 cons
- token 26498480  OP         progn  dtype  0  link 26499248  operands 26498544
- token 26499248  OP       funcall  dtype  0  link 0  operands 26498992
+ token 30270896  OP         progn  dtype  0  link 30271664  operands 30270960
+ token 30271664  OP       funcall  dtype  0  link 0  operands 30271408
 MULTIPLE STATEMENTS
 cons
- token 26496688  OP            :=  dtype  0  link 26498480  operands 26496624
- token 26498480  OP         progn  dtype  0  link 26499248  operands 26498544
+ token 30269104  OP            :=  dtype  0  link 30270896  operands 30269040
+ token 30270896  OP         progn  dtype  0  link 30271664  operands 30270960
 MULTIPLE STATEMENTS
 cons
- token 26495536  OP            :=  dtype  0  link 26496688  operands 26495472
- token 26496688  OP            :=  dtype  0  link 26498480  operands 26496624
+ token 30267952  OP            :=  dtype  0  link 30269104  operands 30267888
+ token 30269104  OP            :=  dtype  0  link 30270896  operands 30269040
 MULTIPLE STATEMENTS
 cons
- token 26495088  OP            :=  dtype  0  link 26495536  operands 26495024
- token 26495536  OP            :=  dtype  0  link 26496688  operands 26495472
+ token 30267504  OP            :=  dtype  0  link 30267952  operands 30267440
+ token 30267952  OP            :=  dtype  0  link 30269104  operands 30267888
 OUTER STATEMENT
 nconc
- token 26495088  OP            :=  dtype  0  link 26495536  operands 26495024
+ token 30267504  OP            :=  dtype  0  link 30267952  operands 30267440
  token 0  NULL
 makeprogn
- token 26494960  OP         progn  dtype  0  link 0  operands 26495088
- token 26495088  OP            :=  dtype  0  link 26495536  operands 26495024
+ token 30267376  OP         progn  dtype  0  link 0  operands 30267504
+ token 30267504  OP            :=  dtype  0  link 30267952  operands 30267440
 makeprogn
- token 26499376  OP         progn  dtype  0  link 0  operands 26494640
- token 26494640  OP            :=  dtype  0  link 0  operands 26494576
- token 26499504  NUM            1  dtype  0  link 0
+ token 30271792  OP         progn  dtype  0  link 0  operands 30267056
+ token 30267056  OP            :=  dtype  0  link 0  operands 30266992
+ token 30271920  NUM            1  dtype  0  link 0
 makelabel
- token 26499440  OP         label  dtype  0  link 0  operands 26499504
+ token 30271856  OP         label  dtype  0  link 0  operands 30271920
 makeop
- token 26499568  OP            <=  dtype  0  link 0  operands 0
+ token 30271984  OP            <=  dtype  0  link 0  operands 0
 makeop
- token 26499632  OP             +  dtype  0  link 0  operands 0
+ token 30272048  OP             +  dtype  0  link 0  operands 0
 makeprogn
- token 26499760  OP         progn  dtype  0  link 0  operands 26494960
- token 26494960  OP         progn  dtype  0  link 0  operands 26495088
+ token 30272176  OP         progn  dtype  0  link 0  operands 30267376
+ token 30267376  OP         progn  dtype  0  link 0  operands 30267504
 makeif
- token 26499696  OP            if  dtype  0  link 0  operands 26499568
- token 26499568  OP            <=  dtype  0  link 26499760  operands 0
- token 26499760  OP         progn  dtype  0  link 0  operands 26494960
+ token 30272112  OP            if  dtype  0  link 0  operands 30271984
+ token 30271984  OP            <=  dtype  0  link 30272176  operands 0
+ token 30272176  OP         progn  dtype  0  link 0  operands 30267376
  token 0  NULL
 copytok
- token 26499824  ID             i  dtype  0  link 26494704
+ token 30272240  ID             i  dtype  0  link 30267120
 makeop
- token 26499888  OP            :=  dtype  0  link 0  operands 0
+ token 30272304  OP            :=  dtype  0  link 0  operands 0
 copytok
- token 26499952  ID             i  dtype  0  link 26494832
+ token 30272368  ID             i  dtype  0  link 30267248
 copytok
- token 26500016  ID             i  dtype  0  link 26494832
- token 26500080  NUM            1  dtype  0  link 0
- token 26500208  NUM            1  dtype  0  link 0
+ token 30272432  ID             i  dtype  0  link 30267248
+ token 30272496  NUM            1  dtype  0  link 0
+ token 30272624  NUM            1  dtype  0  link 0
 makegoto
- token 26500144  OP          goto  dtype  0  link 0  operands 26500208
+ token 30272560  OP          goto  dtype  0  link 0  operands 30272624
 makefor
- token 26499376  OP         progn  dtype  0  link 0  operands 26494640
- token 26494640  OP            :=  dtype  0  link 26499440  operands 26494576
- token 26494832  NUM           32  dtype  0  link 0
+ token 30271792  OP         progn  dtype  0  link 0  operands 30267056
+ token 30267056  OP            :=  dtype  0  link 30271856  operands 30266992
+ token 30267248  NUM           32  dtype  0  link 0
  token 0  NULL
  token 0  NULL
- token 26499568  OP            <=  dtype  0  link 26499760  operands 26499824
- token 26499632  OP             +  dtype  0  link 0  operands 26500016
- token 26499824  ID             i  dtype  0  link 26494832
- token 26499952  ID             i  dtype  0  link 26499632
- token 26500016  ID             i  dtype  0  link 26500080
+ token 30271984  OP            <=  dtype  0  link 30272176  operands 30272240
+ token 30272048  OP             +  dtype  0  link 0  operands 30272432
+ token 30272240  ID             i  dtype  0  link 30267248
+ token 30272368  ID             i  dtype  0  link 30272048
+ token 30272432  ID             i  dtype  0  link 30272496
 FOR LOOP
 FOR LOOP IN STATELINE
 LAST EXPRESSION
 OUTER STATEMENT
 nconc
- token 26499376  OP         progn  dtype  0  link 0  operands 26494640
+ token 30271792  OP         progn  dtype  0  link 0  operands 30267056
  token 0  NULL
 makeprogn
- token 26494448  OP         progn  dtype  0  link 0  operands 26499376
- token 26499376  OP         progn  dtype  0  link 0  operands 26494640
+ token 30266864  OP         progn  dtype  0  link 0  operands 30271792
+ token 30271792  OP         progn  dtype  0  link 0  operands 30267056
 makeprogn
- token 26500464  OP         progn  dtype  0  link 0  operands 26491216
- token 26491216  ID        output  dtype  0  link 0
+ token 30272880  OP         progn  dtype  0  link 0  operands 30263632
+ token 30263632  ID        output  dtype  0  link 0
 makeprogram
- token 26500400  OP       program  dtype  0  link 0  operands 26491088
- token 26491088  ID        graph1  dtype  0  link 26500464
- token 26500464  OP         progn  dtype  0  link 26494448  operands 26491216
- token 26491216  ID        output  dtype  0  link 0
+ token 30272816  OP       program  dtype  0  link 0  operands 30263504
+ token 30263504  ID        graph1  dtype  0  link 30272880
+ token 30272880  OP         progn  dtype  0  link 30266864  operands 30263632
+ token 30263632  ID        output  dtype  0  link 0
 Symbol table level 0
- 26468368        real  BASIC  basicdt   1          siz     8
- 26468464     integer  BASIC  basicdt   0          siz     4
- 26468560        char  BASIC  basicdt   2          siz     1
- 26468656     boolean  BASIC  basicdt   3          siz     4
- 26468752         exp  knd 5 0  typ 26468848  lvl  0  siz     0  off     0
+ 30240784        real  BASIC  basicdt   1          siz     8
+ 30240880     integer  BASIC  basicdt   0          siz     4
+ 30240976        char  BASIC  basicdt   2          siz     1
+ 30241072     boolean  BASIC  basicdt   3          siz     4
+ 30241168         exp  knd 5 0  typ 30241264  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26469040       trexp  knd 5 0  typ 26469136  lvl  0  siz     0  off     0
+ 30241456       trexp  knd 5 0  typ 30241552  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26469328         sin  knd 5 0  typ 26469424  lvl  0  siz     0  off     0
+ 30241744         sin  knd 5 0  typ 30241840  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26469616         cos  knd 5 0  typ 26469712  lvl  0  siz     0  off     0
+ 30242032         cos  knd 5 0  typ 30242128  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26469904       trsin  knd 5 0  typ 26470000  lvl  0  siz     0  off     0
+ 30242320       trsin  knd 5 0  typ 30242416  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26470192        sqrt  knd 5 0  typ 26470288  lvl  0  siz     0  off     0
+ 30242608        sqrt  knd 5 0  typ 30242704  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26470480       round  knd 5 0  typ 26470576  lvl  0  siz     0  off     0
+ 30242896       round  knd 5 0  typ 30242992  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 26470768      iround  knd 5 0  typ 26470864  lvl  0  siz     0  off     0
+ 30243184      iround  knd 5 0  typ 30243280  lvl  0  siz     0  off     0
 (FUNCTION integer
           real)
- 26471056         ord  knd 5 0  typ 26471152  lvl  0  siz     0  off     0
-(FUNCTION integer
-          integer)
- 26471344         new  knd 5 0  typ 26471440  lvl  0  siz     0  off     0
+ 30243472         ord  knd 5 0  typ 30243568  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 26471632       trnew  knd 5 0  typ 26471728  lvl  0  siz     0  off     0
+ 30243760         new  knd 5 0  typ 30243856  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 26471920       write  knd 5 0  typ 26472016  lvl  0  siz     0  off     0
+ 30244048       trnew  knd 5 0  typ 30244144  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 30244336       write  knd 5 0  typ 30244432  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 26472208     writeln  knd 5 0  typ 26472304  lvl  0  siz     0  off     0
+ 30244624     writeln  knd 5 0  typ 30244720  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 26472496      writef  knd 5 0  typ 26472592  lvl  0  siz     0  off     0
+ 30244912      writef  knd 5 0  typ 30245008  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 26472784    writelnf  knd 5 0  typ 26472880  lvl  0  siz     0  off     0
+ 30245200    writelnf  knd 5 0  typ 30245296  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 26473072      writei  knd 5 0  typ 26473168  lvl  0  siz     0  off     0
+ 30245488      writei  knd 5 0  typ 30245584  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 26473360    writelni  knd 5 0  typ 26473456  lvl  0  siz     0  off     0
+ 30245776    writelni  knd 5 0  typ 30245872  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 26473648        read  knd 5 0  typ 26473744  lvl  0  siz     0  off     0
+ 30246064        read  knd 5 0  typ 30246160  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 26473936      readln  knd 5 0  typ 26474032  lvl  0  siz     0  off     0
+ 30246352      readln  knd 5 0  typ 30246448  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 26474224         eof  knd 5 0  typ 26474320  lvl  0  siz     0  off     0
+ 30246640         eof  knd 5 0  typ 30246736  lvl  0  siz     0  off     0
 (FUNCTION boolean
           NULL)
 Symbol table level 1
- 26491664           d  CONST  typ    REAL  val  6.250000e-02
- 26492016           s  CONST  typ INTEGER  val  32
- 26492368           h  CONST  typ INTEGER  val  34
- 26492720           c  CONST  typ    REAL  val  6.283180e+00
- 26493072         lim  CONST  typ INTEGER  val  32
- 26493616           x  VAR    0 typ integer  lvl  1  siz     4  off    28
- 26493712           y  VAR    0 typ integer  lvl  1  siz     4  off    32
- 26494192           i  VAR    0 typ integer  lvl  1  siz     4  off    36
- 26494288           n  VAR    0 typ integer  lvl  1  siz     4  off    40
+ 30264080           d  CONST  typ    REAL  val  6.250000e-02
+ 30264432           s  CONST  typ INTEGER  val  32
+ 30264784           h  CONST  typ INTEGER  val  34
+ 30265136           c  CONST  typ    REAL  val  6.283180e+00
+ 30265488         lim  CONST  typ INTEGER  val  32
+ 30266032           x  VAR    0 typ integer  lvl  1  siz     4  off    28
+ 30266128           y  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 30266608           i  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 30266704           n  VAR    0 typ integer  lvl  1  siz     4  off    40
 yyparse result =        0
- token 26500400  OP       program  dtype  0  link 0  operands 26491088
+ token 30272816  OP       program  dtype  0  link 0  operands 30263504
 (program graph1 (progn output)
                 (progn (progn (:= i 0)
                               (label 1)

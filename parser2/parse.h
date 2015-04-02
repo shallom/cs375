@@ -4,6 +4,11 @@
 /* You may use the function headers below if you wish, or you may
    replace them if you wish.  */
 
+int isReal(TOKEN tok);
+
+int isInteger(TOKEN tok);
+
+
 /* cons links a new item onto the front of a list.  Equivalent to a push.
    (cons 'a '(b c))  =  (a b c)    */
 TOKEN cons(TOKEN item, TOKEN list);
