@@ -687,7 +687,7 @@ void  instconst(TOKEN idtok, TOKEN consttok) {
     sym->kind = CONSTSYM;
     sym->size = typesym->size;
     sym->datatype = typesym;
-    sym->basicdt = consttok->basicdt;
+    sym->basicdt = consttok->datatype;
     if(sym->basicdt == REAL) //real
     {
         sym->constval.realnum = consttok->realval;
