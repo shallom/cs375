@@ -665,44 +665,26 @@ TOKEN findtype(TOKEN tok) {
 }
 
 void  instconst(TOKEN idtok, TOKEN consttok) {
-    SYMBOL sym;
+    consttok = findtype(consttok);
+    SYMBOL sym, typesym;
+    typesym = consttok->symtype;
+    int align = alignsize(typesym);
+
     sym = insertsym(idtok->stringval);
-    //setup kind
     sym->kind = CONSTSYM;
-    //set up the basicdt (INTEGER REAL etc)
-    sym->basicdt = consttok->datatype;
-    
-    //set up the size and actual value
-    if(sym->basicdt == 1) //real
+    sym->offset = wordaddress(blockoffs[blocknumber], align);
+    sym->size = typesym->size;
+    blockoffs[blocknumber] = sym->offset + sym->size;
+    sym->datatype = typesym;
+    sym->basicdt = typesym->basicdt;
+    if(sym->basicdt == REAL) //real
     {
         sym->constval.realnum = consttok->realval;
-        sym->size = 8;
     }
-    if(sym->basicdt == 0) //int
+    if(sym->basicdt == INTEGER) //int
     {
         sym->constval.intnum = consttok->intval;
-        sym->size = 4;
     }
-    // consttok = findtype(consttok);
-    // SYMBOL sym, typesym;
-    // typesym = consttok->symtype;
-    // int align = alignsize(typesym);
-
-    // sym = insertsym(idtok->stringval);
-    // sym->kind = CONSTSYM;
-    // sym->offset = wordaddress(blockoffs[blocknumber], align);
-    // sym->size = typesym->size;
-    // blockoffs[blocknumber] = sym->offset + sym->size;
-    // sym->datatype = typesym;
-    // sym->basicdt = typesym->basicdt;
-    // if(sym->basicdt == REAL) //real
-    // {
-    //     sym->constval.realnum = consttok->realval;
-    // }
-    // if(sym->basicdt == INTEGER) //int
-    // {
-    //     sym->constval.intnum = consttok->intval;
-    // }
     
 }
 
