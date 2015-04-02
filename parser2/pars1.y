@@ -680,16 +680,14 @@ TOKEN findtype(TOKEN tok) {
 }
 
 void  instconst(TOKEN idtok, TOKEN consttok) {
-  consttok = findtype(consttok);
     SYMBOL sym, typesym;
-    typesym = consttok->symtype;
     int align = alignsize(typesym);
 
     sym = insertsym(idtok->stringval);
     sym->kind = CONSTSYM;
     sym->size = typesym->size;
     sym->datatype = typesym;
-    sym->basicdt = typesym->basicdt;
+    sym->basicdt = consttok->basicdt;
     if(sym->basicdt == REAL) //real
     {
         sym->constval.realnum = consttok->realval;
