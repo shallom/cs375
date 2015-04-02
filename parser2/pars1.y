@@ -134,10 +134,10 @@ TOKEN parseresult;
              ;
 // printf("COMMA FOUND\n"); 
   varNames   : IDENTIFIER COMMA varNames       { $$ = cons($1, $3); }
-             | IDENTIFIER                      { $$ = $1; }
+             | IDENTIFIER                      { $$ = ($1); }
              ;
 
-  varType    : IDENTIFIER                      { $$ = $1; }
+  varType    : IDENTIFIER                      { dbugprinttok($1); $$ = $1; }
              ;
 // printf("BEGUN_STATEMENTS\n");
 // printf("BEGUN_FORLOOP\n");
@@ -641,6 +641,12 @@ TOKEN findid(TOKEN tok) { /* the ID token */
       tok->intval = sym->constval.intnum;
     }
   }
+  if (sym->kind == VARSYM) {
+    if (sym->basicdt == REAL) {
+    }
+    else if (sym->basicdt == INTEGER) {
+    }    
+  }
   return tok;
 
 }
@@ -648,33 +654,40 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
+  SMYBOL sym = searchlev(tok->stringval, 0);
+  
   int type = tok->datatype;
+
   if(type == INTEGER) {
+    printf("FOUND TYPE TO BE INTEGER\n");
     tok->symtype = searchst("integer");
   }
   else if(type == REAL) {
+    printf("FOUND TYPE TO BE REAL\n");
     tok->symtype = searchst("real");
   }
   else if(type == BOOLETYPE) {
+    printf("FOUND TYPE TO BE BOOLEAN\n");
     tok->symtype = searchst("boolean");
   }
   else{
+    printf("FOUND TYPE TO BE STRING\n");
     tok->symtype = searchst(tok->stringval);
   }
+  printf("FIND TYPE\n");
+  dbugprinttok(tok);
   return tok;
 }
 
 void  instconst(TOKEN idtok, TOKEN consttok) {
-    consttok = findtype(consttok);
+  consttok = findtype(consttok);
     SYMBOL sym, typesym;
     typesym = consttok->symtype;
     int align = alignsize(typesym);
 
     sym = insertsym(idtok->stringval);
     sym->kind = CONSTSYM;
-    sym->offset = wordaddress(blockoffs[blocknumber], align);
     sym->size = typesym->size;
-    blockoffs[blocknumber] = sym->offset + sym->size;
     sym->datatype = typesym;
     sym->basicdt = typesym->basicdt;
     if(sym->basicdt == REAL) //real
@@ -691,22 +704,33 @@ void  instconst(TOKEN idtok, TOKEN consttok) {
 /* instvars will install variables in symbol table.
    typetok is a token containing symbol table pointer for type. */
 void instvars(TOKEN idlist, TOKEN typetok)
-  {  SYMBOL sym, typesym; int align;
+  {  
+
+    SYMBOL sym, typesym; int align;
      typesym = typetok->symtype;
      align = alignsize(typesym);
+      if (DEBUG) {
+        printf("instvars\n");
+        dbugprinttok(typetok);
+      }
      while ( idlist != NULL )   /* for each id */
        {  sym = insertsym(idlist->stringval);
           sym->kind = VARSYM;
-          sym->offset =
-              wordaddress(blockoffs[blocknumber],
-                          align);
+          sym->offset = wordaddress(blockoffs[blocknumber], align);
           sym->size = typesym->size;
           blockoffs[blocknumber] =
                          sym->offset + sym->size;
           sym->datatype = typesym;
           sym->basicdt = typesym->basicdt;
+
+          if (DEBUG) {
+
+            dbugprinttok(idlist);
+            dbugprinttok(typetok);
+          }
           idlist = idlist->link;
         };
+    printstlevel(1);
   }
 
 int wordaddress(int n, int wordsize)
