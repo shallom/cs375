@@ -99,6 +99,7 @@ TOKEN parseresult;
              ;
 // printf("VARIABLES\n"); 
   variables  : VAR varSet                      { $$ = NULL; }
+             |                                 { $$ = NULL; }
              ;
 
   varSet     : varLine SEMICOLON               { $$ = NULL; } 
