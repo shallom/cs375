@@ -101,7 +101,7 @@ TOKEN parseresult;
   variables  : VAR varSet                      { $$ = NULL; }
              ;
 
-  varSet     :                 { $$ = NULL; } 
+  varSet     : varLine SEMICOLON                { $$ = $1; } 
              | varLine SEMICOLON varSet        { $$ = NULL; }
              ;
 
