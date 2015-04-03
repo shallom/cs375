@@ -121,7 +121,7 @@ TOKEN parseresult;
 // printf("LAST EXPRESSION\n");
   statement  :  BEGINBEGIN statement endpart   {  $$ = makeprogn($1,nconc($2, $3));  }
              |  stateLine SEMICOLON statement  {  $$ = cons($1, $3); }
-             |                        {  $$ = $1;  }
+             |                        {  $$ = NULL;  }
              ;
 // line of statement
 // printf("FOR LOOP IN STATELINE\n"); 
