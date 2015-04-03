@@ -1,403 +1,79 @@
-FOUND TYPE TO BE REAL
-FIND TYPE
- token 24050384  NUM 6.250000e-02  dtype  1  link 0
-FOUND TYPE TO BE INTEGER
-FIND TYPE
- token 24050736  NUM           32  dtype  0  link 0
-FOUND TYPE TO BE INTEGER
-FIND TYPE
- token 24051088  NUM           34  dtype  0  link 0
-FOUND TYPE TO BE REAL
-FIND TYPE
- token 24051440  NUM 6.283180e+00  dtype  1  link 0
-FOUND TYPE TO BE INTEGER
-FIND TYPE
- token 24051792  NUM           32  dtype  0  link 0
-cons
- token 24052080  ID             x  dtype  0  link 24052208
- token 24052208  ID             y  dtype  0  link 0
- token 24052336  ID          real  dtype  0  link 0
-FOUND TYPE TO BE INTEGER
-FIND TYPE
- token 24052336  ID          real  dtype  0  link 0
-instvars
- token 24052336  ID          real  dtype  0  link 0
- token 24052080  ID             x  dtype  0  link 24052208
- token 24052336  ID          real  dtype  0  link 0
- token 24052208  ID             y  dtype  0  link 0
- token 24052336  ID          real  dtype  0  link 0
-Symbol table level 1
- 24050448           d  CONST  typ    REAL  val  6.250000e-02
- 24050800           s  CONST  typ INTEGER  val  32
- 24051152           h  CONST  typ INTEGER  val  34
- 24051504           c  CONST  typ    REAL  val  6.283180e+00
- 24051856         lim  CONST  typ INTEGER  val  32
- 24052400           x  VAR    0 typ integer  lvl  1  siz     4  off     0
- 24052496           y  VAR    0 typ integer  lvl  1  siz     4  off     4
-cons
- token 24052656  ID             i  dtype  0  link 24052784
- token 24052784  ID             n  dtype  0  link 0
- token 24052912  ID       integer  dtype  0  link 0
-FOUND TYPE TO BE INTEGER
-FIND TYPE
- token 24052912  ID       integer  dtype  0  link 0
-instvars
- token 24052912  ID       integer  dtype  0  link 0
- token 24052656  ID             i  dtype  0  link 24052784
- token 24052912  ID       integer  dtype  0  link 0
- token 24052784  ID             n  dtype  0  link 0
- token 24052912  ID       integer  dtype  0  link 0
-Symbol table level 1
- 24050448           d  CONST  typ    REAL  val  6.250000e-02
- 24050800           s  CONST  typ INTEGER  val  32
- 24051152           h  CONST  typ INTEGER  val  34
- 24051504           c  CONST  typ    REAL  val  6.283180e+00
- 24051856         lim  CONST  typ INTEGER  val  32
- 24052400           x  VAR    0 typ integer  lvl  1  siz     4  off     0
- 24052496           y  VAR    0 typ integer  lvl  1  siz     4  off     4
- 24052976           i  VAR    0 typ integer  lvl  1  siz     4  off     8
- 24053072           n  VAR    0 typ integer  lvl  1  siz     4  off    12
-VARIABLES
-CONSTANTS
-EXPRESSION_TO_TERM
-ASSIGNMENT
-IS REAL: 
- token 24053360  ID             i  dtype  0  link 24053488
-FALSE
-binop
- token 24053424  OP            :=  dtype  0  link 0  operands 24053360
- token 24053360  ID             i  dtype  0  link 24053488
- token 24053488  NUM            0  dtype  0  link 0
-TIMES
-IS INTEGER: 
- token 24054064  ID             i  dtype  0  link 0
-TRUE
-right identifier, left - real, right - int
-makeop
- token 24054192  OP         float  dtype  0  link 0  operands 0
-binop
- token 24054000  OP             *  dtype  0  link 0  operands 24053936
- token 24053936  NUM 6.250000e-02  dtype  1  link 24054192
- token 24054064  ID             i  dtype  0  link 0
-EXPRESSION_TO_TERM
-ASSIGNMENT
-IS REAL: 
- token 24053808  ID             x  dtype  0  link 24054000
-FALSE
-binop
- token 24053872  OP            :=  dtype  0  link 0  operands 24053808
- token 24053808  ID             x  dtype  0  link 24054000
- token 24054000  OP             *  dtype  0  link 0  operands 24053936
-ASSIGNMENT IN STATE LINE
-NEGATIVE
-unaryop
- token 24054512  OP             -  dtype  0  link 0  operands 24054576
- token 24054576  ID             x  dtype  0  link 0
-FUNCTION_CALL
-makefuncall
- token 24054704  OP       funcall  dtype  0  link 0  operands 24054384
- token 24054384  ID           exp  dtype  0  link 24054512
- token 24054512  OP             -  dtype  0  link 0  operands 24054576
-FUNCTION CALL
-TIMES
-IS INTEGER: 
- token 24055088  ID             x  dtype  0  link 0
-TRUE
-right identifier, left - real, right - int
-makeop
- token 24055216  OP         float  dtype  0  link 0  operands 0
-binop
- token 24055024  OP             *  dtype  0  link 0  operands 24054960
- token 24054960  NUM 6.283180e+00  dtype  1  link 24055216
- token 24055088  ID             x  dtype  0  link 0
-EXPRESSION_TO_TERM
-FUNCTION_CALL
-makefuncall
- token 24055280  OP       funcall  dtype  0  link 0  operands 24054832
- token 24054832  ID           sin  dtype  0  link 24055024
- token 24055024  OP             *  dtype  0  link 0  operands 24054960
-FUNCTION CALL
-TIMES
-binop
- token 24054768  OP             *  dtype  0  link 0  operands 24054704
- token 24054704  OP       funcall  dtype  0  link 24055280  operands 24054384
- token 24055280  OP       funcall  dtype  0  link 0  operands 24054832
-EXPRESSION_TO_TERM
-ASSIGNMENT
-IS REAL: 
- token 24054256  ID             y  dtype  0  link 24054768
-FALSE
-binop
- token 24054320  OP            :=  dtype  0  link 0  operands 24054256
- token 24054256  ID             y  dtype  0  link 24054768
- token 24054768  OP             *  dtype  0  link 0  operands 24054704
-ASSIGNMENT IN STATE LINE
-TIMES
-IS REAL: 
- token 24055792  ID             y  dtype  0  link 0
-FALSE
-binop
- token 24055728  OP             *  dtype  0  link 0  operands 24055664
- token 24055664  NUM           32  dtype  0  link 24055792
- token 24055792  ID             y  dtype  0  link 0
-EXPRESSION_TO_TERM
-FUNCTION_CALL
-makefuncall
- token 24055920  OP       funcall  dtype  0  link 0  operands 24055536
- token 24055536  ID         round  dtype  0  link 24055728
- token 24055728  OP             *  dtype  0  link 0  operands 24055664
-FUNCTION CALL
-EXPRESSION_TO_TERM
-binop
- token 24055984  OP             +  dtype  0  link 0  operands 24055920
- token 24055920  OP       funcall  dtype  0  link 24056048  operands 24055536
- token 24056048  NUM           34  dtype  0  link 0
-ASSIGNMENT
-IS REAL: 
- token 24055408  ID             n  dtype  0  link 24055984
-FALSE
-binop
- token 24055472  OP            :=  dtype  0  link 0  operands 24055408
- token 24055408  ID             n  dtype  0  link 24055984
- token 24055984  OP             +  dtype  0  link 0  operands 24055920
-ASSIGNMENT IN STATE LINE
-EXPRESSION_TO_TERM
-FUNCTION_CALL
-makefuncall
- token 24056496  OP       funcall  dtype  0  link 0  operands 24056240
- token 24056240  ID         write  dtype  0  link 24056368
- token 24056368  STR               dtype  0  link 0
-FUNCTION CALL
-EXPRESSION_TO_TERM
-IS REAL: 
- token 24056752  ID             n  dtype  0  link 24056880
-FALSE
-binop
- token 24056816  OP             -  dtype  0  link 0  operands 24056752
- token 24056752  ID             n  dtype  0  link 24056880
- token 24056880  NUM            1  dtype  0  link 0
-ASSIGNMENT
-IS REAL: 
- token 24056624  ID             n  dtype  0  link 24056816
-FALSE
-binop
- token 24056688  OP            :=  dtype  0  link 0  operands 24056624
- token 24056624  ID             n  dtype  0  link 24056816
- token 24056816  OP             -  dtype  0  link 0  operands 24056752
-ASSIGNMENT IN STATE LINE
-LAST EXPRESSION
-MULTIPLE STATEMENTS
-cons
- token 24056496  OP       funcall  dtype  0  link 24056688  operands 24056240
- token 24056688  OP            :=  dtype  0  link 0  operands 24056624
-IS REAL: 
- token 24057008  ID             n  dtype  0  link 24057136
-FALSE
-binop
- token 24057072  OP             =  dtype  0  link 0  operands 24057008
- token 24057008  ID             n  dtype  0  link 24057136
- token 24057136  NUM            0  dtype  0  link 0
-equals number:
- token 24057008  ID             n  dtype  0  link 24057136
- token 24057072  OP             =  dtype  0  link 0  operands 24057008
- token 24057136  NUM            0  dtype  0  link 0
-REPEAT UNTIL
- token 24057392  NUM            0  dtype  0  link 0
-makelabel
- token 24057328  OP         label  dtype  0  link 0  operands 24057392
-makeprogn
- token 24057264  OP         progn  dtype  0  link 0  operands 24057328
- token 24057328  OP         label  dtype  0  link 0  operands 24057392
-makeprogn
- token 24057200  OP         progn  dtype  0  link 0  operands 24056496
- token 24056496  OP       funcall  dtype  0  link 24056688  operands 24056240
- token 24057520  NUM            0  dtype  0  link 0
-makegoto
- token 24057456  OP          goto  dtype  0  link 0  operands 24057520
-makeprogn
- token 24057584  OP         progn  dtype  0  link 0  operands 0
- token 0  NULL
-makeif
- token 24057648  OP            if  dtype  0  link 0  operands 24057072
- token 24057072  OP             =  dtype  0  link 24057584  operands 24057008
- token 24057584  OP         progn  dtype  0  link 24057456  operands 0
- token 24057456  OP          goto  dtype  0  link 0  operands 24057520
-makerepeat
- token 24057264  OP         progn  dtype  0  link 0  operands 24057328
- token 24057328  OP         label  dtype  0  link 24057200  operands 24057392
- token 24057200  OP         progn  dtype  0  link 24057648  operands 24056496
- token 24057648  OP            if  dtype  0  link 0  operands 24057072
- token 24057072  OP             =  dtype  0  link 24057584  operands 24057008
- token 24057584  OP         progn  dtype  0  link 24057456  operands 0
- token 24057456  OP          goto  dtype  0  link 0  operands 24057520
-REPEATUNTIL
-EXPRESSION_TO_TERM
-FUNCTION_CALL
-makefuncall
- token 24058032  OP       funcall  dtype  0  link 0  operands 24057776
- token 24057776  ID       writeln  dtype  0  link 24057904
- token 24057904  STR            *  dtype  0  link 0
-FUNCTION CALL
-LAST EXPRESSION
-MULTIPLE STATEMENTS
-cons
- token 24057264  OP         progn  dtype  0  link 24058032  operands 24057328
- token 24058032  OP       funcall  dtype  0  link 0  operands 24057776
-MULTIPLE STATEMENTS
-cons
- token 24055472  OP            :=  dtype  0  link 24057264  operands 24055408
- token 24057264  OP         progn  dtype  0  link 24058032  operands 24057328
-MULTIPLE STATEMENTS
-cons
- token 24054320  OP            :=  dtype  0  link 24055472  operands 24054256
- token 24055472  OP            :=  dtype  0  link 24057264  operands 24055408
-MULTIPLE STATEMENTS
-cons
- token 24053872  OP            :=  dtype  0  link 24054320  operands 24053808
- token 24054320  OP            :=  dtype  0  link 24055472  operands 24054256
-OUTER STATEMENT
-nconc
- token 24053872  OP            :=  dtype  0  link 24054320  operands 24053808
- token 0  NULL
-makeprogn
- token 24053744  OP         progn  dtype  0  link 0  operands 24053872
- token 24053872  OP            :=  dtype  0  link 24054320  operands 24053808
-makeprogn
- token 24058160  OP         progn  dtype  0  link 0  operands 24053424
- token 24053424  OP            :=  dtype  0  link 0  operands 24053360
- token 24058288  NUM            1  dtype  0  link 0
-makelabel
- token 24058224  OP         label  dtype  0  link 0  operands 24058288
-makeop
- token 24058352  OP            <=  dtype  0  link 0  operands 0
-makeop
- token 24058416  OP             +  dtype  0  link 0  operands 0
-makeprogn
- token 24058544  OP         progn  dtype  0  link 0  operands 24053744
- token 24053744  OP         progn  dtype  0  link 0  operands 24053872
-makeif
- token 24058480  OP            if  dtype  0  link 0  operands 24058352
- token 24058352  OP            <=  dtype  0  link 24058544  operands 0
- token 24058544  OP         progn  dtype  0  link 0  operands 24053744
- token 0  NULL
-copytok
- token 24058608  ID             i  dtype  0  link 24053488
-makeop
- token 24058672  OP            :=  dtype  0  link 0  operands 0
-copytok
- token 24058736  ID             i  dtype  0  link 24053616
-copytok
- token 24058800  ID             i  dtype  0  link 24053616
- token 24058864  NUM            1  dtype  0  link 0
- token 24058992  NUM            1  dtype  0  link 0
-makegoto
- token 24058928  OP          goto  dtype  0  link 0  operands 24058992
-makefor
- token 24058160  OP         progn  dtype  0  link 0  operands 24053424
- token 24053424  OP            :=  dtype  0  link 24058224  operands 24053360
- token 24053616  NUM           32  dtype  0  link 0
- token 0  NULL
- token 0  NULL
- token 24058352  OP            <=  dtype  0  link 24058544  operands 24058608
- token 24058416  OP             +  dtype  0  link 0  operands 24058800
- token 24058608  ID             i  dtype  0  link 24053616
- token 24058736  ID             i  dtype  0  link 24058416
- token 24058800  ID             i  dtype  0  link 24058864
-FOR LOOP
-FOR LOOP IN STATELINE
-LAST EXPRESSION
-OUTER STATEMENT
-nconc
- token 24058160  OP         progn  dtype  0  link 0  operands 24053424
- token 0  NULL
-makeprogn
- token 24053232  OP         progn  dtype  0  link 0  operands 24058160
- token 24058160  OP         progn  dtype  0  link 0  operands 24053424
-makeprogn
- token 24059248  OP         progn  dtype  0  link 0  operands 24050000
- token 24050000  ID        output  dtype  0  link 0
-makeprogram
- token 24059184  OP       program  dtype  0  link 0  operands 24049872
- token 24049872  ID        graph1  dtype  0  link 24059248
- token 24059248  OP         progn  dtype  0  link 24053232  operands 24050000
- token 24050000  ID        output  dtype  0  link 0
 Symbol table level 0
- 24027152        real  BASIC  basicdt   1          siz     8
- 24027248     integer  BASIC  basicdt   0          siz     4
- 24027344        char  BASIC  basicdt   2          siz     1
- 24027440     boolean  BASIC  basicdt   3          siz     4
- 24027536         exp  knd 5 0  typ 24027632  lvl  0  siz     0  off     0
+ 39489552        real  BASIC  basicdt   1          siz     8
+ 39489648     integer  BASIC  basicdt   0          siz     4
+ 39489744        char  BASIC  basicdt   2          siz     1
+ 39489840     boolean  BASIC  basicdt   3          siz     4
+ 39489936         exp  knd 5 0  typ 39490032  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24027824       trexp  knd 5 0  typ 24027920  lvl  0  siz     0  off     0
+ 39490224       trexp  knd 5 0  typ 39490320  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24028112         sin  knd 5 0  typ 24028208  lvl  0  siz     0  off     0
+ 39490512         sin  knd 5 0  typ 39490608  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24028400         cos  knd 5 0  typ 24028496  lvl  0  siz     0  off     0
+ 39490800         cos  knd 5 0  typ 39490896  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24028688       trsin  knd 5 0  typ 24028784  lvl  0  siz     0  off     0
+ 39491088       trsin  knd 5 0  typ 39491184  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24028976        sqrt  knd 5 0  typ 24029072  lvl  0  siz     0  off     0
+ 39491376        sqrt  knd 5 0  typ 39491472  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24029264       round  knd 5 0  typ 24029360  lvl  0  siz     0  off     0
+ 39491664       round  knd 5 0  typ 39491760  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 24029552      iround  knd 5 0  typ 24029648  lvl  0  siz     0  off     0
+ 39491952      iround  knd 5 0  typ 39492048  lvl  0  siz     0  off     0
 (FUNCTION integer
           real)
- 24029840         ord  knd 5 0  typ 24029936  lvl  0  siz     0  off     0
-(FUNCTION integer
-          integer)
- 24030128         new  knd 5 0  typ 24030224  lvl  0  siz     0  off     0
+ 39492240         ord  knd 5 0  typ 39492336  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 24030416       trnew  knd 5 0  typ 24030512  lvl  0  siz     0  off     0
+ 39492528         new  knd 5 0  typ 39492624  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 24030704       write  knd 5 0  typ 24030800  lvl  0  siz     0  off     0
+ 39492816       trnew  knd 5 0  typ 39492912  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 39493104       write  knd 5 0  typ 39493200  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 24030992     writeln  knd 5 0  typ 24031088  lvl  0  siz     0  off     0
+ 39493392     writeln  knd 5 0  typ 39493488  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 24031280      writef  knd 5 0  typ 24031376  lvl  0  siz     0  off     0
+ 39493680      writef  knd 5 0  typ 39493776  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 24031568    writelnf  knd 5 0  typ 24031664  lvl  0  siz     0  off     0
+ 39493968    writelnf  knd 5 0  typ 39494064  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 24031856      writei  knd 5 0  typ 24031952  lvl  0  siz     0  off     0
+ 39494256      writei  knd 5 0  typ 39494352  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 24032144    writelni  knd 5 0  typ 24032240  lvl  0  siz     0  off     0
+ 39494544    writelni  knd 5 0  typ 39494640  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 24032432        read  knd 5 0  typ 24032528  lvl  0  siz     0  off     0
+ 39494832        read  knd 5 0  typ 39494928  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 24032720      readln  knd 5 0  typ 24032816  lvl  0  siz     0  off     0
+ 39495120      readln  knd 5 0  typ 39495216  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 24033008         eof  knd 5 0  typ 24033104  lvl  0  siz     0  off     0
+ 39495408         eof  knd 5 0  typ 39495504  lvl  0  siz     0  off     0
 (FUNCTION boolean
           NULL)
 Symbol table level 1
- 24050448           d  CONST  typ    REAL  val  6.250000e-02
- 24050800           s  CONST  typ INTEGER  val  32
- 24051152           h  CONST  typ INTEGER  val  34
- 24051504           c  CONST  typ    REAL  val  6.283180e+00
- 24051856         lim  CONST  typ INTEGER  val  32
- 24052400           x  VAR    0 typ integer  lvl  1  siz     4  off     0
- 24052496           y  VAR    0 typ integer  lvl  1  siz     4  off     4
- 24052976           i  VAR    0 typ integer  lvl  1  siz     4  off     8
- 24053072           n  VAR    0 typ integer  lvl  1  siz     4  off    12
+ 39512848           d  CONST  typ    REAL  val  6.250000e-02
+ 39513200           s  CONST  typ INTEGER  val  32
+ 39513552           h  CONST  typ INTEGER  val  34
+ 39513904           c  CONST  typ    REAL  val  6.283180e+00
+ 39514256         lim  CONST  typ INTEGER  val  32
+ 39514800           x  VAR    1 typ    real  lvl  1  siz     8  off     0
+ 39514896           y  VAR    1 typ    real  lvl  1  siz     8  off     8
+ 39515376           i  VAR    0 typ integer  lvl  1  siz     4  off    16
+ 39515472           n  VAR    0 typ integer  lvl  1  siz     4  off    20
 yyparse result =        0
- token 24059184  OP       program  dtype  0  link 0  operands 24049872
 (program graph1 (progn output)
                 (progn (progn (:= i 0)
                               (label 1)
@@ -408,11 +84,11 @@ yyparse result =        0
                                                                   (- x))
                                                          (funcall sin
                                                                   (* 6.283180e+00
-                                                                     (float x)))))
-                                                (:= n (+ (funcall round
-                                                                  (* 32
-                                                                     y))
-                                                         34))
+                                                                     x))))
+                                                (:= n (fix (+ (funcall round
+                                                                       (* 3.200000e+01
+                                                                          y))
+                                                              3.400000e+01)))
                                                 (progn (label 0)
                                                        (progn (funcall write
                                                                        ' ')

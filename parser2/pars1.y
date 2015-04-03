@@ -77,37 +77,12 @@ TOKEN parseresult;
 
 %%
 
-  // program    :  statement DOT                  { parseresult = $1; }
-  //            ;
-  // statement  :  BEGINBEGIN statement endpart
-  //                                      { $$ = makeprogn($1,cons($2, $3)); }
-  //            |  IF expr THEN statement endif   { $$ = makeif($1, $2, $4, $5); }
-  //            |  assignment
-  //            ;
-  // endpart    :  SEMICOLON statement endpart    { $$ = cons($2, $3); }
-  //            |  END                            { $$ = NULL; }
-  //            ;
-  // endif      :  ELSE statement                 { $$ = $2; }
-  //            |  /* empty */                    { $$ = NULL; }
-  //            ;
-  // assignment :  IDENTIFIER ASSIGN expr         { $$ = binop($2, $1, $3); }
-  //            ;
-  // expr       :  expr PLUS term                 { $$ = binop($2, $1, $3); }
-  //            |  term 
-  //            ;
-  // term       :  term TIMES factor              { $$ = binop($2, $1, $3); }
-  //            |  factor
-  //            ;
-  // factor     :  LPAREN expr RPAREN             { $$ = $2; }
-  //            |  IDENTIFIER
-  //            |  NUMBER
-  //            ;
-
   program    : PROGRAM IDENTIFIER LPAREN IDENTIFIER RPAREN SEMICOLON prebegin statement DOT { parseresult = makeprogram($2, $4, $8); }
              ;
-
-  prebegin   : variables                       { $$ = NULL; printf("VARIABLES\n"); }
-             | constants prebegin              { $$ = NULL; printf("CONSTANTS\n"); }
+// printf("VARIABLES\n");
+// printf("CONSTANTS\n");
+  prebegin   : variables                       { $$ = NULL;  }
+             | constants prebegin              { $$ = NULL;  }
              ;
 
 // printf("CONSTANTS\n"); 
@@ -119,8 +94,8 @@ TOKEN parseresult;
 
   constinst  : IDENTIFIER EQ NUMBER            { instconst($1, $3);}
              ;
-
-  equalsNum  : IDENTIFIER EQ NUMBER           { $$ = binop($2, $1, $3); printf("equals number:\n"); dbugprinttok($1); dbugprinttok($2); dbugprinttok($3); }
+// printf("equals number:\n"); dbugprinttok($1); dbugprinttok($2); dbugprinttok($3);
+  equalsNum  : IDENTIFIER EQ NUMBER           { $$ = binop($2, $1, $3);  }
              ;
 // printf("VARIABLES\n"); 
   variables  : VAR varSet                      { $$ = NULL; }
@@ -136,30 +111,39 @@ TOKEN parseresult;
   varNames   : IDENTIFIER COMMA varNames       { $$ = cons($1, $3); }
              | IDENTIFIER                      { $$ = ($1); }
              ;
-
-  varType    : IDENTIFIER                      { dbugprinttok($1); $$ = $1; }
+// dbugprinttok($1); 
+  varType    : IDENTIFIER                      { $$ = $1; }
              ;
 // printf("BEGUN_STATEMENTS\n");
 // printf("BEGUN_FORLOOP\n");
-  statement  :  BEGINBEGIN statement endpart   { printf("OUTER STATEMENT\n"); $$ = makeprogn($1,nconc($2, $3));  }
-             |  stateLine SEMICOLON statement  { printf("MULTIPLE STATEMENTS\n"); $$ = cons($1, $3); }
-             |  stateLine                      { printf("LAST EXPRESSION\n"); $$ = $1;  }
+// printf("OUTER STATEMENT\n");
+// printf("MULTIPLE STATEMENTS\n");
+// printf("LAST EXPRESSION\n");
+  statement  :  BEGINBEGIN statement endpart   {  $$ = makeprogn($1,nconc($2, $3));  }
+             |  stateLine SEMICOLON statement  {  $$ = cons($1, $3); }
+             |  stateLine                      {  $$ = $1;  }
              ;
 // line of statement
+// printf("FOR LOOP IN STATELINE\n"); 
+// printf("FUNCTION CALL\n");
+// printf("ASSIGNMENT IN STATE LINE\n");
+// printf("REPEATUNTIL\n");
   stateLine  :  IF expr THEN statement endif   { $$ = makeif($1, $2, $4, $5); }
-             |  forLoop                        { printf("FOR LOOP IN STATELINE\n"); $$ = $1;  }
-             |  funcCall                       { printf("FUNCTION CALL\n"); $$ = $1; }
-             |  assignment                     { printf("ASSIGNMENT IN STATE LINE\n"); $$ = $1;  }
-             |  repeatuntil                    { printf("REPEATUNTIL\n"); $$ = $1; }
+             |  forLoop                        { $$ = $1;  }
+             |  funcCall                       { $$ = $1; }
+             |  assignment                     { $$ = $1;  }
+             |  repeatuntil                    { $$ = $1; }
              ;
-  repeatuntil:  REPEAT statement UNTIL equalsNum { printf("REPEAT UNTIL\n"); $$ = makerepeat((TOKEN) talloc(), $2, (TOKEN) talloc(), $4); }
+// printf("REPEAT UNTIL\n");
+  repeatuntil:  REPEAT statement UNTIL equalsNum { $$ = makerepeat((TOKEN) talloc(), $2, (TOKEN) talloc(), $4); }
              ;
 // TOKEN makerepeat(TOKEN tok, TOKEN statements, TOKEN tokb, TOKEN expr) {
 // printf("FUNCTION\n");  
-  funcCall   : IDENTIFIER LPAREN expr RPAREN   { printf("FUNCTION_CALL\n"); $$ = makefuncall((TOKEN) talloc(), $1, $3); }
+// printf("FUNCTION_CALL\n"); 
+  funcCall   : IDENTIFIER LPAREN expr RPAREN   { $$ = makefuncall((TOKEN) talloc(), findid($1), $3); }
              ; 
 // printf("FOR LOOP\n"); 
-  forLoop    :  FOR assignment TO IDENTIFIER DO statement { $$ = makefor(1, (TOKEN) talloc(), $2, findid($4), NULL, NULL, $6); printf("FOR LOOP\n"); }
+  forLoop    :  FOR assignment TO IDENTIFIER DO statement { $$ = makefor(1, (TOKEN) talloc(), $2, findid($4), NULL, NULL, $6); }
              ;
   endpart    :  SEMICOLON statement endpart    { $$ = cons($2, $3); }
              |  END                            { $$ = NULL; }
@@ -167,24 +151,29 @@ TOKEN parseresult;
   endif      :  ELSE statement                 { $$ = $2; }
              |  /* empty */                    { $$ = NULL; }
              ;
-  assignment :  IDENTIFIER ASSIGN expr         { printf("ASSIGNMENT\n"); $$ = binop($2, $1, $3); }
+ // printf("ASSIGNMENT\n");
+  assignment :  IDENTIFIER ASSIGN expr         { $$ = binop($2, $1, $3); }
              ;
-  expr       :  MINUS term                     { printf("NEGATIVE\n"); $$ = unaryop($1, $2); }
+// printf("NEGATIVE\n");
+// printf("EXPRESSION_TO_TERM\n");
+  expr       :  MINUS term                     { $$ = unaryop($1, $2); }
              |  expr MINUS term                { $$ = binop($2, $1, $3); }
              |  expr PLUS term                 { $$ = binop($2, $1, $3); }
-             |  term                           { printf("EXPRESSION_TO_TERM\n");$$ = $1; }
+             |  term                           { $$ = $1; }
              ;
-  term       :  term TIMES factor              { printf("TIMES\n"); $$ = binop($2, $1, $3); }
+ // printf("TIMES\n");
+  term       :  term TIMES factor              { $$ = binop($2, $1, $3); }
              |  factor                         { $$ = $1; }
              ;
 // printf("IDENTIFIER\n"); dbugprinttok($1); 
 // printf("NUMBER\n");dbugprinttok($1); 
 // printf("STRING\n");dbugprinttok($1);
+// printf("FUNCTION CALL\n"); 
   factor     :  LPAREN expr RPAREN             { $$ = $2; }
              |  IDENTIFIER                     { $$ = findid($1); }
              |  NUMBER                         { $$ = $1; }                          
              |  STRING                         { $$ = $1; }
-             |  funcCall                       { printf("FUNCTION CALL\n"); $$ = $1; }           
+             |  funcCall                       { $$ = $1; }           
              ;
 
   // printDebug : IDENTIFIER   {printf("%s\n", yylval->stringval);}
@@ -198,9 +187,9 @@ TOKEN parseresult;
    are working.
   */
 
-#define DEBUG          1             /* set bits here for debugging, 0 = off  */
+#define DEBUG          0             /* set bits here for debugging, 0 = off  */
 #define DB_CONS        1             /* bit to trace cons */
-#define DB_NCONC        1             /* bit to trace nconc */
+#define DB_NCONC       1             /* bit to trace nconc */
 #define DB_COPYTOK     1             /* bit to trace copytok */
 #define DB_BINOP       1             /* bit to trace binop */
 #define DB_MAKEFOR     1             /* bit to trace makefor */
@@ -215,6 +204,7 @@ TOKEN parseresult;
 #define DB_PARSERES    1             /* bit to trace parseresult */
 #define DB_UNARYOP     1             /* bit to trace unaryop */
 #define DB_MAKEREPEAT  1             /* bit to trace makerepeat */
+#define DB_INSTVARS    1             /* bit to trace makerepeat */
 
  int labelnumber = 0;  /* sequential counter for internal label numbers */
 
@@ -265,115 +255,124 @@ TOKEN unaryop(TOKEN op, TOKEN lhs) {
 }
 
 int isReal(TOKEN tok) {
-  printf("IS REAL: \n");
+  // printf("IS REAL: \n");
   SYMBOL sym = searchst(tok->stringval);
-  dbugprinttok(tok);
+  // dbugprinttok(tok);
   if (sym->basicdt == REAL) {
-    printf("TRUE\n");
+    // printf("TRUE\n");
     return 1;
   }
-    printf("FALSE\n");
+    // printf("FALSE\n");
 
   return 0;
 }
 
 int isInteger(TOKEN tok) {
-  printf("IS INTEGER: \n");
-  dbugprinttok(tok);
+  // printf("IS INTEGER: \n");
+  // dbugprinttok(tok);
   SYMBOL sym = searchst(tok->stringval);
   if (sym->basicdt == INTEGER) {
-    printf("TRUE\n");
+    // printf("TRUE\n");
     return 1;
   }
-    printf("FALSE\n");
+    // printf("FALSE\n");
     return 0;
+}
+
+int isIdentifier(TOKEN tok) {
+  if (tok->tokentype == IDENTIFIERTOK) {
+    return 1;
+  }
+  return 0;
 }
 
 TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
   { op->operands = lhs;          /* link operands to operator       */
     lhs->link = rhs;             /* link second operand to first    */
     rhs->link = NULL;            /* terminate operand list          */
-    // if (lhs->tokentype == IDENTIFIERTOK) {
-    //   if (rhs->tokentype == IDENTIFIERTOK) {
-    //     // Both identifiers
-    //     if (isReal(lhs)) {
-    //       if (isInteger(rhs)) {
-    //         // Float Right side
-    //         printf("Both identifiers, left - real, right - int\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = rhs;
-    //         lhs->link = temp;
-    //       }
-    //     }
-    //     else {
-    //       if (isReal(rhs)) {
-    //         // Float left side
-    //         printf("Both identifiers, left - int, right - real\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = lhs;
-    //         temp->link = rhs;
-    //       }
-    //     }
-    //   }
-    //   else {
-    //     // Left identifier, right not
-    //     if (isReal(lhs)) {
-    //       // Cast right side
-    //       if (rhs->datatype == INTEGER) {
-    //         printf("left identifier, left - real, right - int\n");
-    //         rhs->datatype = REAL;
-    //         rhs->realval = (double) rhs->intval;
-    //       }
-    //     }
-    //     else {
-    //       if (rhs->datatype == REAL) {
-    //         // Float left side
-    //         printf("left identifier, left - int, right - real\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = lhs;
-    //         temp->link = rhs;
-    //       }
-    //     }
-    //   }
-    // }
-    // else {
-    //   if (rhs->tokentype == IDENTIFIERTOK) {
-    //     // right identifier, left not
-    //     if(lhs->datatype == REAL){
-    //       if(isInteger(rhs)) {
-    //         printf("right identifier, left - real, right - int\n");
-    //         TOKEN temp = makeop(FLOATOP);
-    //         temp->operands = rhs;
-    //         lhs->link = temp;
-    //       }
-    //     }
-    //     else {
-    //       if(isReal(rhs)) {
-    //         printf("right identifier, left - int, right - real\n");
-    //         lhs->datatype = REAL;
-    //         lhs->realval = (double) lhs->intval;
-    //       }
-    //     }
-    //   }
-    //   else {
-    //     // right not, left not
-    //     if (lhs->datatype == REAL) {
-    //       if (rhs->datatype == INTEGER){
-    //         printf("Both not identifiers, left - real, right - int\n");
-    //         rhs->datatype = REAL;
-    //         rhs->realval = (double) rhs->intval;
+    
+    if (isIdentifier(lhs)) {
+      if (isIdentifier(rhs)) {
+        if (isReal(lhs) && isReal(rhs)) {
+          op->datatype = REAL;
+        } else if (isReal(lhs) && isInteger(rhs)) {
+          op->datatype = REAL;
+          TOKEN float_tok = makeop(FLOATOP);
+          float_tok->operands = rhs;
+          lhs->link = float_tok;
+        } else if (isInteger(lhs) && isReal(rhs)) {
+          if (op->whichval == ASSIGNOP) {
+            TOKEN fix_tok = makeop(FIXOP);
+            fix_tok->operands =rhs;
+            lhs->link = fix_tok;
+          }
+          else {
+            op->datatype = REAL;
+            TOKEN float_tok = makeop(FLOATOP);
+            float_tok->operands = lhs;
+            float_tok->link = rhs;            
+          }
 
-    //       }
-    //     }
-    //     else {
-    //       if (rhs->datatype == REAL) {
-    //         printf("Both not identifiers, left - int, right - real\n");
-    //         lhs->datatype = REAL;
-    //         lhs->realval = (double) lhs->intval;
-    //       }
-    //     }
-    //   }
-    // }
+        }
+      }
+      else {
+        if (isReal(lhs) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+        } else if (isReal(lhs) && (rhs->datatype == INTEGER)) {
+          op->datatype = REAL;
+          rhs->datatype = REAL;
+          rhs->realval = (double) rhs->intval;
+        } else if (isInteger(lhs) && (rhs->datatype == REAL)) {
+          if (op->whichval == ASSIGNOP) {
+            if (rhs->tokentype == OPERATOR || rhs->tokentype == IDENTIFIERTOK) {
+              TOKEN fix_tok = makeop(FIXOP);
+              fix_tok->operands =rhs;
+              lhs->link = fix_tok;           
+            } else if (rhs->tokentype == NUMBERTOK) {
+              rhs->datatype = INTEGER;
+              rhs->intval = (int) rhs->realval;
+            }
+
+          }else {
+            op->datatype = REAL;
+            TOKEN float_tok = makeop(FLOATOP);
+            float_tok->operands = lhs;
+            float_tok->link = rhs;
+          }
+
+        }
+      }
+    }
+    else {
+      if (isIdentifier(rhs)) {
+        if ((lhs->datatype == REAL) && isReal(rhs)) {
+          op->datatype = REAL;
+        } else if ((lhs->datatype == REAL) && isInteger(rhs)) {
+          op->datatype = REAL;
+          TOKEN float_tok = makeop(FLOATOP);
+          float_tok->operands = rhs;
+          lhs->link = float_tok;
+        } else if ((lhs->datatype == INTEGER) && isReal(rhs)) {
+          op->datatype = REAL;
+          lhs->datatype = REAL;
+          lhs->realval = (double) lhs->intval;
+        }
+      }
+      else {
+        if ((lhs->datatype == REAL) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+        } else if ((lhs->datatype == REAL) && (rhs->datatype == INTEGER)) {
+          op->datatype = REAL;
+          rhs->datatype = REAL;
+          rhs->realval = (double) rhs->intval;
+        } else if ((lhs->datatype == INTEGER) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+          lhs->datatype = REAL;
+          lhs->realval = (double) lhs->intval;
+        }        
+      }
+    }
+
     if (DEBUG & DB_BINOP)
        { printf("binop\n");
          dbugprinttok(op);
@@ -500,6 +499,7 @@ TOKEN makeprogn(TOKEN tok, TOKEN statements)
 TOKEN makefuncall(TOKEN tok, TOKEN fn, TOKEN args){
   tok->operands = fn;
   tok->whichval = FUNCALLOP;
+  tok->datatype = fn->datatype;
   fn->link = args;
   if (DEBUG & DB_MAKEPROGN)
   { printf("makefuncall\n");
@@ -625,9 +625,8 @@ TOKEN findid(TOKEN tok) { /* the ID token */
   tok->symentry = sym;
   typ = sym->datatype;
   tok->symtype = typ;
-  if ( typ->kind == BASICTYPE ||
-       typ->kind == POINTERSYM)
-      tok->datatype = typ->basicdt;
+  tok->datatype = typ->basicdt;
+
   if (sym->kind == CONSTSYM)
   {
     if (sym->basicdt == REAL) {
@@ -640,12 +639,6 @@ TOKEN findid(TOKEN tok) { /* the ID token */
       tok->datatype = INTEGER;
       tok->intval = sym->constval.intnum;
     }
-  }
-  if (sym->kind == VARSYM) {
-    if (sym->basicdt == REAL) {
-    }
-    else if (sym->basicdt == INTEGER) {
-    }    
   }
   return tok;
 
@@ -705,7 +698,7 @@ void instvars(TOKEN idlist, TOKEN typetok)
     SYMBOL sym, typesym; int align;
      typesym = typetok->symtype;
      align = alignsize(typesym);
-      if (DEBUG) {
+      if (DEBUG && DB_INSTVARS) {
         printf("instvars\n");
         dbugprinttok(typetok);
       }
@@ -719,14 +712,15 @@ void instvars(TOKEN idlist, TOKEN typetok)
           sym->datatype = typesym;
           sym->basicdt = typesym->basicdt;
 
-          if (DEBUG) {
+          if (DEBUG && DB_INSTVARS) {
 
             dbugprinttok(idlist);
             dbugprinttok(typetok);
           }
           idlist = idlist->link;
         };
-    printstlevel(1);
+    if (DEBUG && DB_INSTVARS)
+      printstlevel(1);
   }
 
 int wordaddress(int n, int wordsize)

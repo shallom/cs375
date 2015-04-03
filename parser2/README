@@ -1,5 +1,15 @@
 Name: Kevin Fu
 UTEID: ktf326
+Assignment: Parser Part B
+Date: 4/2/15
+
+I made major changes in the grammar for the input file graph1.pas. This involved handling the REAL and INTEGER values whenever they came into conflict. Additionally, I modified several functions in the code to ensure that they would output the correct tree. I also made sure that the instconst/instvar functions were properly updating the symbol table. I also made sure that identifiers that were in the symbol table were found through the function findid. This involved looking in the symbol table to make sure that the identifiers existed and could be replaced with constant values. I also implemented nconc, unaryop, isreal, isinteger, make repeat, and binop handling.
+
+
+Additional Work: I also added additional debugging flags and added extra functions to check whether or not tokens have specific properties in a faster and efficient manner. I also covered every possible case of the binop handling, for all possible combinations of assignments, identifiers, and number values.
+
+----------------------------------------------------------------
+
 Assignment: Parser Part A
 Date: 3/13/15
 
