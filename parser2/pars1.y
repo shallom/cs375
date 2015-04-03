@@ -99,10 +99,9 @@ TOKEN parseresult;
              ;
 // printf("VARIABLES\n"); 
   variables  : VAR varSet                      { $$ = NULL; }
-             |                                 { $$ = NULL; }
              ;
 
-  varSet     : varLine SEMICOLON               { $$ = NULL; } 
+  varSet     :                 { $$ = NULL; } 
              | varLine SEMICOLON varSet        { $$ = NULL; }
              ;
 
@@ -122,7 +121,7 @@ TOKEN parseresult;
 // printf("LAST EXPRESSION\n");
   statement  :  BEGINBEGIN statement endpart   {  $$ = makeprogn($1,nconc($2, $3));  }
              |  stateLine SEMICOLON statement  {  $$ = cons($1, $3); }
-             |  stateLine                      {  $$ = $1;  }
+             |                        {  $$ = $1;  }
              ;
 // line of statement
 // printf("FOR LOOP IN STATELINE\n"); 
