@@ -573,10 +573,10 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyprhs[] =
 {
        0,     0,     3,    13,    15,    18,    21,    25,    28,    32,
-      36,    39,    42,    46,    50,    54,    56,    58,    62,    66,
-      68,    74,    76,    78,    80,    82,    87,    92,    99,   103,
-     105,   108,   109,   113,   116,   120,   124,   126,   130,   132,
-     136,   138,   140,   142
+      36,    39,    40,    44,    48,    52,    54,    56,    60,    64,
+      65,    71,    73,    75,    77,    79,    84,    89,    96,   100,
+     102,   105,   106,   110,   113,   117,   121,   123,   127,   129,
+     133,   135,   137,   139
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
@@ -585,28 +585,28 @@ static const yytype_int8 yyrhs[] =
       63,     0,    -1,    51,     3,    28,     3,    29,    26,    64,
       74,    18,    -1,    69,    -1,    65,    64,    -1,    36,    66,
       -1,    67,    26,    66,    -1,    67,    26,    -1,     3,    11,
-       5,    -1,     3,    11,     5,    -1,    59,    70,    -1,    71,
-      26,    -1,    71,    26,    70,    -1,    72,    27,    73,    -1,
-       3,    25,    72,    -1,     3,    -1,     3,    -1,    34,    74,
-      79,    -1,    75,    26,    74,    -1,    75,    -1,    45,    82,
-      55,    74,    80,    -1,    78,    -1,    77,    -1,    81,    -1,
-      76,    -1,    53,    74,    58,    68,    -1,     3,    28,    82,
-      29,    -1,    42,    81,    56,     3,    37,    74,    -1,    26,
-      74,    79,    -1,    40,    -1,    39,    74,    -1,    -1,     3,
-      10,    82,    -1,     7,    83,    -1,    82,     7,    83,    -1,
-      82,     6,    83,    -1,    83,    -1,    83,     8,    84,    -1,
-      84,    -1,    28,    82,    29,    -1,     3,    -1,     5,    -1,
-       4,    -1,    77,    -1
+       5,    -1,     3,    11,     5,    -1,    59,    70,    -1,    -1,
+      71,    26,    70,    -1,    72,    27,    73,    -1,     3,    25,
+      72,    -1,     3,    -1,     3,    -1,    34,    74,    79,    -1,
+      75,    26,    74,    -1,    -1,    45,    82,    55,    74,    80,
+      -1,    78,    -1,    77,    -1,    81,    -1,    76,    -1,    53,
+      74,    58,    68,    -1,     3,    28,    82,    29,    -1,    42,
+      81,    56,     3,    37,    74,    -1,    26,    74,    79,    -1,
+      40,    -1,    39,    74,    -1,    -1,     3,    10,    82,    -1,
+       7,    83,    -1,    82,     7,    83,    -1,    82,     6,    83,
+      -1,    83,    -1,    83,     8,    84,    -1,    84,    -1,    28,
+      82,    29,    -1,     3,    -1,     5,    -1,     4,    -1,    77,
+      -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,   106,   106,   109,   110,   114,   116,   117,   120,   123,
-     126,   129,   130,   133,   136,   137,   140,   144,   145,   146,
-     149,   150,   151,   152,   153,   155,   159,   162,   164,   165,
-     167,   168,   170,   172,   173,   174,   175,   177,   178,   183,
-     184,   185,   186,   187
+       0,    80,    80,    84,    85,    89,    91,    92,    95,    98,
+     101,   104,   105,   108,   111,   112,   115,   122,   123,   124,
+     131,   132,   133,   134,   135,   138,   143,   146,   148,   149,
+     151,   152,   155,   159,   160,   161,   162,   165,   166,   172,
+     173,   174,   175,   176
 };
 #endif
 
@@ -659,7 +659,7 @@ static const yytype_uint8 yyr1[] =
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     9,     1,     2,     2,     3,     2,     3,     3,
-       2,     2,     3,     3,     3,     1,     1,     3,     3,     1,
+       2,     0,     3,     3,     3,     1,     1,     3,     3,     0,
        5,     1,     1,     1,     1,     4,     4,     6,     3,     1,
        2,     0,     3,     2,     3,     3,     1,     3,     1,     3,
        1,     1,     1,     1
@@ -671,14 +671,14 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        0,     0,     0,     0,     1,     0,     0,     0,     0,     0,
-       0,     0,     0,     3,     0,     5,     0,    15,    10,     0,
-       0,     0,     0,     0,     0,     0,     0,    19,    24,    22,
+      11,    19,     0,     3,     0,     5,     0,    15,    10,     0,
+       0,     0,    19,     0,     0,    19,     0,     0,    24,    22,
       21,    23,     4,     0,     7,     0,    11,     0,     0,     0,
        0,     0,     0,    40,    42,    41,     0,     0,    43,     0,
-      36,    38,     0,     2,     0,     8,     6,    14,    12,    16,
-      13,    32,     0,     0,    29,    17,     0,    33,     0,     0,
-       0,     0,     0,     0,    18,    26,     0,     0,    39,    35,
-      34,    31,    37,     0,    25,    28,     0,     0,    20,     0,
+      36,    38,     0,     2,    19,     8,     6,    14,    12,    16,
+      13,    32,     0,    19,    29,    17,     0,    33,     0,     0,
+       0,    19,     0,     0,    18,    26,     0,     0,    39,    35,
+      34,    31,    37,     0,    25,    28,    19,    19,    20,     0,
       27,    30,     9
 };
 
@@ -1603,295 +1603,295 @@ yyreduce:
         case 2:
 
 /* Line 1806 of yacc.c  */
-#line 106 "pars1.y"
+#line 80 "pars1.y"
     { parseresult = makeprogram((yyvsp[(2) - (9)]), (yyvsp[(4) - (9)]), (yyvsp[(8) - (9)])); }
     break;
 
   case 3:
 
 /* Line 1806 of yacc.c  */
-#line 109 "pars1.y"
-    { (yyval) = NULL; printf("VARIABLES\n"); }
+#line 84 "pars1.y"
+    { (yyval) = NULL;  }
     break;
 
   case 4:
 
 /* Line 1806 of yacc.c  */
-#line 110 "pars1.y"
-    { (yyval) = NULL; printf("CONSTANTS\n"); }
+#line 85 "pars1.y"
+    { (yyval) = NULL;  }
     break;
 
   case 5:
 
 /* Line 1806 of yacc.c  */
-#line 114 "pars1.y"
+#line 89 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 6:
 
 /* Line 1806 of yacc.c  */
-#line 116 "pars1.y"
+#line 91 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 7:
 
 /* Line 1806 of yacc.c  */
-#line 117 "pars1.y"
+#line 92 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 8:
 
 /* Line 1806 of yacc.c  */
-#line 120 "pars1.y"
+#line 95 "pars1.y"
     { instconst((yyvsp[(1) - (3)]), (yyvsp[(3) - (3)]));}
     break;
 
   case 9:
 
 /* Line 1806 of yacc.c  */
-#line 123 "pars1.y"
-    { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); printf("equals number:\n"); dbugprinttok((yyvsp[(1) - (3)])); dbugprinttok((yyvsp[(2) - (3)])); dbugprinttok((yyvsp[(3) - (3)])); }
+#line 98 "pars1.y"
+    { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)]));  }
     break;
 
   case 10:
 
 /* Line 1806 of yacc.c  */
-#line 126 "pars1.y"
+#line 101 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 11:
 
 /* Line 1806 of yacc.c  */
-#line 129 "pars1.y"
+#line 104 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 12:
 
 /* Line 1806 of yacc.c  */
-#line 130 "pars1.y"
+#line 105 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 13:
 
 /* Line 1806 of yacc.c  */
-#line 133 "pars1.y"
+#line 108 "pars1.y"
     { instvars((yyvsp[(1) - (3)]), findtype((yyvsp[(3) - (3)]))); }
     break;
 
   case 14:
 
 /* Line 1806 of yacc.c  */
-#line 136 "pars1.y"
+#line 111 "pars1.y"
     { (yyval) = cons((yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 15:
 
 /* Line 1806 of yacc.c  */
-#line 137 "pars1.y"
+#line 112 "pars1.y"
     { (yyval) = ((yyvsp[(1) - (1)])); }
     break;
 
   case 16:
 
 /* Line 1806 of yacc.c  */
-#line 140 "pars1.y"
-    { dbugprinttok((yyvsp[(1) - (1)])); (yyval) = (yyvsp[(1) - (1)]); }
+#line 115 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 17:
 
 /* Line 1806 of yacc.c  */
-#line 144 "pars1.y"
-    { printf("OUTER STATEMENT\n"); (yyval) = makeprogn((yyvsp[(1) - (3)]),nconc((yyvsp[(2) - (3)]), (yyvsp[(3) - (3)])));  }
+#line 122 "pars1.y"
+    {  (yyval) = makeprogn((yyvsp[(1) - (3)]),nconc((yyvsp[(2) - (3)]), (yyvsp[(3) - (3)])));  }
     break;
 
   case 18:
 
 /* Line 1806 of yacc.c  */
-#line 145 "pars1.y"
-    { printf("MULTIPLE STATEMENTS\n"); (yyval) = cons((yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
+#line 123 "pars1.y"
+    {  (yyval) = cons((yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 19:
 
 /* Line 1806 of yacc.c  */
-#line 146 "pars1.y"
-    { printf("LAST EXPRESSION\n"); (yyval) = (yyvsp[(1) - (1)]);  }
+#line 124 "pars1.y"
+    {  (yyval) = NULL;  }
     break;
 
   case 20:
 
 /* Line 1806 of yacc.c  */
-#line 149 "pars1.y"
+#line 131 "pars1.y"
     { (yyval) = makeif((yyvsp[(1) - (5)]), (yyvsp[(2) - (5)]), (yyvsp[(4) - (5)]), (yyvsp[(5) - (5)])); }
     break;
 
   case 21:
 
 /* Line 1806 of yacc.c  */
-#line 150 "pars1.y"
-    { printf("FOR LOOP IN STATELINE\n"); (yyval) = (yyvsp[(1) - (1)]);  }
+#line 132 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]);  }
     break;
 
   case 22:
 
 /* Line 1806 of yacc.c  */
-#line 151 "pars1.y"
-    { printf("FUNCTION CALL\n"); (yyval) = (yyvsp[(1) - (1)]); }
+#line 133 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 23:
 
 /* Line 1806 of yacc.c  */
-#line 152 "pars1.y"
-    { printf("ASSIGNMENT IN STATE LINE\n"); (yyval) = (yyvsp[(1) - (1)]);  }
+#line 134 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]);  }
     break;
 
   case 24:
 
 /* Line 1806 of yacc.c  */
-#line 153 "pars1.y"
-    { printf("REPEATUNTIL\n"); (yyval) = (yyvsp[(1) - (1)]); }
+#line 135 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 25:
 
 /* Line 1806 of yacc.c  */
-#line 155 "pars1.y"
-    { printf("REPEAT UNTIL\n"); (yyval) = makerepeat((TOKEN) talloc(), (yyvsp[(2) - (4)]), (TOKEN) talloc(), (yyvsp[(4) - (4)])); }
+#line 138 "pars1.y"
+    { (yyval) = makerepeat((TOKEN) talloc(), (yyvsp[(2) - (4)]), (TOKEN) talloc(), (yyvsp[(4) - (4)])); }
     break;
 
   case 26:
 
 /* Line 1806 of yacc.c  */
-#line 159 "pars1.y"
-    { printf("FUNCTION_CALL\n"); (yyval) = makefuncall((TOKEN) talloc(), (yyvsp[(1) - (4)]), (yyvsp[(3) - (4)])); }
+#line 143 "pars1.y"
+    { (yyval) = makefuncall((TOKEN) talloc(), findid((yyvsp[(1) - (4)])), (yyvsp[(3) - (4)])); }
     break;
 
   case 27:
 
 /* Line 1806 of yacc.c  */
-#line 162 "pars1.y"
-    { (yyval) = makefor(1, (TOKEN) talloc(), (yyvsp[(2) - (6)]), findid((yyvsp[(4) - (6)])), NULL, NULL, (yyvsp[(6) - (6)])); printf("FOR LOOP\n"); }
+#line 146 "pars1.y"
+    { (yyval) = makefor(1, (TOKEN) talloc(), (yyvsp[(2) - (6)]), findid((yyvsp[(4) - (6)])), NULL, NULL, (yyvsp[(6) - (6)])); }
     break;
 
   case 28:
 
 /* Line 1806 of yacc.c  */
-#line 164 "pars1.y"
+#line 148 "pars1.y"
     { (yyval) = cons((yyvsp[(2) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 29:
 
 /* Line 1806 of yacc.c  */
-#line 165 "pars1.y"
+#line 149 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 30:
 
 /* Line 1806 of yacc.c  */
-#line 167 "pars1.y"
+#line 151 "pars1.y"
     { (yyval) = (yyvsp[(2) - (2)]); }
     break;
 
   case 31:
 
 /* Line 1806 of yacc.c  */
-#line 168 "pars1.y"
+#line 152 "pars1.y"
     { (yyval) = NULL; }
     break;
 
   case 32:
 
 /* Line 1806 of yacc.c  */
-#line 170 "pars1.y"
-    { printf("ASSIGNMENT\n"); (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
+#line 155 "pars1.y"
+    { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 33:
 
 /* Line 1806 of yacc.c  */
-#line 172 "pars1.y"
-    { printf("NEGATIVE\n"); (yyval) = unaryop((yyvsp[(1) - (2)]), (yyvsp[(2) - (2)])); }
+#line 159 "pars1.y"
+    { (yyval) = unaryop((yyvsp[(1) - (2)]), (yyvsp[(2) - (2)])); }
     break;
 
   case 34:
 
 /* Line 1806 of yacc.c  */
-#line 173 "pars1.y"
+#line 160 "pars1.y"
     { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 35:
 
 /* Line 1806 of yacc.c  */
-#line 174 "pars1.y"
+#line 161 "pars1.y"
     { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 36:
 
 /* Line 1806 of yacc.c  */
-#line 175 "pars1.y"
-    { printf("EXPRESSION_TO_TERM\n");(yyval) = (yyvsp[(1) - (1)]); }
+#line 162 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 37:
 
 /* Line 1806 of yacc.c  */
-#line 177 "pars1.y"
-    { printf("TIMES\n"); (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
+#line 165 "pars1.y"
+    { (yyval) = binop((yyvsp[(2) - (3)]), (yyvsp[(1) - (3)]), (yyvsp[(3) - (3)])); }
     break;
 
   case 38:
 
 /* Line 1806 of yacc.c  */
-#line 178 "pars1.y"
+#line 166 "pars1.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 39:
 
 /* Line 1806 of yacc.c  */
-#line 183 "pars1.y"
+#line 172 "pars1.y"
     { (yyval) = (yyvsp[(2) - (3)]); }
     break;
 
   case 40:
 
 /* Line 1806 of yacc.c  */
-#line 184 "pars1.y"
+#line 173 "pars1.y"
     { (yyval) = findid((yyvsp[(1) - (1)])); }
     break;
 
   case 41:
 
 /* Line 1806 of yacc.c  */
-#line 185 "pars1.y"
+#line 174 "pars1.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 42:
 
 /* Line 1806 of yacc.c  */
-#line 186 "pars1.y"
+#line 175 "pars1.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 43:
 
 /* Line 1806 of yacc.c  */
-#line 187 "pars1.y"
-    { printf("FUNCTION CALL\n"); (yyval) = (yyvsp[(1) - (1)]); }
+#line 176 "pars1.y"
+    { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
 
@@ -2128,7 +2128,7 @@ yyreturn:
 
 
 /* Line 2067 of yacc.c  */
-#line 192 "pars1.y"
+#line 181 "pars1.y"
 
 
 /* You should add your own debugging flags below, and add debugging
@@ -2138,9 +2138,9 @@ yyreturn:
    are working.
   */
 
-#define DEBUG          1             /* set bits here for debugging, 0 = off  */
+#define DEBUG          0             /* set bits here for debugging, 0 = off  */
 #define DB_CONS        1             /* bit to trace cons */
-#define DB_NCONC        1             /* bit to trace nconc */
+#define DB_NCONC       1             /* bit to trace nconc */
 #define DB_COPYTOK     1             /* bit to trace copytok */
 #define DB_BINOP       1             /* bit to trace binop */
 #define DB_MAKEFOR     1             /* bit to trace makefor */
@@ -2155,6 +2155,7 @@ yyreturn:
 #define DB_PARSERES    1             /* bit to trace parseresult */
 #define DB_UNARYOP     1             /* bit to trace unaryop */
 #define DB_MAKEREPEAT  1             /* bit to trace makerepeat */
+#define DB_INSTVARS    1             /* bit to trace makerepeat */
 
  int labelnumber = 0;  /* sequential counter for internal label numbers */
 
@@ -2205,115 +2206,124 @@ TOKEN unaryop(TOKEN op, TOKEN lhs) {
 }
 
 int isReal(TOKEN tok) {
-  printf("IS REAL: \n");
+  // printf("IS REAL: \n");
   SYMBOL sym = searchst(tok->stringval);
-  dbugprinttok(tok);
+  // dbugprinttok(tok);
   if (sym->basicdt == REAL) {
-    printf("TRUE\n");
+    // printf("TRUE\n");
     return 1;
   }
-    printf("FALSE\n");
+    // printf("FALSE\n");
 
   return 0;
 }
 
 int isInteger(TOKEN tok) {
-  printf("IS INTEGER: \n");
-  dbugprinttok(tok);
+  // printf("IS INTEGER: \n");
+  // dbugprinttok(tok);
   SYMBOL sym = searchst(tok->stringval);
   if (sym->basicdt == INTEGER) {
-    printf("TRUE\n");
+    // printf("TRUE\n");
     return 1;
   }
-    printf("FALSE\n");
+    // printf("FALSE\n");
     return 0;
+}
+
+int isIdentifier(TOKEN tok) {
+  if (tok->tokentype == IDENTIFIERTOK) {
+    return 1;
+  }
+  return 0;
 }
 
 TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
   { op->operands = lhs;          /* link operands to operator       */
     lhs->link = rhs;             /* link second operand to first    */
     rhs->link = NULL;            /* terminate operand list          */
-    if (lhs->tokentype == IDENTIFIERTOK) {
-      if (rhs->tokentype == IDENTIFIERTOK) {
-        // Both identifiers
-        if (isReal(lhs)) {
-          if (isInteger(rhs)) {
-            // Float Right side
-            printf("Both identifiers, left - real, right - int\n");
-            TOKEN temp = makeop(FLOATOP);
-            temp->operands = rhs;
-            lhs->link = temp;
+    
+    if (isIdentifier(lhs)) {
+      if (isIdentifier(rhs)) {
+        if (isReal(lhs) && isReal(rhs)) {
+          op->datatype = REAL;
+        } else if (isReal(lhs) && isInteger(rhs)) {
+          op->datatype = REAL;
+          TOKEN float_tok = makeop(FLOATOP);
+          float_tok->operands = rhs;
+          lhs->link = float_tok;
+        } else if (isInteger(lhs) && isReal(rhs)) {
+          if (op->whichval == ASSIGNOP) {
+            TOKEN fix_tok = makeop(FIXOP);
+            fix_tok->operands =rhs;
+            lhs->link = fix_tok;
           }
-        }
-        else {
-          if (isReal(rhs)) {
-            // Float left side
-            printf("Both identifiers, left - int, right - real\n");
-            TOKEN temp = makeop(FLOATOP);
-            temp->operands = lhs;
-            temp->link = rhs;
+          else {
+            op->datatype = REAL;
+            TOKEN float_tok = makeop(FLOATOP);
+            float_tok->operands = lhs;
+            float_tok->link = rhs;            
           }
+
         }
       }
       else {
-        // Left identifier, right not
-        if (isReal(lhs)) {
-          // Cast right side
-          if (rhs->datatype == INTEGER) {
-            printf("left identifier, left - real, right - int\n");
-            rhs->datatype = REAL;
-            rhs->realval = (double) rhs->intval;
+        if (isReal(lhs) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+        } else if (isReal(lhs) && (rhs->datatype == INTEGER)) {
+          op->datatype = REAL;
+          rhs->datatype = REAL;
+          rhs->realval = (double) rhs->intval;
+        } else if (isInteger(lhs) && (rhs->datatype == REAL)) {
+          if (op->whichval == ASSIGNOP) {
+            if (rhs->tokentype == OPERATOR || rhs->tokentype == IDENTIFIERTOK) {
+              TOKEN fix_tok = makeop(FIXOP);
+              fix_tok->operands =rhs;
+              lhs->link = fix_tok;           
+            } else if (rhs->tokentype == NUMBERTOK) {
+              rhs->datatype = INTEGER;
+              rhs->intval = (int) rhs->realval;
+            }
+
+          }else {
+            op->datatype = REAL;
+            TOKEN float_tok = makeop(FLOATOP);
+            float_tok->operands = lhs;
+            float_tok->link = rhs;
           }
-        }
-        else {
-          if (rhs->datatype == REAL) {
-            // Float left side
-            printf("left identifier, left - int, right - real\n");
-            TOKEN temp = makeop(FLOATOP);
-            temp->operands = lhs;
-            temp->link = rhs;
-          }
+
         }
       }
     }
     else {
-      if (rhs->tokentype == IDENTIFIERTOK) {
-        // right identifier, left not
-        if(lhs->datatype == REAL){
-          if(isInteger(rhs)) {
-            printf("right identifier, left - real, right - int\n");
-            TOKEN temp = makeop(FLOATOP);
-            temp->operands = rhs;
-            lhs->link = temp;
-          }
-        }
-        else {
-          if(isReal(rhs)) {
-            printf("right identifier, left - int, right - real\n");
-            lhs->datatype = REAL;
-            lhs->realval = (double) lhs->intval;
-          }
+      if (isIdentifier(rhs)) {
+        if ((lhs->datatype == REAL) && isReal(rhs)) {
+          op->datatype = REAL;
+        } else if ((lhs->datatype == REAL) && isInteger(rhs)) {
+          op->datatype = REAL;
+          TOKEN float_tok = makeop(FLOATOP);
+          float_tok->operands = rhs;
+          lhs->link = float_tok;
+        } else if ((lhs->datatype == INTEGER) && isReal(rhs)) {
+          op->datatype = REAL;
+          lhs->datatype = REAL;
+          lhs->realval = (double) lhs->intval;
         }
       }
       else {
-        // right not, left not
-        if (lhs->datatype == REAL) {
-          if (rhs->datatype == INTEGER){
-            printf("Both not identifiers, left - real, right - int\n");
-            rhs->datatype = REAL;
-            rhs->realval = (double) rhs->intval;
-
-          }
-        }
-        else {
-          if (rhs->datatype == REAL) {
-            printf("Both not identifiers, left - int, right - real\n");
-            lhs->datatype = REAL;
-            lhs->realval = (double) lhs->intval;
-          }
-        }
+        if ((lhs->datatype == REAL) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+        } else if ((lhs->datatype == REAL) && (rhs->datatype == INTEGER)) {
+          op->datatype = REAL;
+          rhs->datatype = REAL;
+          rhs->realval = (double) rhs->intval;
+        } else if ((lhs->datatype == INTEGER) && (rhs->datatype == REAL)) {
+          op->datatype = REAL;
+          lhs->datatype = REAL;
+          lhs->realval = (double) lhs->intval;
+        }        
       }
     }
+
     if (DEBUG & DB_BINOP)
        { printf("binop\n");
          dbugprinttok(op);
@@ -2440,6 +2450,7 @@ TOKEN makeprogn(TOKEN tok, TOKEN statements)
 TOKEN makefuncall(TOKEN tok, TOKEN fn, TOKEN args){
   tok->operands = fn;
   tok->whichval = FUNCALLOP;
+  tok->datatype = fn->datatype;
   fn->link = args;
   if (DEBUG & DB_MAKEPROGN)
   { printf("makefuncall\n");
@@ -2565,9 +2576,8 @@ TOKEN findid(TOKEN tok) { /* the ID token */
   tok->symentry = sym;
   typ = sym->datatype;
   tok->symtype = typ;
-  if ( typ->kind == BASICTYPE ||
-       typ->kind == POINTERSYM)
-      tok->datatype = typ->basicdt;
+  tok->datatype = typ->basicdt;
+
   if (sym->kind == CONSTSYM)
   {
     if (sym->basicdt == REAL) {
@@ -2581,12 +2591,6 @@ TOKEN findid(TOKEN tok) { /* the ID token */
       tok->intval = sym->constval.intnum;
     }
   }
-  if (sym->kind == VARSYM) {
-    if (sym->basicdt == REAL) {
-    }
-    else if (sym->basicdt == INTEGER) {
-    }    
-  }
   return tok;
 
 }
@@ -2594,28 +2598,26 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
-  SYMBOL sym = searchlev(tok->stringval, 0);
+  tok->symtype = searchst(tok->stringval);
   
-  int type = tok->datatype;
-
-  if(type == INTEGER) {
-    printf("FOUND TYPE TO BE INTEGER\n");
-    tok->symtype = searchst("integer");
-  }
-  else if(type == REAL) {
-    printf("FOUND TYPE TO BE REAL\n");
-    tok->symtype = searchst("real");
-  }
-  else if(type == BOOLETYPE) {
-    printf("FOUND TYPE TO BE BOOLEAN\n");
-    tok->symtype = searchst("boolean");
-  }
-  else{
-    printf("FOUND TYPE TO BE STRING\n");
-    tok->symtype = searchst(tok->stringval);
-  }
-  printf("FIND TYPE\n");
-  dbugprinttok(tok);
+  // if(sym->basicdt == INTEGER) {
+  //   printf("FOUND TYPE TO BE INTEGER\n");
+  //   tok->symtype = searchst("integer");
+  // }
+  // else if(type == REAL) {
+  //   printf("FOUND TYPE TO BE REAL\n");
+  //   tok->symtype = searchst("real");
+  // }
+  // else if(type == BOOLETYPE) {
+  //   printf("FOUND TYPE TO BE BOOLEAN\n");
+  //   tok->symtype = searchst("boolean");
+  // }
+  // else{
+  //   printf("FOUND TYPE TO BE STRING\n");
+  //   tok->symtype = searchst(tok->stringval);
+  // }
+  // printf("FIND TYPE\n");
+  // dbugprinttok(tok);
   return tok;
 }
 
@@ -2647,7 +2649,7 @@ void instvars(TOKEN idlist, TOKEN typetok)
     SYMBOL sym, typesym; int align;
      typesym = typetok->symtype;
      align = alignsize(typesym);
-      if (DEBUG) {
+      if (DEBUG && DB_INSTVARS) {
         printf("instvars\n");
         dbugprinttok(typetok);
       }
@@ -2661,14 +2663,15 @@ void instvars(TOKEN idlist, TOKEN typetok)
           sym->datatype = typesym;
           sym->basicdt = typesym->basicdt;
 
-          if (DEBUG) {
+          if (DEBUG && DB_INSTVARS) {
 
             dbugprinttok(idlist);
             dbugprinttok(typetok);
           }
           idlist = idlist->link;
         };
-    printstlevel(1);
+    if (DEBUG && DB_INSTVARS)
+      printstlevel(1);
   }
 
 int wordaddress(int n, int wordsize)
