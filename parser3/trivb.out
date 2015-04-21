@@ -1,0 +1,156 @@
+cons
+ token 38193488  ID        output  dtype  0  link 0
+ token 0  NULL
+cons
+ token 38193872  ID           lim  dtype  0  link 0
+ token 0  NULL
+cons
+ token 38193744  ID             i  dtype  0  link 38193872
+ token 38193872  ID           lim  dtype  0  link 0
+instvars
+ token 38194000  ID       integer  dtype  0  link 0
+ token 38193744  ID             i  dtype  0  link 38193872
+ token 38194000  ID       integer  dtype  0  link 0
+ token 38193872  ID           lim  dtype  0  link 0
+ token 38194000  ID       integer  dtype  0  link 0
+Symbol table level 1
+ 38194064           i  VAR    0 typ integer  lvl  1  siz     4  off     0
+ 38194160         lim  VAR    0 typ integer  lvl  1  siz     4  off     4
+binop
+ token 38194448  OP            :=  dtype  0  link 0  operands 38194384
+ token 38194384  ID           lim  dtype  0  link 38194512
+ token 38194512  NUM            7  dtype  0  link 0
+binop
+ token 38194768  OP            :=  dtype  0  link 0  operands 38194704
+ token 38194704  ID             i  dtype  0  link 38194832
+ token 38194832  NUM            0  dtype  0  link 0
+cons
+ token 38195216  STR            *  dtype  0  link 0
+ token 0  NULL
+makefuncall
+ token 38195152  typ  1  whic  24  dty   0  sty 0 lnk 0  opnds 38195088
+ token 38195088  ID       writeln  dtype  0  link 38195216
+ token 38195216  STR            *  dtype  0  link 0
+makeprogn
+ token 38194640  OP         progn  dtype  0  link 0  operands 38194768
+ token 38194768  OP            :=  dtype  0  link 0  operands 38194704
+ token 38195472  NUM            0  dtype  0  link 0
+makelabel
+ token 38195408  OP         label  dtype  0  link 0  operands 38195472
+makeop
+ token 38195536  OP            <=  dtype  0  link 0  operands 0
+makeop
+ token 38195600  OP             +  dtype  0  link 0  operands 0
+makeprogn
+ token 38195728  OP         progn  dtype  0  link 0  operands 38195152
+ token 38195152  typ  1  whic  24  dty   0  sty 0 lnk 0  opnds 38195088
+makeif
+ token 38195664  OP            if  dtype  0  link 0  operands 38195536
+ token 38195536  OP            <=  dtype  0  link 38195728  operands 0
+ token 38195728  OP         progn  dtype  0  link 0  operands 38195152
+ token 0  NULL
+copytok
+ token 38195792  ID             i  dtype  0  link 38194832
+makeop
+ token 38195856  OP            :=  dtype  0  link 0  operands 0
+copytok
+ token 38195920  ID             i  dtype  0  link 38194896
+copytok
+ token 38195984  ID             i  dtype  0  link 38194896
+ token 38196048  NUM            1  dtype  0  link 0
+ token 38196176  NUM            0  dtype  0  link 0
+makegoto
+ token 38196112  OP          goto  dtype  0  link 0  operands 38196176
+makefor
+ token 38194640  OP         progn  dtype  0  link 0  operands 38194768
+ token 38194768  OP            :=  dtype  0  link 38195408  operands 38194704
+ token 38194896  typ  2  whic  24  dty   0  sty 0 lnk 0  opnds 0
+ token 38194960  ID           lim  dtype  0  link 0
+ token 38195024  typ  2  whic   5  dty   0  sty 0 lnk 0  opnds 0
+ token 38195536  OP            <=  dtype  0  link 38195728  operands 38195792
+ token 38195600  OP             +  dtype  0  link 0  operands 38195984
+ token 38195792  ID             i  dtype  0  link 38194896
+ token 38195920  ID             i  dtype  0  link 38195600
+ token 38195984  ID             i  dtype  0  link 38196048
+cons
+ token 38194640  OP         progn  dtype  0  link 0  operands 38194768
+ token 0  NULL
+makeprogn
+ token 38196368  OP         progn  dtype  0  link 0  operands 38193488
+ token 38193488  ID        output  dtype  0  link 0
+makeprogram
+ token 38196304  OP       program  dtype  0  link 0  operands 38193360
+ token 38193360  ID        graph1  dtype  0  link 38196368
+ token 38196368  OP         progn  dtype  0  link 0  operands 38193488
+ token 38193488  ID        output  dtype  0  link 0
+Symbol table level 0
+ 38170640        real  BASIC  basicdt   1          siz     8
+ 38170736     integer  BASIC  basicdt   0          siz     4
+ 38170832        char  BASIC  basicdt   2          siz     1
+ 38170928     boolean  BASIC  basicdt   3          siz     4
+ 38171024         exp  knd 5 0  typ 38171120  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38171312       trexp  knd 5 0  typ 38171408  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38171600         sin  knd 5 0  typ 38171696  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38171888         cos  knd 5 0  typ 38171984  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38172176       trsin  knd 5 0  typ 38172272  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38172464        sqrt  knd 5 0  typ 38172560  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38172752       round  knd 5 0  typ 38172848  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 38173040      iround  knd 5 0  typ 38173136  lvl  0  siz     0  off     0
+(FUNCTION integer
+          real)
+ 38173328         ord  knd 5 0  typ 38173424  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 38173616         new  knd 5 0  typ 38173712  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 38173904       trnew  knd 5 0  typ 38174000  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 38174192       write  knd 5 0  typ 38174288  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 38174480     writeln  knd 5 0  typ 38174576  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 38174768      writef  knd 5 0  typ 38174864  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 38175056    writelnf  knd 5 0  typ 38175152  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 38175344      writei  knd 5 0  typ 38175440  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 38175632    writelni  knd 5 0  typ 38175728  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 38175920        read  knd 5 0  typ 38176016  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 38176208      readln  knd 5 0  typ 38176304  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 38176496         eof  knd 5 0  typ 38176592  lvl  0  siz     0  off     0
+(FUNCTION boolean
+          NULL)
+Symbol table level 1
+ 38194064           i  VAR    0 typ integer  lvl  1  siz     4  off     0
+ 38194160         lim  VAR    0 typ integer  lvl  1  siz     4  off     4
+yyparse result =        0
+ token 38196304  OP       program  dtype  0  link 0  operands 38193360
+(program graph1 (progn output))

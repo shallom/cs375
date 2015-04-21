@@ -1,128 +1,146 @@
 cons
- token 140476732694576  ID        output  dtype  0  link 0
- token 0  NULL
-cons
- token 140476732694960  ID           lim  dtype  0  link 0
- token 0  NULL
-cons
- token 140476732694832  ID             i  dtype  0  link 140476732694960
- token 140476732694960  ID           lim  dtype  0  link 0
+ token 23013968  ID             i  dtype  0  link 23014096
+ token 23014096  ID           lim  dtype  0  link 0
 binop
- token 140476732695504  OP            :=  dtype  0  link 0  operands 140476732695440
- token 140476732695440  ID           lim  dtype  0  link 140476732695568
- token 140476732695568  NUM            7  dtype  0  link 0
+ token 23014672  OP            :=  dtype  0  link 0  operands 23014608
+ token 23014608  ID           lim  dtype  0  link 23014736
+ token 23014736  NUM            7  dtype  0  link 0
 binop
- token 140476732695824  OP            :=  dtype  0  link 0  operands 140476732695760
- token 140476732695760  ID             i  dtype  0  link 140476732695888
- token 140476732695888  NUM            0  dtype  0  link 0
-cons
- token 140476732696272  STR            *  dtype  0  link 0
- token 0  NULL
+ token 23014992  OP            :=  dtype  0  link 0  operands 23014928
+ token 23014928  ID             i  dtype  0  link 23015056
+ token 23015056  NUM            0  dtype  0  link 0
 makefuncall
- token 0  NULL
- token 140476732696144  ID       writeln  dtype  0  link 140476732696272
- token 140476732696272  STR            *  dtype  0  link 0
-makefor
- token 140476732696656  OP         label  dtype  0  link 140476732696784  operands 140476732696720
- token 140476732696720  NUM            0  dtype  0  link 0
- token 140476732695824  OP            :=  dtype  0  link 140476732696656  operands 140476732695760
- token 140476732696784  OP            if  dtype  0  link 0  operands 140476732696848
- token 140476732696848  OP            <=  dtype  0  link 140476732696400  operands 140476732696912
- token 140476732696912  ID             i  dtype  0  link 140476732696016
- token 140476732696016  ID           lim  dtype  0  link 0
- token 140476732696400  OP         progn  dtype  0  link 0  operands 140476732696464
- token 140476732696976  OP            :=  dtype  0  link 140476732697296  operands 140476732697040
- token 140476732697040  ID             i  dtype  0  link 140476732697104
- token 140476732697104  OP             +  dtype  0  link 0  operands 140476732697168
- token 140476732697168  ID             i  dtype  0  link 140476732697232
- token 140476732697232  NUM            1  dtype  0  link 0
- token 140476732697296  OP          goto  dtype  0  link 0  operands 140476732697360
- token 140476732697360  NUM            0  dtype  0  link 0
-cons
- token 140476732696592  OP         progn  dtype  0  link 0  operands 140476732695824
- token 0  NULL
-cons
- token 140476732695504  OP            :=  dtype  0  link 140476732696592  operands 140476732695440
- token 140476732696592  OP         progn  dtype  0  link 0  operands 140476732695824
+ token 23015568  OP       funcall  dtype  0  link 0  operands 23015312
+ token 23015312  ID       writeln  dtype  0  link 23015440
+ token 23015440  STR            *  dtype  0  link 0
 makeprogn
- token 140476732695376  OP         progn  dtype  0  link 0  operands 140476732695504
- token 140476732695504  OP            :=  dtype  0  link 140476732696592  operands 140476732695440
+ token 23015632  OP         progn  dtype  0  link 0  operands 23014992
+ token 23014992  OP            :=  dtype  0  link 0  operands 23014928
+ token 23015760  NUM            0  dtype  0  link 0
+makelabel
+ token 23015696  OP         label  dtype  0  link 0  operands 23015760
+makeop
+ token 23015824  OP            <=  dtype  0  link 0  operands 0
+makeop
+ token 23015888  OP             +  dtype  0  link 0  operands 0
+makeprogn
+ token 23016016  OP         progn  dtype  0  link 0  operands 23015568
+ token 23015568  OP       funcall  dtype  0  link 0  operands 23015312
+makeif
+ token 23015952  OP            if  dtype  0  link 0  operands 23015824
+ token 23015824  OP            <=  dtype  0  link 23016016  operands 0
+ token 23016016  OP         progn  dtype  0  link 0  operands 23015568
+ token 0  NULL
+copytok
+ token 23016080  ID             i  dtype  0  link 23015056
+makeop
+ token 23016144  OP            :=  dtype  0  link 0  operands 0
+copytok
+ token 23016208  ID             i  dtype  0  link 23015184
+copytok
+ token 23016272  ID             i  dtype  0  link 23015184
+ token 23016336  NUM            1  dtype  0  link 0
+ token 23016464  NUM            0  dtype  0  link 0
+makegoto
+ token 23016400  OP          goto  dtype  0  link 0  operands 23016464
+makefor
+ token 23015632  OP         progn  dtype  0  link 0  operands 23014992
+ token 23014992  OP            :=  dtype  0  link 23015696  operands 23014928
+ token 23015184  ID           lim  dtype  0  link 0
+ token 0  NULL
+ token 0  NULL
+ token 23015824  OP            <=  dtype  0  link 23016016  operands 23016080
+ token 23015888  OP             +  dtype  0  link 0  operands 23016272
+ token 23016080  ID             i  dtype  0  link 23015184
+ token 23016208  ID             i  dtype  0  link 23015888
+ token 23016272  ID             i  dtype  0  link 23016336
+cons
+ token 23015632  OP         progn  dtype  0  link 0  operands 23014992
+ token 0  NULL
+cons
+ token 23014672  OP            :=  dtype  0  link 23015632  operands 23014608
+ token 23015632  OP         progn  dtype  0  link 0  operands 23014992
+makeprogn
+ token 23014544  OP         progn  dtype  0  link 0  operands 23014672
+ token 23014672  OP            :=  dtype  0  link 23015632  operands 23014608
+makeprogn
+ token 23016720  OP         progn  dtype  0  link 0  operands 23013712
+ token 23013712  ID        output  dtype  0  link 0
 makeprogram
- token 140476732697488  OP       program  dtype  0  link 0  operands 140476732694448
- token 140476732694448  ID        graph1  dtype  0  link 140476732697552
- token 140476732697552  OP         progn  dtype  0  link 140476732695376  operands 140476732694576
- token 140476732694576  ID        output  dtype  0  link 0
- token 140476732695376  OP         progn  dtype  0  link 0  operands 140476732695504
+ token 23016656  OP       program  dtype  0  link 0  operands 23013584
+ token 23013584  ID        graph1  dtype  0  link 23016720
+ token 23016720  OP         progn  dtype  0  link 23014544  operands 23013712
+ token 23013712  ID        output  dtype  0  link 0
 Symbol table level 0
- 140476732689168        real  BASIC  basicdt   1          siz     8
- 140476732689248     integer  BASIC  basicdt   0          siz     4
- 140476732689328        char  BASIC  basicdt   2          siz     1
- 140476732689424     boolean  BASIC  basicdt   3          siz     4
- 140476732689504         exp  knd 5 0  typ 140476732689584  lvl  0  siz     0  off     0
+ 22990864        real  BASIC  basicdt   1          siz     8
+ 22990960     integer  BASIC  basicdt   0          siz     4
+ 22991056        char  BASIC  basicdt   2          siz     1
+ 22991152     boolean  BASIC  basicdt   3          siz     4
+ 22991248         exp  knd 5 0  typ 22991344  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732689744       trexp  knd 5 0  typ 140476732689824  lvl  0  siz     0  off     0
+ 22991536       trexp  knd 5 0  typ 22991632  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732689984         sin  knd 5 0  typ 140476732690064  lvl  0  siz     0  off     0
+ 22991824         sin  knd 5 0  typ 22991920  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732690224         cos  knd 5 0  typ 140476732690304  lvl  0  siz     0  off     0
+ 22992112         cos  knd 5 0  typ 22992208  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732690464       trsin  knd 5 0  typ 140476732690544  lvl  0  siz     0  off     0
+ 22992400       trsin  knd 5 0  typ 22992496  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732690704        sqrt  knd 5 0  typ 140476732690784  lvl  0  siz     0  off     0
+ 22992688        sqrt  knd 5 0  typ 22992784  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732690944       round  knd 5 0  typ 140476732691024  lvl  0  siz     0  off     0
+ 22992976       round  knd 5 0  typ 22993072  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 140476732691184      iround  knd 5 0  typ 140476732691264  lvl  0  siz     0  off     0
+ 22993264      iround  knd 5 0  typ 22993360  lvl  0  siz     0  off     0
 (FUNCTION integer
           real)
- 140476732691424         ord  knd 5 0  typ 140476732691504  lvl  0  siz     0  off     0
-(FUNCTION integer
-          integer)
- 140476732691664         new  knd 5 0  typ 140476732691744  lvl  0  siz     0  off     0
+ 22993552         ord  knd 5 0  typ 22993648  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 140476732691904       trnew  knd 5 0  typ 140476732691984  lvl  0  siz     0  off     0
+ 22993840         new  knd 5 0  typ 22993936  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 140476732692144       write  knd 5 0  typ 140476732692224  lvl  0  siz     0  off     0
+ 22994128       trnew  knd 5 0  typ 22994224  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 22994416       write  knd 5 0  typ 22994512  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 140476732692384     writeln  knd 5 0  typ 140476732692464  lvl  0  siz     0  off     0
+ 22994704     writeln  knd 5 0  typ 22994800  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 140476732692624      writef  knd 5 0  typ 140476732692704  lvl  0  siz     0  off     0
+ 22994992      writef  knd 5 0  typ 22995088  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 140476732692864    writelnf  knd 5 0  typ 140476732692944  lvl  0  siz     0  off     0
+ 22995280    writelnf  knd 5 0  typ 22995376  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 140476732693104      writei  knd 5 0  typ 140476732693184  lvl  0  siz     0  off     0
+ 22995568      writei  knd 5 0  typ 22995664  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 140476732693344    writelni  knd 5 0  typ 140476732693424  lvl  0  siz     0  off     0
+ 22995856    writelni  knd 5 0  typ 22995952  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 140476732693584        read  knd 5 0  typ 140476732693664  lvl  0  siz     0  off     0
+ 22996144        read  knd 5 0  typ 22996240  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 140476732693824      readln  knd 5 0  typ 140476732693904  lvl  0  siz     0  off     0
+ 22996432      readln  knd 5 0  typ 22996528  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 140476732694064         eof  knd 5 0  typ 140476732694144  lvl  0  siz     0  off     0
+ 22996720         eof  knd 5 0  typ 22996816  lvl  0  siz     0  off     0
 (FUNCTION boolean
           NULL)
 Symbol table level 1
- 140476732695152           i  VAR    0 typ integer  lvl  1  siz     4  off     0
- 140476732695232         lim  VAR    0 typ integer  lvl  1  siz     4  off     4
+ 23014288           i  VAR    0 typ integer  lvl  1  siz     4  off     0
+ 23014384         lim  VAR    0 typ integer  lvl  1  siz     4  off     4
 yyparse result =        0
- token 140476732697488  OP       program  dtype  0  link 0  operands 140476732694448
+ token 23016656  OP       program  dtype  0  link 0  operands 23013584
 (program graph1 (progn output)
                 (progn (:= lim 7)
                        (progn (:= i 0)

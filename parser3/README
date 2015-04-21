@@ -1,0 +1,29 @@
+Name: Kevin Fu
+UTEID: ktf326
+Assignment: Parser Part B
+Date: 4/2/15
+
+I made major changes in the grammar for the input file graph1.pas. This involved handling the REAL and INTEGER values whenever they came into conflict. Additionally, I modified several functions in the code to ensure that they would output the correct tree. I also made sure that the instconst/instvar functions were properly updating the symbol table. I also made sure that identifiers that were in the symbol table were found through the function findid. This involved looking in the symbol table to make sure that the identifiers existed and could be replaced with constant values. I also implemented nconc, unaryop, isreal, isinteger, make repeat, and binop handling.
+
+
+Additional Work: I also added additional debugging flags and added extra functions to check whether or not tokens have specific properties in a faster and efficient manner. I also covered every possible case of the binop handling, for all possible combinations of assignments, identifiers, and number values.
+
+----------------------------------------------------------------
+
+Assignment: Parser Part A
+Date: 3/13/15
+
+I implemented the applicable grammar for the input file trivb.pas. This involved handling the program definition, the variable storage into the symbol table, and the handling of statements and the for loop. Additionally, I implemented several functions that were called by the grammar. I wrote the following functions:
+
+copytok - used to make a copy of a token into a new token
+makeintc - used to create a token with a number as its value
+makeprogram - used to setup the program token so that the output could be printed properly
+makeprogn - used to setup the progn operators to match the tree output that was given
+makefuncall - used to deal with the funcall operator and call functions 
+makefor - used to handle the for loops and ensure that the iterations would be shown properly in the output tree
+makegoto - used to create the goto token that would link the label so that the for loop can continue looping
+makelabel - used to help create the connection to goto so that the for loop can jump back to the label and continue the process
+makeop - used to create the tokens for operators and establish the connection between operators and operands
+findid - used to search the symbol table for a specific id for the linking between the parsing and the symbol table
+findtype - used to establish type pointers in the symbol table for setting up the variables
+instvars - used to initialize the variables at the very beginning of the program

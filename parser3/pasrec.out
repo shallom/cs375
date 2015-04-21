@@ -1,0 +1,520 @@
+ token 32397904  NUM         1492  dtype  0  link 0
+ token 32398032  NUM         1776  dtype  0  link 0
+cons
+ token 32398416  ID            re  dtype  0  link 32398544
+ token 32398544  ID            im  dtype  0  link 0
+instfields
+ token 32398416  ID            re  dtype  0  link 32398544
+ token 32398672  ID          real  dtype  0  link 0
+ token 0  NULL
+ONE CASE RECORD WORKING
+instrec
+ token 32398352  typ  2  whic  20  dty   0  sty 32398992 lnk 0  opnds 0
+ token 32398416  ID            re  dtype  0  link 32398544
+TYPE : RECORDSET
+insttype
+ token 32398224  ID       complex  dtype  0  link 0
+ token 32398352  typ  2  whic  20  dty   0  sty 32398992 lnk 0  opnds 0
+TYPE ITEM WORKED
+cons
+ token 32399568  ID         white  dtype  0  link 32399696
+ token 32399696  ID          blue  dtype  0  link 0
+cons
+ token 32399440  ID           red  dtype  0  link 32399568
+ token 32399568  ID         white  dtype  0  link 32399696
+ token 32399824  NUM            0  dtype  0  link 0
+ token 32399984  NUM            1  dtype  0  link 0
+ token 32400144  NUM            2  dtype  0  link 0
+copytok
+ token 32400304  ID           red  dtype  0  link 32399568
+makesubrng
+ token 32399440  ID           red  dtype  0  link 32399568
+ token 32400304  ID           red  dtype  0  link 32399568
+ low bound: 0
+ high bound: 2
+
+ENUM
+insttype
+ token 32399248  ID         color  dtype  0  link 0
+ token 32400304  ID           red  dtype  0  link 32399568
+TYPE ITEM WORKED
+instpoint
+ token 32400752  OP             ^  dtype  0  link 0  operands 0
+ token 32400816  ID        person  dtype  0  link 0
+insttype
+ token 32400624  ID            pp  dtype  0  link 0
+ token 32400752  OP             ^  dtype  4  link 0  operands 0
+TYPE ITEM WORKED
+instfields
+ token 32401424  ID           age  dtype  0  link 0
+ token 32401552  ID       integer  dtype  0  link 0
+ token 0  NULL
+instfields
+ token 32401776  ID        friend  dtype  0  link 0
+ token 32401904  ID            pp  dtype  0  link 0
+ token 0  NULL
+instfields
+ token 32402128  ID      location  dtype  0  link 0
+ token 32402256  ID       complex  dtype  0  link 0
+ token 0  NULL
+instfields
+ token 32402480  ID      favorite  dtype  0  link 0
+ token 32402608  ID         color  dtype  0  link 0
+ token 0  NULL
+instfields
+ token 32402832  ID        salary  dtype  0  link 0
+ token 32402960  ID          real  dtype  0  link 0
+ token 0  NULL
+ONE CASE RECORD WORKING
+cons
+ token 32402480  ID      favorite  dtype  0  link 32402832
+ token 32402832  ID        salary  dtype  0  link 0
+cons
+ token 32402128  ID      location  dtype  0  link 32402480
+ token 32402480  ID      favorite  dtype  0  link 32402832
+cons
+ token 32401776  ID        friend  dtype  0  link 32402128
+ token 32402128  ID      location  dtype  0  link 32402480
+cons
+ token 32401424  ID           age  dtype  0  link 32401776
+ token 32401776  ID        friend  dtype  0  link 32402128
+instrec
+ token 32401360  typ  2  whic  20  dty   0  sty 32403184 lnk 0  opnds 0
+ token 32401424  ID           age  dtype  0  link 32401776
+TYPE : RECORDSET
+insttype
+ token 32401232  ID        person  dtype  0  link 0
+ token 32401360  typ  2  whic  20  dty   0  sty 32403184 lnk 0  opnds 0
+TYPE ITEM WORKED
+cons
+ token 32403408  ID             c  dtype  0  link 32403536
+ token 32403536  ID             d  dtype  0  link 0
+instvars
+ token 32403664  ID       complex  dtype  0  link 0
+ token 32403408  ID             c  dtype  0  link 32403536
+ token 32403664  ID       complex  dtype  0  link 0
+ token 32403536  ID             d  dtype  0  link 0
+ token 32403664  ID       complex  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+cons
+ token 32403984  ID             i  dtype  0  link 32404112
+ token 32404112  ID           sum  dtype  0  link 0
+instvars
+ token 32404240  ID       integer  dtype  0  link 0
+ token 32403984  ID             i  dtype  0  link 32404112
+ token 32404240  ID       integer  dtype  0  link 0
+ token 32404112  ID           sum  dtype  0  link 0
+ token 32404240  ID       integer  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+copytok
+ token 32405072  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+makesubrng
+ token 32404880  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32405072  typ  1  whic   8  dty   0  sty 32405136 lnk 0  opnds 0
+ low bound: 1
+ high bound: 10
+
+instdotdot
+ token 32404816  NUM            1  dtype  0  link 0
+ token 32404880  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32404944  NUM           10  dtype  0  link 0
+CURRENT_SIZE 160
+CURRENT SIZE 10
+instdotdot
+ token 32405072  typ  1  whic   8  dty   0  sty 32405136 lnk 0  opnds 0
+ token 32405296  ID       complex  dtype  0  link 0
+instvars
+ token 32405296  ID       complex  dtype  0  link 0
+ token 32404560  ID            ac  dtype  0  link 0
+ token 32405296  ID       complex  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ARRAY WORKS
+copytok
+ token 32406192  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+makesubrng
+ token 32405936  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
+ low bound: 1
+ high bound: 10
+
+instdotdot
+ token 32405872  NUM            1  dtype  0  link 0
+ token 32405936  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32406000  NUM           10  dtype  0  link 0
+cons
+ token 32406128  ID         color  dtype  0  link 32406192
+ token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
+CURRENT_SIZE 4
+CURRENT SIZE 1
+ARRAY SYM SIZE 0
+PREVIOUS SIZE 4
+CURRENT SIZE 10
+ token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
+TYPESYM SIZE 4
+instdotdot
+ token 32406128  ID         color  dtype  0  link 32406192
+ token 32406480  ID         color  dtype  0  link 0
+instvars
+ token 32406480  ID         color  dtype  0  link 0
+ token 32405616  ID           aco  dtype  0  link 0
+ token 32406480  ID         color  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
+ARRAY WORKS
+cons
+ token 32407152  ID          fred  dtype  0  link 32407280
+ token 32407280  ID           ptr  dtype  0  link 0
+cons
+ token 32407024  ID          mary  dtype  0  link 32407152
+ token 32407152  ID          fred  dtype  0  link 32407280
+cons
+ token 32406896  ID          john  dtype  0  link 32407024
+ token 32407024  ID          mary  dtype  0  link 32407152
+instvars
+ token 32407408  ID            pp  dtype  0  link 0
+ token 32406896  ID          john  dtype  0  link 32407024
+ token 32407408  ID            pp  dtype  0  link 0
+ token 32407024  ID          mary  dtype  0  link 32407152
+ token 32407408  ID            pp  dtype  0  link 0
+ token 32407152  ID          fred  dtype  0  link 32407280
+ token 32407408  ID            pp  dtype  0  link 0
+ token 32407280  ID           ptr  dtype  0  link 0
+ token 32407408  ID            pp  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
+ 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+(^ person)
+ 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+(^ person)
+ 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+(^ person)
+ 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+(^ person)
+copytok
+ token 32408432  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+makesubrng
+ token 32408240  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32408432  typ  1  whic   8  dty   0  sty 32408496 lnk 0  opnds 0
+ low bound: 1
+ high bound: 20
+
+instdotdot
+ token 32408176  NUM            1  dtype  0  link 0
+ token 32408240  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 32408304  NUM           20  dtype  0  link 0
+CURRENT_SIZE 960
+CURRENT SIZE 20
+instdotdot
+ token 32408432  typ  1  whic   8  dty   0  sty 32408496 lnk 0  opnds 0
+ token 32408656  ID        person  dtype  0  link 0
+instvars
+ token 32408656  ID        person  dtype  0  link 0
+ token 32407920  ID        people  dtype  0  link 0
+ token 32408656  ID        person  dtype  0  link 0
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
+ 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+(^ person)
+ 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+(^ person)
+ 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+(^ person)
+ 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+(^ person)
+ 32408816      people  VAR    0 typ 32408720  lvl  1  siz   960  off   288
+(ARRAY   1 ..  20 (RECORD (age integer)
+                          (friend (^ person))
+                          (location (RECORD (re real)
+                                            (im real)))
+                          (favorite   0 ..   2)
+                          (salary real)))
+ARRAY WORKS
+makefuncall
+ token 32409296  OP       funcall  dtype  0  link 0  operands 32409040
+ token 32409040  ID           new  dtype  0  link 32409168
+ token 32409168  ID          john  dtype  4  link 0
+makefuncall
+ token 32409680  OP       funcall  dtype  0  link 0  operands 32409424
+ token 32409424  ID           new  dtype  0  link 32409552
+ token 32409552  ID          mary  dtype  4  link 0
+makefuncall
+ token 32410064  OP       funcall  dtype  0  link 0  operands 32409808
+ token 32409808  ID           new  dtype  0  link 32409936
+ token 32409936  ID          fred  dtype  4  link 0
+Symbol table level 0
+ 32374800        real  BASIC  basicdt   1          siz     8
+ 32374896     integer  BASIC  basicdt   0          siz     4
+ 32374992        char  BASIC  basicdt   2          siz     1
+ 32375088     boolean  BASIC  basicdt   3          siz     4
+ 32375184         exp  knd 5 0  typ 32375280  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32375472       trexp  knd 5 0  typ 32375568  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32375760         sin  knd 5 0  typ 32375856  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32376048         cos  knd 5 0  typ 32376144  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32376336       trsin  knd 5 0  typ 32376432  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32376624        sqrt  knd 5 0  typ 32376720  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32376912       round  knd 5 0  typ 32377008  lvl  0  siz     0  off     0
+(FUNCTION real
+          real)
+ 32377200      iround  knd 5 0  typ 32377296  lvl  0  siz     0  off     0
+(FUNCTION integer
+          real)
+ 32377488         ord  knd 5 0  typ 32377584  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 32377776         new  knd 5 0  typ 32377872  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 32378064       trnew  knd 5 0  typ 32378160  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 32378352       write  knd 5 0  typ 32378448  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 32378640     writeln  knd 5 0  typ 32378736  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          char)
+ 32378928      writef  knd 5 0  typ 32379024  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 32379216    writelnf  knd 5 0  typ 32379312  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          real)
+ 32379504      writei  knd 5 0  typ 32379600  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 32379792    writelni  knd 5 0  typ 32379888  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          integer)
+ 32380080        read  knd 5 0  typ 32380176  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 32380368      readln  knd 5 0  typ 32380464  lvl  0  siz     0  off     0
+(FUNCTION NULL
+          NULL)
+ 32380656         eof  knd 5 0  typ 32380752  lvl  0  siz     0  off     0
+(FUNCTION boolean
+          NULL)
+Symbol table level 1
+ 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32399888         red  CONST  typ INTEGER  val  0
+ 32400048       white  CONST  typ INTEGER  val  1
+ 32400208        blue  CONST  typ INTEGER  val  2
+ 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+  0 ..   2
+ 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+(RECORD (age integer)
+        (friend (^ person))
+        (location (RECORD (re real)
+                          (im real)))
+        (favorite   0 ..   2)
+        (salary real))
+ 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+(^ person)
+ 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+(RECORD (re real)
+        (im real))
+ 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+(RECORD (re real)
+        (im real))
+ 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+(ARRAY   1 ..  10 (RECORD (re real)
+                          (im real)))
+ 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
+ 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+(^ person)
+ 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+(^ person)
+ 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+(^ person)
+ 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+(^ person)
+ 32408816      people  VAR    0 typ 32408720  lvl  1  siz   960  off   288
+(ARRAY   1 ..  20 (RECORD (age integer)
+                          (friend (^ person))
+                          (location (RECORD (re real)
+                                            (im real)))
+                          (favorite   0 ..   2)
+                          (salary real)))
+yyparse result =        1
+ token 0  NULL
+ppexpr called with bad pointer 0
