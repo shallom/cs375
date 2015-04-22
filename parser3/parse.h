@@ -9,8 +9,10 @@ int isReal(TOKEN tok);
 int isInteger(TOKEN tok);
 
 int isInteger(TOKEN tok);
-
-
+/* Gets and returns the last TOKEN (in)directly
+   connected via ->link to TOKEN tok. Mostly used 
+   to handle elimination of nested progns. */
+TOKEN get_last_link(TOKEN tok);
 /* cons links a new item onto the front of a list.  Equivalent to a push.
    (cons 'a '(b c))  =  (a b c)    */
 TOKEN cons(TOKEN item, TOKEN list);

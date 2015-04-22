@@ -50,6 +50,7 @@
 #include "lexan.h"
 #include "symtab.h"
 #include "parse.h"
+#include <float.h>
 
         /* define the type of the Yacc stack element to be TOKEN */
 
@@ -77,135 +78,249 @@ TOKEN parseresult;
 
 %%
 
-  program    : PROGRAM IDENTIFIER LPAREN IDENTIFIER RPAREN SEMICOLON prebegin statement DOT { parseresult = makeprogram($2, $4, $8); }
-             ;
-
-  prebegin   : variables                       { $$ = NULL;  }
-             | constants prebegin              { $$ = NULL;  }
-             | labels prebegin                 { $$ = NULL;  }
-             | types prebegin                  { $$ = NULL;  }
-             ;
-
-  labels     : LABEL label                     { $$ = NULL; }
-             ;
-
-  label      : labelinst COMMA label           { $$ = NULL; }
-             | labelinst SEMICOLON             { $$ = NULL; }
-             ;
-
-  labelinst  : NUMBER                          { $$ = NULL; dbugprinttok($1);  }
-
-  types      : TYPE typelist                   { $$ = NULL; }
-             ;
-
-  typelist   : typeItem SEMICOLON typelist     { $$ = NULL; }
-             | typeItem SEMICOLON              { $$ = NULL; }
-             ;
-
-  typeItem   : IDENTIFIER EQ type              { insttype($1, $3); printf("TYPE ITEM WORKED\n"); }
-             ;
-
-  type       : RECORD recordSet END            { $$ = instrec($1, $2); printf("TYPE : RECORDSET\n"); }
-             | LPAREN idlist RPAREN            { $$ = instenum($2); printf("ENUM\n"); } // instenum($2)
-             | POINT IDENTIFIER                { $$ = instpoint($1, $2); }
-             ;
-
-  idlist    : IDENTIFIER COMMA idlist                 { $$ = cons($1, $3); }
-            | IDENTIFIER                              { $$ = $1; }
+  program     : 
+          PROGRAM IDENTIFIER LPAREN idlist RPAREN SEMICOLON lblock DOT
+                          { parseresult = makeprogram($2, $4, $7); }
             ;
 
-  recordSet  : recordLine                      { $$ = $1; printf("ONE CASE RECORD WORKING\n"); } 
-             | recordLine SEMICOLON recordSet  { $$ = cons($1, $3); }
-             ;
+    statement : 
+            NUMBER COLON statement      { $$ = dolabel($1, $2, $3); }
+          | assignment            { $$ = $1; }
 
-  recordLine : recordNames COLON recordType    { instfields($1, findtype($3));}      
-             ;
-  recordNames: IDENTIFIER COMMA recordNames    { $$ = cons($1, $3); }   
-             | IDENTIFIER                      {  $$ = ($1); }
-             ;
-  recordType : IDENTIFIER                      {  $$ = ($1);  }
-             ;
+          | IDENTIFIER LPAREN 
+            argslist RPAREN         { $$ = makefuncall($2, $1, $3); }
 
-  constants  : CONST constant                  { $$ = NULL; }
-             ;
-  constant   : constinst SEMICOLON constant    { $$ = NULL; }
-             | constinst SEMICOLON             { $$ = NULL; }
-             ;
+            | BEGINBEGIN statement endpart    { $$ = makepnb($1, cons($2, $3)); }
+            | IF expr THEN statement endif    { $$ = makeif($1, $2, $4, $5); }
+            | WHILE expr DO statement     { $$ = makewhile($1, $2, $3, $4); }
+            | REPEAT stmtlist UNTIL expr    { $$ = makerepeat($1, $2, $3, $4); }
 
-  constinst  : IDENTIFIER EQ NUMBER            { instconst($1, $3);}
-             ;
-  equalsNum  : IDENTIFIER EQ NUMBER            { $$ = binop($2, $1, $3);  }
-             ;
-  variables  : VAR varSet                      { $$ = NULL; }
-             ;
+            | FOR assignment TO expr 
+              DO statement          { $$ = makefor(1, $1, $2, $3, $4, $5, $6); }
 
-  varSet     : varLine SEMICOLON               { $$ = NULL; } 
-             | varLine SEMICOLON varSet        { $$ = NULL; }
-             ;
+            | FOR assignment DOWNTO 
+              expr DO statement       { $$ = makefor(-1, $1, $2, $3, $4, $5, $6); }
 
-  varLine    : varNames COLON varType          { instvars($1, findtype($3)); }
-             | varNames COLON ARRAY LBRACKET btwbrackets RBRACKET OF IDENTIFIER
-                                               { instvars($1, instarray($5, findtype($8))); printf("ARRAY WORKS\n"); }
-             ;
-  btwbrackets: NUMBER DOTDOT NUMBER COMMA IDENTIFIER 
-                                               { $$ = cons(findtype($5), instdotdot($1, $2, $3)); }
-             | NUMBER DOTDOT NUMBER            { $$ = instdotdot($1, $2, $3); }
-             ;
-  varNames   : IDENTIFIER COMMA varNames       { $$ = cons($1, $3); }
-             | IDENTIFIER                      { $$ = ($1); }
-             ;
-  varType    : IDENTIFIER                      { $$ = $1; }
-             ;
-
-  var       : IDENTIFIER                              { $$ = findid($1); }
-            | var DOT IDENTIFIER                      { $$ = reducedot($1, $2, $3); } //
-            // | mergebracks
-            | var POINT                               { $$ = dopoint($1, $2); } // 
+            | GOTO NUMBER           { $$ = dogoto($1, $2); }
+            | /* empty */           { $$ = NULL; }
             ;
 
-  statement  :  BEGINBEGIN statement endpart   {  $$ = makeprogn($1,nconc($2, $3));  }
-             |  stateLine SEMICOLON statement  {  $$ = cons($1, $3); }
-             |  stateLine                      {  $$ = $1;  }
-             ;
+  stmtlist  : 
+          statement SEMICOLON stmtlist    { $$ = cons($1, $3); }
+        | statement             { $$ = $1; }
+        ;
 
-  stateLine  :  IF expr THEN statement endif   { $$ = makeif($1, $2, $4, $5); }
-             |  forLoop                        { $$ = $1;  }
-             |  funcCall                       { $$ = $1; }
-             |  assignment                     { $$ = $1;  }
-             |  repeatuntil                    { $$ = $1; }
-             |  NUMBER COLON statement         { $$ = dolabel($1, $2, $3); }
-             ;
-  repeatuntil:  REPEAT statement UNTIL equalsNum { $$ = makerepeat((TOKEN) talloc(), $2, (TOKEN) talloc(), $4); }
-             ;
+  idlist    : 
+          IDENTIFIER COMMA idlist     { $$ = cons($1, $3); }
+        | IDENTIFIER            { $$ = cons($1, NULL); }
+        ;
 
-  funcCall   : IDENTIFIER LPAREN expr RPAREN   { $$ = makefuncall((TOKEN) talloc(), findid($1), $3); }
-             ; 
-  forLoop    :  FOR assignment TO IDENTIFIER DO statement { $$ = makefor(1, (TOKEN) talloc(), $2, findid($4), NULL, NULL, $6); }
-             ;
-  endpart    :  SEMICOLON statement endpart    { $$ = cons($2, $3); }
-             |  END                            { $$ = NULL; }
-             ;
-  endif      :  ELSE statement                 { $$ = $2; }
-             |  /* empty */                    { $$ = NULL; }
-             ;
-  assignment :  factor ASSIGN expr         { $$ = binop($2, $1, $3); }
-             ;
+  argslist  : 
+          expr COMMA argslist       { $$ = cons($1, $3); }
+        | expr                { $$ = cons($1, NULL); }
+        ;
 
-  expr       :  MINUS term                     { $$ = unaryop($1, $2); }
-             |  expr MINUS term                { $$ = binop($2, $1, $3); }
-             |  expr PLUS term                 { $$ = binop($2, $1, $3); }
-             |  term                           { $$ = $1; }
-             ;
-  term       :  term TIMES factor              { $$ = binop($2, $1, $3); }
-             |  factor                         { $$ = $1; }
-             ;
+  lblock    : 
+          LABEL llist SEMICOLON cblock    { $$ = $4; } // lblock -> cblock -> tblock -> vblock -> block
+        | cblock              { $$ = $1; }
+        ;
 
-  factor     :  LPAREN expr RPAREN             { $$ = $2; }
-             | var                             { $$ = $1; }
-             |  NUMBER                         { $$ = $1; }                          
-             |  STRING                         { $$ = $1; }
-             |  funcCall                       { $$ = $1; }           
-             ;
+  cblock    : 
+          CONST clist tblock        { $$ = $3; }
+        | tblock              { $$ = $1; }
+        ;
+
+  tblock    : 
+          TYPE tspecs vblock        { $$ = $3; }
+        | vblock              { $$ = $1; }
+        ;
+
+  vblock    : 
+          VAR varspecs block        { $$ = $3; }
+        | block               { $$ = $1; }
+        ;
+  
+  block   : 
+          PROCEDURE IDENTIFIER paramlist 
+          SEMICOLON block SEMICOLON   { $$ = $1; }
+
+        | FUNCTION IDENTIFIER paramlist 
+          COLON IDENTIFIER SEMICOLON 
+          block SEMICOLON         { $$ = $1; }
+
+        | BEGINBEGIN statement endpart    { $$ = makepnb($1, cons($2, $3)); }
+        ;
+
+  paramlist : 
+          LPAREN paramgroup         { $$ = $1; }
+        | /* empty */           { $$ = NULL; }
+        ;
+
+  paramgroup  : 
+          idlist COLON IDENTIFIER RPAREN  { $$ = cons($1, $3); }
+
+        | idlist COLON IDENTIFIER 
+          SEMICOLON paramgroup      { $$ = cons($1, $3); }
+
+        | FUNCTION idlist COLON 
+          IDENTIFIER RPAREN       { $$ = cons($2, $4); }
+
+        | FUNCTION idlist COLON IDENTIFIER
+          SEMICOLON paramgroup      { $$ = cons($2, $4); }
+
+        | VAR idlist COLON 
+          IDENTIFIER RPAREN       { $$ = cons($2, $4); }
+
+        | VAR idlist COLON IDENTIFIER 
+          SEMICOLON paramgroup      { $$ = cons($2, $4); }
+
+        | PROCEDURE idlist RPAREN     { $$ = $2; }
+        | PROCEDURE idlist SEMICOLON 
+          paramgroup            { $$ = $2; }
+        ;
+
+  llist   : 
+          NUMBER COMMA llist        { instlabel($1); /* $$ = cons($1, $3); */ }
+        | NUMBER              { instlabel($1); }
+        ;
+
+  clist   : 
+          IDENTIFIER EQ NUMBER 
+          SEMICOLON clist         { instconst($1, $3); }
+
+        | IDENTIFIER EQ NUMBER SEMICOLON  { instconst($1, $3); }
+        ;
+
+  tspecs    : 
+          tgroup SEMICOLON tspecs     { $$ = $3; }
+        | tgroup SEMICOLON          { $$ = $1; }
+        ; 
+
+  tgroup    : 
+          IDENTIFIER EQ type        { insttype($1, $3); }
+        ;
+
+  varspecs  : 
+          vargroup SEMICOLON varspecs   { $$ = $3; }
+        | vargroup SEMICOLON        { $$ = $1; }
+        ;
+
+  vargroup  : 
+          idlist COLON type         { instvars($1, $3); }
+        ;
+
+    endpart   : 
+            SEMICOLON statement endpart     { $$ = cons($2, $3); }
+            | END                             { $$ = NULL; }
+            ;
+             
+    endif   : 
+            ELSE statement                  { $$ = $2; }
+            | /* empty */                     { $$ = NULL; }
+            ;
+
+    assignment  : 
+            factor ASSIGN expr            { $$ = binop($2, $1, $3); }
+          ;
+
+    var     : 
+            IDENTIFIER            { $$ = findid($1); }
+          | var DOT IDENTIFIER        { $$ = reducedot($1, $2, $3); }
+          | mergebracks
+          | var POINT             { $$ = dopoint($1, $2); }
+          ;
+
+    mergebracks :
+            IDENTIFIER mergelist        { $$ = arrayref($1, NULL, $2, NULL); }
+          ;
+
+    mergelist :
+            LBRACKET argslist RBRACKET    { $$ = $2; }
+
+          | LBRACKET argslist 
+            RBRACKET mergelist        { $$ = nconc($2, $4); }
+          ;
+
+  fieldlist : 
+          idlist COLON type         { instfields($1, $3); }
+
+        | idlist COLON type 
+          SEMICOLON fieldlist       { instfields($1, $3); $$ = nconc($1, $5); }
+        
+        | /* empty */           { $$ = NULL; }
+        ;
+        
+  type    : 
+          simpletype            { $$ = $1; }
+        | POINT IDENTIFIER          { $$ = instpoint($1, $2); }
+
+        | ARRAY LBRACKET simplelist 
+          RBRACKET OF type        { $$ = instarray($3, $6); }
+
+        | RECORD fieldlist END        { $$ = instrec($1, $2); }
+        ;
+
+  simpletype  : 
+          IDENTIFIER            { $$ = findtype($1); }
+        | LPAREN idlist RPAREN        { $$ = instenum($2); }
+        | NUMBER DOTDOT NUMBER        { $$ = instdotdot($1, $2, $3); }
+        ;
+
+  simplelist  : 
+          simpletype COMMA simplelist   { $$ = cons($3, $1); } // $$ = cons($1, $3);
+        | simpletype            { $$ = $1; }
+        ;
+         
+    expr    : 
+            simpexpr EQ simpexpr        { $$ = binop($2, $1, $3); }
+          | simpexpr LT simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr GT simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr NE simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr LE simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr GE simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr IN simpexpr        { $$ = binop($2, $1, $3); }
+            | simpexpr              { $$ = $1; }
+            ;
+
+  simpexpr  : 
+          unaryexpr PLUS term       { $$ = binop($2, $1, $3); }
+        | unaryexpr MINUS term        { $$ = binop($2, $1, $3); }
+        | unaryexpr OR term         { $$ = binop($2, $1, $3); }
+        | unaryexpr             { $$ = $1; }
+        ;
+
+  unaryexpr : 
+          PLUS term             { $$ = unaryop($1, $2); }
+        | MINUS term            { $$ = unaryop($1, $2); }
+        | term                { $$ = $1; }
+        ;
+    
+    term    : 
+            factor TIMES factor               { $$ = binop($2, $1, $3); }
+          | factor DIVIDE factor              { $$ = binop($2, $1, $3); }
+          | factor DIV factor               { $$ = binop($2, $1, $3); }
+          | factor MOD factor               { $$ = binop($2, $1, $3); }
+          | factor AND factor               { $$ = binop($2, $1, $3); }
+            | factor              { $$ = $1; }
+            ;
+             
+    factor    : 
+            NUMBER              { $$ = $1; }
+          | var               { $$ = $1; }
+          | IDENTIFIER LPAREN argslist RPAREN { $$ = makefuncall($2, $1, $3); }
+          | LPAREN expr RPAREN              { $$ = $2; }
+          | NOT factor            { $$ = unaryop($1, $2); }
+            | LBRACKET factorlist RBRACKET    { $$ = $2; }
+            | STRING              { $$ = $1; }
+            | NIL               { $$ = $1; }
+            ;
+
+  factorlist  :
+          expr                { $$ = $1; }
+        | expr DOTDOT expr          { $$ = instdotdot($1, $2, $3); }
+        | expr DOTDOT expr COMMA factorlist { $$ = instdotdot($1, $2, $3); }
+        | /* empty */           { $$ = NULL; }
+        ;
 
   // printDebug : IDENTIFIER   {printf("%s\n", yylval->stringval);}
   //            ;
@@ -247,8 +362,14 @@ TOKEN parseresult;
 #define DB_DOPOINT     1
 #define DB_REDUCEDOT   1
 #define DB_MAKEAREF    1
-#define DB_DOLABEL    1
-
+#define DB_DOLABEL     1
+#define DB_ARRAYREF    1
+#define DB_MAKEPLUS    1
+#define DB_ADDINT      1
+#define DB_MAKEPNB     1
+#define DB_MAKEWHILE   1
+#define DB_DOGOTO      1
+#define DB_FINDTYPE    1
 
 
  int labelnumber = 0;  /* sequential counter for internal label numbers */
@@ -286,6 +407,58 @@ TOKEN nconc(TOKEN lista, TOKEN listb)
     return lista;
   }
 
+
+/* makeplus makes a + operator.
+   tok (if not NULL) is a (now) unused token that is recycled. */
+TOKEN makeplus(TOKEN lhs, TOKEN rhs, TOKEN tok) {
+
+  if (DEBUG & DB_MAKEPLUS) {
+    printf("In makeplus()\n");
+    dbugprinttok(lhs);
+    dbugprinttok(rhs);
+    dbugprinttok(tok);    
+  }
+
+  TOKEN out = makeop(PLUSOP);
+  if (lhs && rhs) {
+    out->operands = lhs;
+    lhs->link = rhs;
+    rhs->link = NULL;
+  }
+  
+  if (DEBUG & DB_MAKEPLUS) {
+    printf(" Finished makeplus().\n");
+    dbugprinttok(out);
+  }
+
+  return out;
+}
+
+/* addint adds integer off to expression exp, possibly using tok */
+TOKEN addint(TOKEN exp, TOKEN off, TOKEN tok) {
+  if (!exp || !off) {
+    return NULL;
+  }
+
+  int a = exp->intval;
+  int b = off->intval;
+  
+  if (DEBUG & DB_ADDINT) {
+    printf("In addint()\n Adding %d to %d\n", b, a);
+    dbugprinttok(exp);
+    dbugprinttok(off);
+    dbugprinttok(tok);
+  }
+
+  exp->intval = a + b;
+  
+  if (DEBUG & DB_ADDINT) {
+    printf(" New value of exp: %d\n", exp->intval);
+    dbugprinttok(exp);
+  }
+  
+  return exp;
+}
 
 /* unaryop links a unary operator op to one operand, lhs */
 TOKEN unaryop(TOKEN op, TOKEN lhs) {
@@ -335,7 +508,15 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
   { op->operands = lhs;          /* link operands to operator       */
     lhs->link = rhs;             /* link second operand to first    */
     rhs->link = NULL;            /* terminate operand list          */
-    
+
+  /* If rhs represents nil, convert rhs to
+     an INTEGER NUMBERTOK with ->whichval = 0. */
+  if (rhs->whichval == (NIL - RESERVED_BIAS)) {
+    rhs->tokentype = NUMBERTOK;
+    rhs->datatype = INTEGER;
+    rhs->whichval = 0;
+  }
+
     if (isIdentifier(lhs)) {
       if (isIdentifier(rhs)) {
         if (isReal(lhs) && isReal(rhs)) {
@@ -352,6 +533,7 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
             lhs->link = fix_tok;
           }
           else {
+
             op->datatype = REAL;
             TOKEN float_tok = makeop(FLOATOP);
             float_tok->operands = lhs;
@@ -404,13 +586,18 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
         }
       }
       else {
+
         if ((lhs->datatype == REAL) && (rhs->datatype == REAL)) {
+          printf("BOTH REAL\n");
           op->datatype = REAL;
         } else if ((lhs->datatype == REAL) && (rhs->datatype == INTEGER)) {
+          printf("REAL AND INTEGER\n");
           op->datatype = REAL;
           rhs->datatype = REAL;
           rhs->realval = (double) rhs->intval;
-        } else if ((lhs->datatype == INTEGER) && (rhs->datatype == REAL)) {
+        } else if ((lhs->datatype == INTEGER) && (rhs->datatype == REAL) && (lhs->whichval != AREFOP)) {
+          printf("INTEGER AND REAL\n");
+
           op->datatype = REAL;
           lhs->datatype = REAL;
           lhs->realval = (double) lhs->intval;
@@ -426,6 +613,119 @@ TOKEN binop(TOKEN op, TOKEN lhs, TOKEN rhs)        /* reduce binary operator */
        };
     return op;
   }
+
+/* arrayref processes an array reference a[i]
+   subs is a list of subscript expressions.
+   tok and tokb are (now) unused tokens that are recycled. */
+TOKEN arrayref(TOKEN arr, TOKEN tok, TOKEN subs, TOKEN tokb) {
+  if (DEBUG & DB_ARRAYREF) {
+    printf("In arrayref()\n");
+    dbugprinttok(arr); 
+    dbugprinttok(tok);
+    dbugprinttok(subs);
+    dbugprinttok(tokb);
+  }
+
+  TOKEN array_ref = NULL;
+  SYMBOL arr_varsym, typesym, temp;
+  SYMBOL arrsyms[10];
+
+  arr_varsym = searchst(arr->stringval);
+
+  if (!arr_varsym) {
+    printf(" Error: array \"%s\" not found in symbol table, arrayref().\n", arr->stringval);
+    return NULL;
+  }
+
+  temp = arr_varsym->datatype;
+
+  int counter = 0;
+  int num_arr_dims = 0; // not being used for anything
+
+  while (temp && temp->kind != TYPESYM) {
+    arrsyms[counter] = temp;
+    num_arr_dims++;
+    counter++;
+    temp = temp->datatype;
+  }
+
+  typesym = temp;
+
+  if (subs->link == NULL && subs->tokentype == NUMBERTOK) {
+    int total_size = (subs->whichval - 1) * typesym->size;
+    array_ref = makearef(arr, makeintc(total_size), NULL);
+    array_ref->datatype = arr_varsym->basicdt;
+    return array_ref;
+  }
+  // else if tokentype is IDENTIFIER?
+
+  counter = 0;
+  TOKEN curr_sub = subs;
+
+  while (curr_sub) {
+
+    if (counter == 0) {
+      SYMBOL curr_sym = arrsyms[counter];
+      int curr_size = curr_sym->size / (curr_sym->highbound - curr_sym->lowbound + 1);
+
+      // TOKEN mul_op = maketimes(makeintc(curr_size), curr_sub, NULL);
+
+      TOKEN mul_op = makeop(TIMESOP);
+      TOKEN pos_typesym_size = makeintc(curr_size);
+      TOKEN neg_typesym_size = makeintc(curr_size * -1);
+
+      mul_op->operands = pos_typesym_size;
+      pos_typesym_size->link = curr_sub;
+
+      neg_typesym_size->link = mul_op;
+
+      TOKEN plus_op = makeplus(neg_typesym_size, mul_op, NULL);
+
+      array_ref = makearef(arr, plus_op, NULL);
+      array_ref->datatype = arr_varsym->basicdt;
+
+    }
+    else {
+
+      if (curr_sub->tokentype == NUMBERTOK) {   // only integers for now
+        array_ref->operands->link->operands = addint(array_ref->operands->link->operands, 
+          makeintc(curr_sub->whichval * typesym->size), NULL);
+      }
+      else {
+
+        SYMBOL curr_sym = arrsyms[counter];
+        int curr_size = curr_sym->size / (curr_sym->highbound - curr_sym->lowbound + 1);
+
+        TOKEN mul_op = makeop(TIMESOP);
+        TOKEN pos_typesym_size = makeintc(curr_size);
+        TOKEN neg_typesym_size = makeintc(curr_size * -1);
+
+        mul_op->operands = pos_typesym_size;
+        pos_typesym_size->link = curr_sub;
+
+        array_ref->operands->link->operands = addint(array_ref->operands->link->operands,
+          neg_typesym_size, NULL);
+
+        TOKEN add_to = array_ref->operands->link->operands->link;
+        TOKEN plus_op = makeplus(add_to, mul_op, NULL);
+        array_ref->operands->link->operands->link = plus_op;
+
+      }
+    }
+
+    TOKEN unlink = curr_sub;
+    curr_sub = curr_sub->link;
+    unlink->link = NULL;
+    counter++;
+  }
+
+  if (DEBUG & DB_ARRAYREF) {
+    printf(" Finished arrayref().\n");
+    dbugprinttok(array_ref);
+  } 
+  
+  return array_ref;
+}
 
 /* makerepeat makes structures for a repeat statement.
    tok and tokb are (now) unused tokens that are recycled. */
@@ -539,13 +839,125 @@ TOKEN makeprogn(TOKEN tok, TOKEN statements)
      return tok;
    }
 
+// assumes fn is always a write() or writeln() function
+// does not do cross-conversions (e.g., send in writelnf() to convert to writelni())
+// identifier datatypes?
+TOKEN write_fxn_args_type_check(TOKEN fn, TOKEN args) {
+
+  if (args->datatype == STRINGTYPE) {
+    return fn;
+  }
+
+  TOKEN out = NULL;
+
+  SYMBOL fn_sym = searchst(fn->stringval);
+  if (!fn_sym) {
+    printf(" Error: function \"%s\" is not defined.\n", fn->stringval);
+    return out;
+  }
+
+  int fn_arg_type = fn_sym->datatype->link->basicdt;
+  int args_type = args->datatype;
+  printf("ARGS SYMTYPE\n");
+  printsymbol(args->symtype);
+  // if (args->symtype) {
+  //   args_type = args->symtype->basicdt;
+  // }
+
+  if (args_type == STRINGTYPE) {
+    out = fn;
+  }
+  else {
+
+    int replace_index = 5;
+    if (strcmp(fn->stringval, "writeln") == 0) {
+      replace_index = 7;
+    }
+
+    if (strcmp(fn->stringval, "write") == 0) {
+
+      if (args_type == INTEGER) {
+        fn->stringval[replace_index] = 'i';
+        fn->stringval[replace_index + 1] = '\0';
+        out = fn;
+      }
+      else if (args_type == REAL) {
+        fn->stringval[replace_index] = 'f';
+        fn->stringval[replace_index + 1] = '\0';
+        out = fn;       
+      }
+
+    }
+    else if (strcmp(fn->stringval, "writeln") == 0) {
+
+      if (args_type == INTEGER) {
+        fn->stringval[replace_index] = 'i';
+        fn->stringval[replace_index + 1] = '\0';
+        out = fn;
+      }
+      else if (args_type == REAL) {
+        fn->stringval[replace_index] = 'f';
+        fn->stringval[replace_index + 1] = '\0';
+        out = fn;
+      }
+
+    }
+  }
+
+  return out;
+}
+
+
 /* makefuncall makes a FUNCALL operator and links it to the fn and args.
    tok is a (now) unused token that is recycled. */
 TOKEN makefuncall(TOKEN tok, TOKEN fn, TOKEN args){
-  tok->operands = fn;
-  tok->whichval = FUNCALLOP;
-  tok->datatype = fn->datatype;
-  fn->link = args;
+    tok = (TOKEN) talloc();
+  if (strcmp(fn->stringval, "new") != 0) {
+    // tok = (TOKEN) talloc();
+    // tok->operands = fn;
+    // tok->whichval = FUNCALLOP;
+    // tok->datatype = fn->datatype;
+    // fn->link = args;
+    tok = makeop(FUNCALLOP);    // 24
+    // if (!funcall_tok) {
+    //   printf(" Failed to allocate TOKEN, makefuncall().\n");  // according to the Prof, print message and coredump
+    //   return NULL;
+    // }
+
+    SYMBOL this_fxn = searchst(fn->stringval);
+    // if (!this_fxn) {
+    //   printf(" Failed to find function with name \"%s\" in symbol table.\n", fn->stringval);
+    //   return NULL;
+    // }
+    
+    tok->datatype = this_fxn->datatype->basicdt;
+
+    if (strcmp(fn->stringval, "writeln") == 0) {
+      printf("FOUND WRITE AND WRITELN\n");
+      fn = write_fxn_args_type_check(fn, args);
+      // if (!fn) {
+      //   return NULL;
+      // }
+    }
+
+    /* (+ i j) => +->operands = i and i->link = j; (tok fn args) */
+    tok->operands = fn;
+    fn->link = args;
+
+  }
+  else {
+    tok = makeop(ASSIGNOP);
+    TOKEN funcall = makeop(FUNCALLOP);
+
+    SYMBOL this_type = searchst(args->stringval);
+
+    tok->operands = args;
+    args->link = funcall;
+    funcall->operands = fn;
+    fn->link = makeintc(this_type->datatype->datatype->datatype->size);
+    return tok;
+
+  }
   if (DEBUG & DB_MAKEPROGN)
   { printf("makefuncall\n");
     dbugprinttok(tok);
@@ -622,10 +1034,8 @@ TOKEN makefor(int sign, TOKEN tok, TOKEN asg, TOKEN tokb, TOKEN endexpr,
 /* makegoto makes a GOTO operator to go to the specified label.
    The label number is put into a number token. */
 TOKEN makegoto(int label) {
-  TOKEN gotoTok = talloc();
-  gotoTok->tokentype = OPERATOR;
-  gotoTok->whichval = GOTOOP;
-  gotoTok->operands = makeintc(labelnumber - 1);
+  TOKEN gotoTok = makeop(GOTOOP);
+  gotoTok->operands = makeintc(label);
   if (DEBUG & DB_MAKEGOTO) {
     printf("makegoto\n");
     dbugprinttok(gotoTok);
@@ -692,26 +1102,34 @@ TOKEN findid(TOKEN tok) { /* the ID token */
 /* findtype looks up a type name in the symbol table, puts the pointer
    to its type into tok->symtype, returns tok. */
 TOKEN findtype(TOKEN tok) {
-  tok->symtype = searchst(tok->stringval);
+  // tok->symtype = searchst(tok->stringval);
   
-  // if(sym->basicdt == INTEGER) {
-  //   printf("FOUND TYPE TO BE INTEGER\n");
-  //   tok->symtype = searchst("integer");
-  // }
-  // else if(type == REAL) {
-  //   printf("FOUND TYPE TO BE REAL\n");
-  //   tok->symtype = searchst("real");
-  // }
-  // else if(type == BOOLETYPE) {
-  //   printf("FOUND TYPE TO BE BOOLEAN\n");
-  //   tok->symtype = searchst("boolean");
-  // }
-  // else{
-  //   printf("FOUND TYPE TO BE STRING\n");
-  //   tok->symtype = searchst(tok->stringval);
-  // }
-  // printf("FIND TYPE\n");
-  // dbugprinttok(tok);
+  if (DEBUG & DB_FINDTYPE) {
+    printf("In findtype()\n");
+    dbugprinttok(tok);
+  }
+  
+  SYMBOL sym, typ;
+//  sym = searchins(tok->stringval);
+  sym = searchst(tok->stringval);
+
+  typ = sym->datatype;
+  int kind = sym->kind;
+
+  /* Arg represents symbol of basic datatype (INTEGER, REAL, STRINGTYPE, BOOLETYPE, POINTER) */
+  if (kind == BASICTYPE) {
+    tok->datatype = sym->basicdt;
+    tok->symtype = sym;
+  }
+  else {
+    tok->symtype = typ;
+  }
+
+  if (DEBUG & DB_FINDTYPE) {
+    printf(" Finished findtype().\n");
+    dbugprinttok(tok);
+  }
+
   return tok;
 }
 
@@ -733,7 +1151,7 @@ TOKEN instdotdot(TOKEN lowtok, TOKEN dottok, TOKEN hightok){
    bounds points to a SUBRANGE symbol table entry.
    The symbol table pointer is returned in token typetok. */
 TOKEN instarray(TOKEN bounds, TOKEN typetok) {
-  // bounds->symtype->[low/highbound]
+
 
   TOKEN curr_bound = bounds;
   SYMBOL prev_sym = NULL;
@@ -742,34 +1160,36 @@ TOKEN instarray(TOKEN bounds, TOKEN typetok) {
   int low, high;
 
   while (curr_bound) {
+    if (DEBUG && DB_INSTARRAY) {
+      printf("current bound\n");
+      dbugprinttok(curr_bound);
+    }
     SYMBOL arrsym = symalloc();
     arrsym->kind = ARRAYSYM;
 
     if (typesym) {
       arrsym->datatype = typesym;
     }
-//     else {
-// //      arrsym->basicdt = typetok->datatype;
-//     }
+
 
     low = curr_bound->symtype->lowbound;
     high = curr_bound->symtype->highbound;
 
     if (!prev_sym) {
       arrsym->size = (high - low + 1) * typesym->size;
-      printf("CURRENT_SIZE %d\n", arrsym->size);
-      printf("CURRENT SIZE %d\n", high-low+1);
+      // printf("CURRENT_SIZE %d\n", arrsym->size);
+      // printf("CURRENT SIZE %d\n", high-low+1);
 
     }
     else {
       arrsym->datatype = typetok->symtype;
-      printf("ARRAY SYM SIZE %d\n", arrsym->size);
+      // printf("ARRAY SYM SIZE %d\n", arrsym->size);
 
       arrsym->size = (high - low + 1) * prev_sym->size;
-      printf("PREVIOUS SIZE %d\n", prev_sym->size);
-      printf("CURRENT SIZE %d\n", high-low+1);
+      // printf("PREVIOUS SIZE %d\n", prev_sym->size);
+      // printf("CURRENT SIZE %d\n", high-low+1);
       dbugprinttok(curr_bound);
-      printf("TYPESYM SIZE %d\n", typesym->size);
+      // printf("TYPESYM SIZE %d\n", typesym->size);
     }
 
     typetok->symtype = arrsym;
@@ -905,9 +1325,13 @@ TOKEN instpoint(TOKEN tok, TOKEN typename) {
   ptrsym->datatype = sym;
 
   if (DEBUG & DB_INSTPOINT) {
-    printf("instpoint\n");
+    printf(" Finished instpoint().\n");
     dbugprinttok(tok);
-    dbugprinttok(typename);
+    printf(" ");
+    dbprsymbol(tok->symtype);
+    printf(" ");
+    dbprsymbol(tok->symtype->datatype);
+    printf("\n");
   }
   tok->datatype = POINTER;
 
@@ -1014,6 +1438,219 @@ void instvars(TOKEN idlist, TOKEN typetok)
       printstlevel(1);
   }
 
+
+/* makepnb is like makeprogn, except that if statements is already a progn,
+   it just returns statements.  This is optional. */
+TOKEN makepnb(TOKEN tok, TOKEN statements) {
+
+  // if (statements->whichval == PROGNOP && ELIM_NESTED_PROGN) {
+  //   if (DEBUG & DB_MAKEPNB) {
+  //     printf("In makepnb()\n\n");
+  //     dbugprint2args(tok, statements);
+  //     printf(" Finished makepnb().\n");
+  //     dbugprint1tok(statements);
+  //   }
+  //   return statements;
+  // }
+  if (DEBUG & DB_MAKEPNB) {
+    printf("In makepnb(); transferring to makeprogn()...\n");
+  }
+  return (makeprogn(tok, statements));
+}
+
+/* makewhile makes structures for a while statement.
+   tok and tokb are (now) unused tokens that are recycled. */
+TOKEN makewhile(TOKEN tok, TOKEN expr, TOKEN tokb, TOKEN statement) {
+
+  if (DEBUG & DB_MAKEWHILE) {
+    printf("In makewhile()\n");
+    dbugprinttok(tok);
+    dbugprinttok(expr);
+    dbugprinttok(tokb);
+    dbugprinttok(statement);
+  }
+
+  if (expr->operands->link && expr->operands->link->whichval == (NIL - RESERVED_BIAS)) {
+    expr->operands->link->tokentype = NUMBERTOK;
+    expr->operands->link->datatype = INTEGER;
+    expr->operands->link->whichval = 0;
+  }
+
+  TOKEN label_tok = makelabel();
+  // printf("INTVAL MAKEGOTO %d\n", label_tok->operands->intval);
+  TOKEN goto_tok = makegoto(label_tok->operands->intval);
+  TOKEN while_progn_tok = makepnb(talloc(), label_tok); // operand label_tok to while_progn_tok
+  // TOKEN do_progn_tok = makepnb(talloc(), statement);    // operand statement to do_progn_tok
+  TOKEN ifop_tok = makeif(makeop(IFOP), expr, statement, NULL);
+
+  label_tok->link = ifop_tok;
+
+  /* Handle elimination of nested progns */
+  // if (do_progn_tok->whichval != PROGNOP) {
+  //   do_progn_tok->operands = statement;
+  //   statement->link = goto_tok;
+  // }
+  // else {  // do_progn_tok == statement
+    TOKEN current = (TOKEN) get_last_link(statement->operands);
+    current->link = goto_tok;
+  // }
+
+  if (DEBUG & DB_MAKEWHILE) {
+    printf(" Finished makewhile().\n");
+    dbugprinttok(while_progn_tok);
+  }
+
+  return while_progn_tok;
+}
+
+/* Gets and returns the last TOKEN (in)directly
+   connected via ->link to TOKEN tok. Mostly used 
+   to handle elimination of nested progns. */
+TOKEN get_last_link(TOKEN tok) {
+  if (!tok) {
+    return NULL;
+  }
+
+  TOKEN curr = tok;
+  TOKEN curr_link = curr->link;
+  while (curr_link) {
+    curr = curr_link;
+    curr_link = curr_link->link;
+  }
+
+  return curr;
+}
+
+/* dogoto is the action for a goto statement.
+   tok is a (now) unused token that is recycled. */
+TOKEN dogoto(TOKEN tok, TOKEN labeltok) {
+
+  // THIS METHOD SHOULD ONLY BE CALLED FOR A USER LABEL
+
+  if (DEBUG & DB_DOGOTO) {
+    printf("In dogoto()\n");
+    dbugprinttok(tok);
+    dbugprinttok(labeltok);    
+  }
+
+  // if (labeltok->intval < 0) {
+  //   printf(" Warning: label number is negative, dogoto().\n");
+  // }
+  int internal_label_num = get_internal_label_num(labeltok->intval);
+  // if (internal_label_num == -1) {
+  //   printf(" Error: could not find internal label number corresponding to user label number %d\n", labeltok->intval);
+  //   return NULL;
+  // }
+
+  if (DEBUG & DB_DOGOTO) {
+    printf(" Finished dogoto().\n");
+    printf("  Found internal label number %d corresponding to user label number %d\n", internal_label_num, labeltok->intval);
+    printf("  Transferring to makegoto()...\n\n");
+  }
+
+  return (makegoto(internal_label_num));
+}
+
+/* Gets and returns the last TOKEN (in)directly
+   connected via ->operands to TOKEN tok. */
+TOKEN get_last_operand(TOKEN tok) {
+  if (!tok) {
+    return NULL;
+  }
+
+  TOKEN curr = tok;
+  TOKEN curr_operand = curr->operands;
+  while (curr_operand) {
+    curr = curr_operand;
+    curr_operand = curr_operand->operands;
+  }
+
+  return curr;  
+}
+
+TOKEN get_offset(TOKEN var, TOKEN field) {
+  
+  TOKEN offset = makeintc(-1);
+
+  TOKEN root_name = get_last_operand(var);
+  TOKEN last_offset = get_last_link(var->operands);
+
+  if (var->whichval != AREFOP) {
+    SYMBOL found = NULL;
+
+    SYMBOL varsym = searchst(root_name->stringval);
+    if (varsym) {
+      SYMBOL temp = varsym;
+      while (temp) {
+        if (temp->datatype && temp->datatype->kind == BASICTYPE) {
+          break;
+        }
+        temp = temp->datatype;
+      }
+      while (temp && !found) {
+        if (strcmp(temp->namestring, field->stringval) == 0) {
+          found = temp;
+        }
+        else {
+          temp = temp->link;
+        }
+      }
+      if (found) {
+        offset->whichval = found->offset;
+        return offset;
+      }
+    }
+
+  }
+  else {
+    SYMBOL found = NULL;
+
+    SYMBOL varsym = searchst(root_name->stringval);
+    if (varsym) {
+      SYMBOL temp = varsym;
+      while (temp) {
+        if (temp->datatype && temp->datatype->kind == BASICTYPE) {
+          break;
+        }
+        temp = temp->datatype;
+      }
+      while (temp && !found) {
+        if (temp->offset == last_offset->whichval) {
+          found = temp;
+        }
+        else {
+          temp = temp->link;
+        }
+      }
+      if (found) {
+        SYMBOL found_cpy = found;
+        SYMBOL blah = searchst(found->datatype->namestring);
+        found = NULL;
+        while (blah) {
+          if (blah->datatype && blah->datatype->kind == BASICTYPE) {
+            break;
+          }
+          blah = blah->datatype;
+        }
+        while (blah && !found) {
+          
+          if (strcmp(blah->namestring, field->stringval) == 0) {
+            found = blah;
+          }
+          else {
+            blah = blah->link;
+          }
+        }
+        if (found) {
+          offset->whichval = last_offset->whichval + found->offset;
+        }       
+      }
+    }   
+  }
+
+  return offset;
+}
+
 /* makearef makes an array reference operation.
    off is be an integer constant token
    tok (if not NULL) is a (now) unused token that is recycled. */
@@ -1028,7 +1665,10 @@ TOKEN makearef(TOKEN var, TOKEN off, TOKEN tok) {
   TOKEN aref = makeop(AREFOP);
   aref->operands = var;
   var->link = off;
-
+  SYMBOL sym = symalloc();
+  sym->basicdt = var->datatype;
+  aref->symtype = sym;
+  // aref->datatype = var->datatype;
   if (DEBUG & DB_MAKEAREF) {
     printf("makearef().\n");
     dbugprinttok(aref);
@@ -1037,106 +1677,12 @@ TOKEN makearef(TOKEN var, TOKEN off, TOKEN tok) {
   return aref;
 }
 
-/* makepnb is like makeprogn, except that if statements is already a progn,
-   it just returns statements.  This is optional. */
-// TOKEN makepnb(TOKEN tok, TOKEN statements) {
-
-//   if (statements->whichval == PROGNOP && ELIM_NESTED_PROGN) {
-//     if (DEBUG & DB_MAKEPNB) {
-//       printf("In makepnb()\n\n");
-//       dbugprint2args(tok, statements);
-//       printf(" Finished makepnb().\n");
-//       dbugprint1tok(statements);
-//     }
-//     return statements;
-//   }
-//   if (DEBUG & DB_MAKEPNB) {
-//     printf("In makepnb(); transferring to makeprogn()...\n");
-//   }
-//   return (makeprogn(tok, statements));
-// }
-
-/* makewhile makes structures for a while statement.
-   tok and tokb are (now) unused tokens that are recycled. */
-// TOKEN makewhile(TOKEN tok, TOKEN expr, TOKEN tokb, TOKEN statement) {
-
-//   if (DEBUG & DB_MAKEWHILE) {
-//     printf("In makewhile()\n");
-//     dbugprint4args(tok, expr, tokb, statement);
-//   }
-
-//   if (expr->operands->link && expr->operands->link->whichval == (NIL - RESERVED_BIAS)) {
-//     expr->operands->link->tokentype = NUMBERTOK;
-//     expr->operands->link->datatype = INTEGER;
-//     expr->operands->link->whichval = 0;
-//   }
-
-//   TOKEN label_tok = makelabel();
-//   TOKEN goto_tok = makegoto(label_tok->operands->intval);
-//   TOKEN while_progn_tok = makepnb(talloc(), label_tok); // operand label_tok to while_progn_tok
-//   TOKEN do_progn_tok = makepnb(talloc(), statement);    // operand statement to do_progn_tok
-//   TOKEN ifop_tok = makeif(makeop(IFOP), expr, do_progn_tok, NULL);
-
-//   if (!label_tok || !goto_tok || !while_progn_tok ||
-//     !do_progn_tok ||!ifop_tok) {
-//     printf(" Failed to alloc TOKEN(s), makewhile().\n");
-//     return NULL;
-//   }
-
-//   label_tok->link = ifop_tok;
-
-//   /* Handle elimination of nested progns */
-//   if (do_progn_tok->whichval != PROGNOP) {
-//     do_progn_tok->operands = statement;
-//     statement->link = goto_tok;
-//   }
-//   else {  // do_progn_tok == statement
-//     get_last_link(do_progn_tok->operands)->link = goto_tok;
-//   }
-
-//   if (DEBUG & DB_MAKEWHILE) {
-//     printf(" Finished makewhile().\n");
-//     dbugprint1tok(while_progn_tok);
-//   }
-
-//   return while_progn_tok;
-// }
-
-/* dogoto is the action for a goto statement.
-   tok is a (now) unused token that is recycled. */
-// TOKEN dogoto(TOKEN tok, TOKEN labeltok) {
-
-//   // THIS METHOD SHOULD ONLY BE CALLED FOR A USER LABEL
-
-//   if (DEBUG & DB_DOGOTO) {
-//     printf("In dogoto()\n");
-//     dbugprint2args(tok, labeltok);    
-//   }
-
-//   if (labeltok->intval < 0) {
-//     printf(" Warning: label number is negative, dogoto().\n");
-//   }
-
-//   int internal_label_num = get_internal_label_num(labeltok->intval);
-//   if (internal_label_num == -1) {
-//     printf(" Error: could not find internal label number corresponding to user label number %d\n", labeltok->intval);
-//     return NULL;
-//   }
-  
-//   if (DEBUG & DB_DOGOTO) {
-//     printf(" Finished dogoto().\n");
-//     printf("  Found internal label number %d corresponding to user label number %d\n", internal_label_num, labeltok->intval);
-//     printf("  Transferring to makegoto()...\n\n");
-//   }
-
-//   return (makegoto(internal_label_num));
-// }
 
 /* reducedot handles a record reference.
    dot is a (now) unused token that is recycled. */
 TOKEN reducedot(TOKEN var, TOKEN dot, TOKEN field) {
   if (DEBUG & DB_REDUCEDOT) {
-    printf("reducedotn");
+    printf("reducedot\n");
     dbugprinttok(var);
     dbugprinttok(dot);
     dbugprinttok(field);
@@ -1146,29 +1692,34 @@ TOKEN reducedot(TOKEN var, TOKEN dot, TOKEN field) {
   TOKEN offset = get_offset(var, field);
 
   if (var->whichval == AREFOP) {
-    /* Avoid adding multiple copies to the tree. */
 
     if (offset->whichval >= 0) {
       var->operands->link = offset;
     }
     aref = var;
+
   }
   else {
+    // printf("MAKING AN AREF\n");
     aref = makearef(var, offset, NULL);
   }
 
   /* Change aref's datatype to REAL to avoid incorrect
      fixes/floats in binop(). NULL out the dummy link. */
-  // if (offset->link && offset->link->datatype == REAL &&
-  //   offset->link->realval == -DBL_MAX) {
+  if (offset->link && offset->link->datatype == REAL &&
+    offset->link->realval == -DBL_MAX) {
 
-  //   aref->datatype = REAL;
-  //   offset->link = NULL;
-  // }
-  
+    aref->datatype = REAL;
+    offset->link = NULL;
+  }
+  // aref->datatype = var->datatype;
+  // SYMBOL field_sym = var->symtype;
+  field->datatype = var->datatype;
+
   if (DEBUG & DB_REDUCEDOT) {
     printf("reducedot\n");
     dbugprinttok(aref);
+    dbugprinttok(field);
     // ppexpr(aref);
     // printf("\n");
   }
@@ -1182,11 +1733,12 @@ TOKEN dopoint(TOKEN var, TOKEN tok) {
   if (DEBUG & DB_DOPOINT) {
     printf("dopoint\n");
     dbugprinttok(var);
-    dbugprinttok(tok);   
+    dbugprinttok(tok);
+
   }
-
+  tok->datatype = var->datatype;
   tok->operands = var;
-
+  // tok->symtype = var->symtype;
   if (DEBUG & DB_DOPOINT) {
     printf("dopoint\n");
     dbugprinttok(tok);
@@ -1198,8 +1750,10 @@ TOKEN dopoint(TOKEN var, TOKEN tok) {
 int get_internal_label_num(int external_label_num) {
   int i;
   for (i = 0; i < 100; i++) {
-    if (labels[i] == external_label_num)
+    if (labels[i] == external_label_num) {
+      printf("LABEL NUMBER %d-%d\n", i, external_label_num);
       return i;
+    }
   }
   return -1;
 }

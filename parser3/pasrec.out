@@ -1,520 +1,1516 @@
- token 32397904  NUM         1492  dtype  0  link 0
- token 32398032  NUM         1776  dtype  0  link 0
 cons
- token 32398416  ID            re  dtype  0  link 32398544
- token 32398544  ID            im  dtype  0  link 0
-instfields
- token 32398416  ID            re  dtype  0  link 32398544
- token 32398672  ID          real  dtype  0  link 0
+ token 9677136  ID        output  dtype  0  link 0
  token 0  NULL
-ONE CASE RECORD WORKING
+cons
+ token 9678032  ID            im  dtype  0  link 0
+ token 0  NULL
+cons
+ token 9677904  ID            re  dtype  0  link 9678032
+ token 9678032  ID            im  dtype  0  link 0
+In findtype()
+ token 9678160  ID          real  dtype  0  link 0
+ Finished findtype().
+ token 9678160  ID          real  dtype  1  link 0
+instfields
+ token 9677904  ID            re  dtype  0  link 9678032
+ token 9678160  ID          real  dtype  1  link 0
+ token 0  NULL
 instrec
- token 32398352  typ  2  whic  20  dty   0  sty 32398992 lnk 0  opnds 0
- token 32398416  ID            re  dtype  0  link 32398544
-TYPE : RECORDSET
+ token 9677840  typ  2  whic  20  dty   0  sty 9678480 lnk 0  opnds 0
+ token 9677904  ID            re  dtype  0  link 9678032
 insttype
- token 32398224  ID       complex  dtype  0  link 0
- token 32398352  typ  2  whic  20  dty   0  sty 32398992 lnk 0  opnds 0
-TYPE ITEM WORKED
+ token 9677712  ID       complex  dtype  0  link 0
+ token 9677840  typ  2  whic  20  dty   0  sty 9678480 lnk 0  opnds 0
 cons
- token 32399568  ID         white  dtype  0  link 32399696
- token 32399696  ID          blue  dtype  0  link 0
+ token 9679184  ID          blue  dtype  0  link 0
+ token 0  NULL
 cons
- token 32399440  ID           red  dtype  0  link 32399568
- token 32399568  ID         white  dtype  0  link 32399696
- token 32399824  NUM            0  dtype  0  link 0
- token 32399984  NUM            1  dtype  0  link 0
- token 32400144  NUM            2  dtype  0  link 0
+ token 9679056  ID         white  dtype  0  link 9679184
+ token 9679184  ID          blue  dtype  0  link 0
+cons
+ token 9678928  ID           red  dtype  0  link 9679056
+ token 9679056  ID         white  dtype  0  link 9679184
+ token 9679312  NUM            0  dtype  0  link 0
+ token 9679472  NUM            1  dtype  0  link 0
+ token 9679632  NUM            2  dtype  0  link 0
 copytok
- token 32400304  ID           red  dtype  0  link 32399568
+ token 9679792  ID           red  dtype  0  link 9679056
 makesubrng
- token 32399440  ID           red  dtype  0  link 32399568
- token 32400304  ID           red  dtype  0  link 32399568
+ token 9678928  ID           red  dtype  0  link 9679056
+ token 9679792  ID           red  dtype  0  link 9679056
  low bound: 0
  high bound: 2
 
-ENUM
 insttype
- token 32399248  ID         color  dtype  0  link 0
- token 32400304  ID           red  dtype  0  link 32399568
-TYPE ITEM WORKED
-instpoint
- token 32400752  OP             ^  dtype  0  link 0  operands 0
- token 32400816  ID        person  dtype  0  link 0
+ token 9678736  ID         color  dtype  0  link 0
+ token 9679792  ID           red  dtype  0  link 9679056
+ Finished instpoint().
+ token 9680240  OP             ^  dtype  0  link 0  operands 0
+  9680368             knd 9 4  typ 9680464 lvl 0  siz     8  off     0 lnk 0
+  9680464      person knd 8 0  typ 0 lvl 1  siz     0  off     0 lnk 0
+
 insttype
- token 32400624  ID            pp  dtype  0  link 0
- token 32400752  OP             ^  dtype  4  link 0  operands 0
-TYPE ITEM WORKED
-instfields
- token 32401424  ID           age  dtype  0  link 0
- token 32401552  ID       integer  dtype  0  link 0
- token 0  NULL
-instfields
- token 32401776  ID        friend  dtype  0  link 0
- token 32401904  ID            pp  dtype  0  link 0
- token 0  NULL
-instfields
- token 32402128  ID      location  dtype  0  link 0
- token 32402256  ID       complex  dtype  0  link 0
- token 0  NULL
-instfields
- token 32402480  ID      favorite  dtype  0  link 0
- token 32402608  ID         color  dtype  0  link 0
- token 0  NULL
-instfields
- token 32402832  ID        salary  dtype  0  link 0
- token 32402960  ID          real  dtype  0  link 0
- token 0  NULL
-ONE CASE RECORD WORKING
+ token 9680112  ID            pp  dtype  0  link 0
+ token 9680240  OP             ^  dtype  4  link 0  operands 0
 cons
- token 32402480  ID      favorite  dtype  0  link 32402832
- token 32402832  ID        salary  dtype  0  link 0
+ token 9680912  ID           age  dtype  0  link 0
+ token 0  NULL
+In findtype()
+ token 9681040  ID       integer  dtype  0  link 0
+ Finished findtype().
+ token 9681040  ID       integer  dtype  0  link 0
 cons
- token 32402128  ID      location  dtype  0  link 32402480
- token 32402480  ID      favorite  dtype  0  link 32402832
+ token 9681168  ID        friend  dtype  0  link 0
+ token 0  NULL
+In findtype()
+ token 9681296  ID            pp  dtype  0  link 0
+ Finished findtype().
+ token 9681296  ID            pp  dtype  0  link 0
 cons
- token 32401776  ID        friend  dtype  0  link 32402128
- token 32402128  ID      location  dtype  0  link 32402480
+ token 9681424  ID      location  dtype  0  link 0
+ token 0  NULL
+In findtype()
+ token 9681552  ID       complex  dtype  0  link 0
+ Finished findtype().
+ token 9681552  ID       complex  dtype  0  link 0
 cons
- token 32401424  ID           age  dtype  0  link 32401776
- token 32401776  ID        friend  dtype  0  link 32402128
+ token 9681680  ID      favorite  dtype  0  link 0
+ token 0  NULL
+In findtype()
+ token 9681808  ID         color  dtype  0  link 0
+ Finished findtype().
+ token 9681808  ID         color  dtype  0  link 0
+cons
+ token 9681936  ID        salary  dtype  0  link 0
+ token 0  NULL
+In findtype()
+ token 9682064  ID          real  dtype  0  link 0
+ Finished findtype().
+ token 9682064  ID          real  dtype  1  link 0
+instfields
+ token 9681936  ID        salary  dtype  0  link 0
+ token 9682064  ID          real  dtype  1  link 0
+ token 0  NULL
+instfields
+ token 9681680  ID      favorite  dtype  0  link 0
+ token 9681808  ID         color  dtype  0  link 0
+ token 0  NULL
+nconc
+ token 9681680  ID      favorite  dtype  0  link 9681936
+ token 9681936  ID        salary  dtype  0  link 0
+instfields
+ token 9681424  ID      location  dtype  0  link 0
+ token 9681552  ID       complex  dtype  0  link 0
+ token 0  NULL
+nconc
+ token 9681424  ID      location  dtype  0  link 9681680
+ token 9681680  ID      favorite  dtype  0  link 9681936
+instfields
+ token 9681168  ID        friend  dtype  0  link 0
+ token 9681296  ID            pp  dtype  0  link 0
+ token 0  NULL
+nconc
+ token 9681168  ID        friend  dtype  0  link 9681424
+ token 9681424  ID      location  dtype  0  link 9681680
+instfields
+ token 9680912  ID           age  dtype  0  link 0
+ token 9681040  ID       integer  dtype  0  link 0
+ token 0  NULL
+nconc
+ token 9680912  ID           age  dtype  0  link 9681168
+ token 9681168  ID        friend  dtype  0  link 9681424
 instrec
- token 32401360  typ  2  whic  20  dty   0  sty 32403184 lnk 0  opnds 0
- token 32401424  ID           age  dtype  0  link 32401776
-TYPE : RECORDSET
+ token 9680848  typ  2  whic  20  dty   0  sty 9682672 lnk 0  opnds 0
+ token 9680912  ID           age  dtype  0  link 9681168
 insttype
- token 32401232  ID        person  dtype  0  link 0
- token 32401360  typ  2  whic  20  dty   0  sty 32403184 lnk 0  opnds 0
-TYPE ITEM WORKED
+ token 9680720  ID        person  dtype  0  link 0
+ token 9680848  typ  2  whic  20  dty   0  sty 9682672 lnk 0  opnds 0
 cons
- token 32403408  ID             c  dtype  0  link 32403536
- token 32403536  ID             d  dtype  0  link 0
+ token 9683024  ID             d  dtype  0  link 0
+ token 0  NULL
+cons
+ token 9682896  ID             c  dtype  0  link 9683024
+ token 9683024  ID             d  dtype  0  link 0
+In findtype()
+ token 9683152  ID       complex  dtype  0  link 0
+ Finished findtype().
+ token 9683152  ID       complex  dtype  0  link 0
 instvars
- token 32403664  ID       complex  dtype  0  link 0
- token 32403408  ID             c  dtype  0  link 32403536
- token 32403664  ID       complex  dtype  0  link 0
- token 32403536  ID             d  dtype  0  link 0
- token 32403664  ID       complex  dtype  0  link 0
+ token 9683152  ID       complex  dtype  0  link 0
+ token 9682896  ID             c  dtype  0  link 9683024
+ token 9683152  ID       complex  dtype  0  link 0
+ token 9683024  ID             d  dtype  0  link 0
+ token 9683152  ID       complex  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
 cons
- token 32403984  ID             i  dtype  0  link 32404112
- token 32404112  ID           sum  dtype  0  link 0
+ token 9683600  ID           sum  dtype  0  link 0
+ token 0  NULL
+cons
+ token 9683472  ID             i  dtype  0  link 9683600
+ token 9683600  ID           sum  dtype  0  link 0
+In findtype()
+ token 9683728  ID       integer  dtype  0  link 0
+ Finished findtype().
+ token 9683728  ID       integer  dtype  0  link 0
 instvars
- token 32404240  ID       integer  dtype  0  link 0
- token 32403984  ID             i  dtype  0  link 32404112
- token 32404240  ID       integer  dtype  0  link 0
- token 32404112  ID           sum  dtype  0  link 0
- token 32404240  ID       integer  dtype  0  link 0
+ token 9683728  ID       integer  dtype  0  link 0
+ token 9683472  ID             i  dtype  0  link 9683600
+ token 9683728  ID       integer  dtype  0  link 0
+ token 9683600  ID           sum  dtype  0  link 0
+ token 9683728  ID       integer  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+cons
+ token 9684048  ID            ac  dtype  0  link 0
+ token 0  NULL
 copytok
- token 32405072  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9684496  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
 makesubrng
- token 32404880  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32405072  typ  1  whic   8  dty   0  sty 32405136 lnk 0  opnds 0
+ token 9684368  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9684496  typ  1  whic   8  dty   0  sty 9684560 lnk 0  opnds 0
  low bound: 1
  high bound: 10
 
 instdotdot
- token 32404816  NUM            1  dtype  0  link 0
- token 32404880  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32404944  NUM           10  dtype  0  link 0
-CURRENT_SIZE 160
-CURRENT SIZE 10
+ token 9684304  NUM            1  dtype  0  link 0
+ token 9684368  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9684432  NUM           10  dtype  0  link 0
+In findtype()
+ token 9684784  ID       complex  dtype  0  link 0
+ Finished findtype().
+ token 9684784  ID       complex  dtype  0  link 0
+current bound
+ token 9684496  typ  1  whic   8  dty   0  sty 9684560 lnk 0  opnds 0
 instdotdot
- token 32405072  typ  1  whic   8  dty   0  sty 32405136 lnk 0  opnds 0
- token 32405296  ID       complex  dtype  0  link 0
+ token 9684496  typ  1  whic   8  dty   0  sty 9684560 lnk 0  opnds 0
+ token 9684784  ID       complex  dtype  0  link 0
 instvars
- token 32405296  ID       complex  dtype  0  link 0
- token 32404560  ID            ac  dtype  0  link 0
- token 32405296  ID       complex  dtype  0  link 0
+ token 9684784  ID       complex  dtype  0  link 0
+ token 9684048  ID            ac  dtype  0  link 0
+ token 9684784  ID       complex  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
- 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9684944          ac  VAR    0 typ 9684848  lvl  1  siz   160  off    48
 (ARRAY   1 ..  10 (RECORD (re real)
                           (im real)))
-ARRAY WORKS
+cons
+ token 9685104  ID           aco  dtype  0  link 0
+ token 0  NULL
 copytok
- token 32406192  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9685552  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
 makesubrng
- token 32405936  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
+ token 9685424  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9685552  typ  1  whic   8  dty   0  sty 9685616 lnk 0  opnds 0
  low bound: 1
  high bound: 10
 
 instdotdot
- token 32405872  NUM            1  dtype  0  link 0
- token 32405936  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32406000  NUM           10  dtype  0  link 0
+ token 9685360  NUM            1  dtype  0  link 0
+ token 9685424  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9685488  NUM           10  dtype  0  link 0
+In findtype()
+ token 9685776  ID         color  dtype  0  link 0
+ Finished findtype().
+ token 9685776  ID         color  dtype  0  link 0
 cons
- token 32406128  ID         color  dtype  0  link 32406192
- token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
-CURRENT_SIZE 4
-CURRENT SIZE 1
-ARRAY SYM SIZE 0
-PREVIOUS SIZE 4
-CURRENT SIZE 10
- token 32406192  typ  1  whic   8  dty   0  sty 32406256 lnk 0  opnds 0
-TYPESYM SIZE 4
+ token 9685776  ID         color  dtype  0  link 9685552
+ token 9685552  typ  1  whic   8  dty   0  sty 9685616 lnk 0  opnds 0
+In findtype()
+ token 9685968  ID         color  dtype  0  link 0
+ Finished findtype().
+ token 9685968  ID         color  dtype  0  link 0
+current bound
+ token 9685776  ID         color  dtype  0  link 9685552
+current bound
+ token 9685552  typ  1  whic   8  dty   0  sty 9685616 lnk 0  opnds 0
+ token 9685552  typ  1  whic   8  dty   0  sty 9685616 lnk 0  opnds 0
 instdotdot
- token 32406128  ID         color  dtype  0  link 32406192
- token 32406480  ID         color  dtype  0  link 0
+ token 9685776  ID         color  dtype  0  link 9685552
+ token 9685968  ID         color  dtype  0  link 0
 instvars
- token 32406480  ID         color  dtype  0  link 0
- token 32405616  ID           aco  dtype  0  link 0
- token 32406480  ID         color  dtype  0  link 0
+ token 9685968  ID         color  dtype  0  link 0
+ token 9685104  ID           aco  dtype  0  link 0
+ token 9685968  ID         color  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
- 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9684944          ac  VAR    0 typ 9684848  lvl  1  siz   160  off    48
 (ARRAY   1 ..  10 (RECORD (re real)
                           (im real)))
- 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
-(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
-ARRAY WORKS
+ 9686224         aco  VAR    0 typ 9686128  lvl  1  siz   120  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   2   0 ..   2))
 cons
- token 32407152  ID          fred  dtype  0  link 32407280
- token 32407280  ID           ptr  dtype  0  link 0
+ token 9686768  ID           ptr  dtype  0  link 0
+ token 0  NULL
 cons
- token 32407024  ID          mary  dtype  0  link 32407152
- token 32407152  ID          fred  dtype  0  link 32407280
+ token 9686640  ID          fred  dtype  0  link 9686768
+ token 9686768  ID           ptr  dtype  0  link 0
 cons
- token 32406896  ID          john  dtype  0  link 32407024
- token 32407024  ID          mary  dtype  0  link 32407152
+ token 9686512  ID          mary  dtype  0  link 9686640
+ token 9686640  ID          fred  dtype  0  link 9686768
+cons
+ token 9686384  ID          john  dtype  0  link 9686512
+ token 9686512  ID          mary  dtype  0  link 9686640
+In findtype()
+ token 9686896  ID            pp  dtype  0  link 0
+ Finished findtype().
+ token 9686896  ID            pp  dtype  0  link 0
 instvars
- token 32407408  ID            pp  dtype  0  link 0
- token 32406896  ID          john  dtype  0  link 32407024
- token 32407408  ID            pp  dtype  0  link 0
- token 32407024  ID          mary  dtype  0  link 32407152
- token 32407408  ID            pp  dtype  0  link 0
- token 32407152  ID          fred  dtype  0  link 32407280
- token 32407408  ID            pp  dtype  0  link 0
- token 32407280  ID           ptr  dtype  0  link 0
- token 32407408  ID            pp  dtype  0  link 0
+ token 9686896  ID            pp  dtype  0  link 0
+ token 9686384  ID          john  dtype  0  link 9686512
+ token 9686896  ID            pp  dtype  0  link 0
+ token 9686512  ID          mary  dtype  0  link 9686640
+ token 9686896  ID            pp  dtype  0  link 0
+ token 9686640  ID          fred  dtype  0  link 9686768
+ token 9686896  ID            pp  dtype  0  link 0
+ token 9686768  ID           ptr  dtype  0  link 0
+ token 9686896  ID            pp  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
- 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9684944          ac  VAR    0 typ 9684848  lvl  1  siz   160  off    48
 (ARRAY   1 ..  10 (RECORD (re real)
                           (im real)))
- 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
-(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
- 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+ 9686224         aco  VAR    0 typ 9686128  lvl  1  siz   120  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   2   0 ..   2))
+ 9686960        john  VAR    4 typ 9680368  lvl  1  siz     8  off   328
 (^ person)
- 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+ 9687056        mary  VAR    4 typ 9680368  lvl  1  siz     8  off   336
 (^ person)
- 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+ 9687152        fred  VAR    4 typ 9680368  lvl  1  siz     8  off   344
 (^ person)
- 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+ 9687248         ptr  VAR    4 typ 9680368  lvl  1  siz     8  off   352
 (^ person)
+cons
+ token 9687408  ID        people  dtype  0  link 0
+ token 0  NULL
 copytok
- token 32408432  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9687856  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
 makesubrng
- token 32408240  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32408432  typ  1  whic   8  dty   0  sty 32408496 lnk 0  opnds 0
+ token 9687728  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9687856  typ  1  whic   8  dty   0  sty 9687920 lnk 0  opnds 0
  low bound: 1
  high bound: 20
 
 instdotdot
- token 32408176  NUM            1  dtype  0  link 0
- token 32408240  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
- token 32408304  NUM           20  dtype  0  link 0
-CURRENT_SIZE 960
-CURRENT SIZE 20
+ token 9687664  NUM            1  dtype  0  link 0
+ token 9687728  typ  1  whic   8  dty   0  sty 0 lnk 0  opnds 0
+ token 9687792  NUM           20  dtype  0  link 0
+In findtype()
+ token 9688144  ID        person  dtype  0  link 0
+ Finished findtype().
+ token 9688144  ID        person  dtype  0  link 0
+current bound
+ token 9687856  typ  1  whic   8  dty   0  sty 9687920 lnk 0  opnds 0
 instdotdot
- token 32408432  typ  1  whic   8  dty   0  sty 32408496 lnk 0  opnds 0
- token 32408656  ID        person  dtype  0  link 0
+ token 9687856  typ  1  whic   8  dty   0  sty 9687920 lnk 0  opnds 0
+ token 9688144  ID        person  dtype  0  link 0
 instvars
- token 32408656  ID        person  dtype  0  link 0
- token 32407920  ID        people  dtype  0  link 0
- token 32408656  ID        person  dtype  0  link 0
+ token 9688144  ID        person  dtype  0  link 0
+ token 9687408  ID        people  dtype  0  link 0
+ token 9688144  ID        person  dtype  0  link 0
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
- 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9684944          ac  VAR    0 typ 9684848  lvl  1  siz   160  off    48
 (ARRAY   1 ..  10 (RECORD (re real)
                           (im real)))
- 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
-(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
- 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+ 9686224         aco  VAR    0 typ 9686128  lvl  1  siz   120  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   2   0 ..   2))
+ 9686960        john  VAR    4 typ 9680368  lvl  1  siz     8  off   328
 (^ person)
- 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+ 9687056        mary  VAR    4 typ 9680368  lvl  1  siz     8  off   336
 (^ person)
- 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+ 9687152        fred  VAR    4 typ 9680368  lvl  1  siz     8  off   344
 (^ person)
- 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+ 9687248         ptr  VAR    4 typ 9680368  lvl  1  siz     8  off   352
 (^ person)
- 32408816      people  VAR    0 typ 32408720  lvl  1  siz   960  off   288
+ 9688304      people  VAR    0 typ 9688208  lvl  1  siz   960  off   368
 (ARRAY   1 ..  20 (RECORD (age integer)
                           (friend (^ person))
                           (location (RECORD (re real)
                                             (im real)))
                           (favorite   0 ..   2)
                           (salary real)))
-ARRAY WORKS
+cons
+ token 9688656  ID          john  dtype  4  link 0
+ token 0  NULL
+makeop
+ token 9688912  OP            :=  dtype  0  link 0  operands 0
+makeop
+ token 9688976  OP       funcall  dtype  0  link 0  operands 0
+ token 9689040  NUM           48  dtype  0  link 0
+cons
+ token 9689232  ID          mary  dtype  4  link 0
+ token 0  NULL
+makeop
+ token 9689488  OP            :=  dtype  0  link 0  operands 0
+makeop
+ token 9689552  OP       funcall  dtype  0  link 0  operands 0
+ token 9689616  NUM           48  dtype  0  link 0
+cons
+ token 9689808  ID          fred  dtype  4  link 0
+ token 0  NULL
+makeop
+ token 9690064  OP            :=  dtype  0  link 0  operands 0
+makeop
+ token 9690128  OP       funcall  dtype  0  link 0  operands 0
+ token 9690192  NUM           48  dtype  0  link 0
+dopoint
+ token 9690256  ID          john  dtype  4  link 0
+ token 9690320  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9690320  OP             ^  dtype  4  link 0  operands 9690256
+reducedot
+ token 9690320  OP             ^  dtype  4  link 0  operands 9690256
+ token 9690384  OP             .  dtype  0  link 0  operands 0
+ token 9690448  ID      favorite  dtype  0  link 0
+ token 9690512  NUM           -1  dtype  0  link 0
+makearef
+ token 9690320  OP             ^  dtype  4  link 0  operands 9690256
+ token 9690512  NUM           32  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9690576  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9690576  OP          aref  dtype  0  link 0  operands 9690320
+reducedot
+ token 9690576  OP          aref  dtype  0  link 0  operands 9690320
+ token 9690448  ID      favorite  dtype  4  link 0
+binop
+ token 9690736  OP            :=  dtype  0  link 0  operands 9690576
+ token 9690576  OP          aref  dtype  0  link 9690800  operands 9690320
+ token 9690800  NUM            2  dtype  0  link 0
+dopoint
+ token 9690928  ID          john  dtype  4  link 0
+ token 9690992  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9690992  OP             ^  dtype  4  link 0  operands 9690928
+reducedot
+ token 9690992  OP             ^  dtype  4  link 0  operands 9690928
+ token 9691056  OP             .  dtype  0  link 0  operands 0
+ token 9691120  ID           age  dtype  0  link 0
+ token 9691184  NUM           -1  dtype  0  link 0
+makearef
+ token 9690992  OP             ^  dtype  4  link 0  operands 9690928
+ token 9691184  NUM            0  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9691248  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9691248  OP          aref  dtype  0  link 0  operands 9690992
+reducedot
+ token 9691248  OP          aref  dtype  0  link 0  operands 9690992
+ token 9691120  ID           age  dtype  4  link 0
+binop
+ token 9691408  OP            :=  dtype  0  link 0  operands 9691248
+ token 9691248  OP          aref  dtype  0  link 9691472  operands 9690992
+ token 9691472  NUM           19  dtype  0  link 0
+dopoint
+ token 9691728  ID          john  dtype  4  link 0
+ token 9691792  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9691792  OP             ^  dtype  4  link 0  operands 9691728
+reducedot
+ token 9691792  OP             ^  dtype  4  link 0  operands 9691728
+ token 9691856  OP             .  dtype  0  link 0  operands 0
+ token 9691920  ID        friend  dtype  0  link 0
+ token 9691984  NUM           -1  dtype  0  link 0
+makearef
+ token 9691792  OP             ^  dtype  4  link 0  operands 9691728
+ token 9691984  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9692048  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9692048  OP          aref  dtype  0  link 0  operands 9691792
+reducedot
+ token 9692048  OP          aref  dtype  0  link 0  operands 9691792
+ token 9691920  ID        friend  dtype  4  link 0
+binop
+ token 9692208  OP            :=  dtype  0  link 0  operands 9692048
+ token 9692048  OP          aref  dtype  0  link 9692272  operands 9691792
+ token 9692272  ID          mary  dtype  4  link 0
+dolabel()
+ token 9691600  NUM         1492  dtype  0  link 0
+ token 9691664  typ  1  whic   3  dty   0  sty 0 lnk 0  opnds 0
+ token 9692208  OP            :=  dtype  0  link 0  operands 9692048
+LABEL NUMBER 1-1492
+makeop
+ token 9692400  OP         progn  dtype  0  link 0  operands 0
+makeop
+ token 9692464  OP         label  dtype  0  link 0  operands 0
+ token 9692528  NUM            1  dtype  0  link 0
+ Finished dolabel().
+ token 9692400  OP         progn  dtype  0  link 0  operands 9692464
+dopoint
+ token 9692592  ID          john  dtype  4  link 0
+ token 9692656  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9692656  OP             ^  dtype  4  link 0  operands 9692592
+reducedot
+ token 9692656  OP             ^  dtype  4  link 0  operands 9692592
+ token 9692720  OP             .  dtype  0  link 0  operands 0
+ token 9692784  ID        salary  dtype  0  link 0
+ token 9692848  NUM           -1  dtype  0  link 0
+makearef
+ token 9692656  OP             ^  dtype  4  link 0  operands 9692592
+ token 9692848  NUM           40  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9692912  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9692912  OP          aref  dtype  0  link 0  operands 9692656
+reducedot
+ token 9692912  OP          aref  dtype  0  link 0  operands 9692656
+ token 9692784  ID        salary  dtype  4  link 0
+binop
+ token 9693072  OP            :=  dtype  0  link 0  operands 9692912
+ token 9692912  OP          aref  dtype  0  link 9693136  operands 9692656
+ token 9693136  NUM 4.000000e+04  dtype  1  link 0
+dopoint
+ token 9693264  ID          john  dtype  4  link 0
+ token 9693328  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9693328  OP             ^  dtype  4  link 0  operands 9693264
+reducedot
+ token 9693328  OP             ^  dtype  4  link 0  operands 9693264
+ token 9693392  OP             .  dtype  0  link 0  operands 0
+ token 9693456  ID      location  dtype  0  link 0
+ token 9693520  NUM           -1  dtype  0  link 0
+makearef
+ token 9693328  OP             ^  dtype  4  link 0  operands 9693264
+ token 9693520  NUM           16  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9693584  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9693584  OP          aref  dtype  0  link 0  operands 9693328
+reducedot
+ token 9693584  OP          aref  dtype  0  link 0  operands 9693328
+ token 9693456  ID      location  dtype  4  link 0
+reducedot
+ token 9693584  OP          aref  dtype  0  link 0  operands 9693328
+ token 9693744  OP             .  dtype  0  link 0  operands 0
+ token 9693808  ID            re  dtype  0  link 0
+ token 9693872  NUM           -1  dtype  0  link 0
+reducedot
+ token 9693584  OP          aref  dtype  0  link 0  operands 9693328
+ token 9693808  ID            re  dtype  0  link 0
+binop
+ token 9693936  OP            :=  dtype  0  link 0  operands 9693584
+ token 9693584  OP          aref  dtype  0  link 9694000  operands 9693328
+ token 9694000  NUM            3  dtype  0  link 0
+dopoint
+ token 9694128  ID          mary  dtype  4  link 0
+ token 9694192  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9694192  OP             ^  dtype  4  link 0  operands 9694128
+reducedot
+ token 9694192  OP             ^  dtype  4  link 0  operands 9694128
+ token 9694256  OP             .  dtype  0  link 0  operands 0
+ token 9694320  ID           age  dtype  0  link 0
+ token 9694384  NUM           -1  dtype  0  link 0
+makearef
+ token 9694192  OP             ^  dtype  4  link 0  operands 9694128
+ token 9694384  NUM            0  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9694448  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9694448  OP          aref  dtype  0  link 0  operands 9694192
+reducedot
+ token 9694448  OP          aref  dtype  0  link 0  operands 9694192
+ token 9694320  ID           age  dtype  4  link 0
+binop
+ token 9694608  OP            :=  dtype  0  link 0  operands 9694448
+ token 9694448  OP          aref  dtype  0  link 9694672  operands 9694192
+ token 9694672  NUM           21  dtype  0  link 0
+dopoint
+ token 9694800  ID          mary  dtype  4  link 0
+ token 9694864  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9694864  OP             ^  dtype  4  link 0  operands 9694800
+reducedot
+ token 9694864  OP             ^  dtype  4  link 0  operands 9694800
+ token 9694928  OP             .  dtype  0  link 0  operands 0
+ token 9694992  ID        friend  dtype  0  link 0
+ token 9695056  NUM           -1  dtype  0  link 0
+makearef
+ token 9694864  OP             ^  dtype  4  link 0  operands 9694800
+ token 9695056  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9695120  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9695120  OP          aref  dtype  0  link 0  operands 9694864
+reducedot
+ token 9695120  OP          aref  dtype  0  link 0  operands 9694864
+ token 9694992  ID        friend  dtype  4  link 0
+binop
+ token 9695280  OP            :=  dtype  0  link 0  operands 9695120
+ token 9695120  OP          aref  dtype  0  link 9695344  operands 9694864
+ token 9695344  ID          fred  dtype  4  link 0
+dopoint
+ token 9695600  ID          fred  dtype  4  link 0
+ token 9695664  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9695664  OP             ^  dtype  4  link 0  operands 9695600
+reducedot
+ token 9695664  OP             ^  dtype  4  link 0  operands 9695600
+ token 9695728  OP             .  dtype  0  link 0  operands 0
+ token 9695792  ID           age  dtype  0  link 0
+ token 9695856  NUM           -1  dtype  0  link 0
+makearef
+ token 9695664  OP             ^  dtype  4  link 0  operands 9695600
+ token 9695856  NUM            0  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9695920  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9695920  OP          aref  dtype  0  link 0  operands 9695664
+reducedot
+ token 9695920  OP          aref  dtype  0  link 0  operands 9695664
+ token 9695792  ID           age  dtype  4  link 0
+binop
+ token 9696080  OP            :=  dtype  0  link 0  operands 9695920
+ token 9695920  OP          aref  dtype  0  link 9696144  operands 9695664
+ token 9696144  NUM           20  dtype  0  link 0
+dolabel()
+ token 9695472  NUM         1776  dtype  0  link 0
+ token 9695536  typ  1  whic   3  dty   0  sty 0 lnk 0  opnds 0
+ token 9696080  OP            :=  dtype  0  link 0  operands 9695920
+LABEL NUMBER 0-1776
+makeop
+ token 9696272  OP         progn  dtype  0  link 0  operands 0
+makeop
+ token 9696336  OP         label  dtype  0  link 0  operands 0
+ token 9696400  NUM            0  dtype  0  link 0
+ Finished dolabel().
+ token 9696272  OP         progn  dtype  0  link 0  operands 9696336
+dopoint
+ token 9696464  ID          fred  dtype  4  link 0
+ token 9696528  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9696528  OP             ^  dtype  4  link 0  operands 9696464
+reducedot
+ token 9696528  OP             ^  dtype  4  link 0  operands 9696464
+ token 9696592  OP             .  dtype  0  link 0  operands 0
+ token 9696656  ID        friend  dtype  0  link 0
+ token 9696720  NUM           -1  dtype  0  link 0
+makearef
+ token 9696528  OP             ^  dtype  4  link 0  operands 9696464
+ token 9696720  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9696784  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9696784  OP          aref  dtype  0  link 0  operands 9696528
+reducedot
+ token 9696784  OP          aref  dtype  0  link 0  operands 9696528
+ token 9696656  ID        friend  dtype  4  link 0
+binop
+ token 9696944  OP            :=  dtype  0  link 0  operands 9696784
+ token 9696784  OP          aref  dtype  0  link 9697008  operands 9696528
+ token 9697008  NUM            0  dtype  0  link 0
+dopoint
+ token 9697136  ID          john  dtype  4  link 0
+ token 9697200  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9697200  OP             ^  dtype  4  link 0  operands 9697136
+reducedot
+ token 9697200  OP             ^  dtype  4  link 0  operands 9697136
+ token 9697264  OP             .  dtype  0  link 0  operands 0
+ token 9697328  ID        friend  dtype  0  link 0
+ token 9697392  NUM           -1  dtype  0  link 0
+makearef
+ token 9697200  OP             ^  dtype  4  link 0  operands 9697136
+ token 9697392  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9697456  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9697456  OP          aref  dtype  0  link 0  operands 9697200
+reducedot
+ token 9697456  OP          aref  dtype  0  link 0  operands 9697200
+ token 9697328  ID        friend  dtype  4  link 0
+dopoint
+ token 9697456  OP          aref  dtype  0  link 0  operands 9697200
+ token 9697616  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9697616  OP             ^  dtype  0  link 0  operands 9697456
+reducedot
+ token 9697616  OP             ^  dtype  0  link 0  operands 9697456
+ token 9697680  OP             .  dtype  0  link 0  operands 0
+ token 9697744  ID        friend  dtype  0  link 0
+ token 9697808  NUM           -1  dtype  0  link 0
+makearef
+ token 9697616  OP             ^  dtype  0  link 0  operands 9697456
+ token 9697808  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9697872  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9697872  OP          aref  dtype  0  link 0  operands 9697616
+reducedot
+ token 9697872  OP          aref  dtype  0  link 0  operands 9697616
+ token 9697744  ID        friend  dtype  0  link 0
+dopoint
+ token 9697872  OP          aref  dtype  0  link 0  operands 9697616
+ token 9698032  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9698032  OP             ^  dtype  0  link 0  operands 9697872
+reducedot
+ token 9698032  OP             ^  dtype  0  link 0  operands 9697872
+ token 9698096  OP             .  dtype  0  link 0  operands 0
+ token 9698160  ID      location  dtype  0  link 0
+ token 9698224  NUM           -1  dtype  0  link 0
+makearef
+ token 9698032  OP             ^  dtype  0  link 0  operands 9697872
+ token 9698224  NUM           16  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9698288  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9698288  OP          aref  dtype  0  link 0  operands 9698032
+reducedot
+ token 9698288  OP          aref  dtype  0  link 0  operands 9698032
+ token 9698160  ID      location  dtype  0  link 0
+reducedot
+ token 9698288  OP          aref  dtype  0  link 0  operands 9698032
+ token 9698448  OP             .  dtype  0  link 0  operands 0
+ token 9698512  ID            im  dtype  0  link 0
+ token 9698576  NUM           -1  dtype  0  link 0
+reducedot
+ token 9698288  OP          aref  dtype  0  link 0  operands 9698032
+ token 9698512  ID            im  dtype  0  link 0
+binop
+ token 9698640  OP            :=  dtype  0  link 0  operands 9698288
+ token 9698288  OP          aref  dtype  0  link 9698704  operands 9698032
+ token 9698704  NUM 4.500000e+00  dtype  1  link 0
+cons
+ token 9698960  NUM            7  dtype  0  link 0
+ token 0  NULL
+In arrayref()
+ token 9698832  ID            ac  dtype  0  link 0
+ token 0  NULL
+ token 9698960  NUM            7  dtype  0  link 0
+ token 0  NULL
+ token 9699152  NUM           96  dtype  0  link 0
+makearef
+ token 9698832  ID            ac  dtype  0  link 0
+ token 9699152  NUM           96  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9699216  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9699216  OP          aref  dtype  0  link 0  operands 9698832
+reducedot
+ token 9699216  OP          aref  dtype  0  link 0  operands 9698832
+ token 9699088  OP             .  dtype  0  link 0  operands 0
+ token 9699376  ID            re  dtype  0  link 0
+ token 9699440  NUM           -1  dtype  0  link 0
+reducedot
+ token 9699216  OP          aref  dtype  0  link 0  operands 9698832
+ token 9699376  ID            re  dtype  0  link 0
+dopoint
+ token 9699568  ID          john  dtype  4  link 0
+ token 9699632  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9699632  OP             ^  dtype  4  link 0  operands 9699568
+reducedot
+ token 9699632  OP             ^  dtype  4  link 0  operands 9699568
+ token 9699696  OP             .  dtype  0  link 0  operands 0
+ token 9699760  ID        salary  dtype  0  link 0
+ token 9699824  NUM           -1  dtype  0  link 0
+makearef
+ token 9699632  OP             ^  dtype  4  link 0  operands 9699568
+ token 9699824  NUM           40  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9699888  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9699888  OP          aref  dtype  0  link 0  operands 9699632
+reducedot
+ token 9699888  OP          aref  dtype  0  link 0  operands 9699632
+ token 9699760  ID        salary  dtype  4  link 0
+binop
+ token 9699504  OP            :=  dtype  0  link 0  operands 9699216
+ token 9699216  OP          aref  dtype  0  link 9699888  operands 9698832
+ token 9699888  OP          aref  dtype  0  link 0  operands 9699632
+binop
+ token 9700176  OP            :=  dtype  0  link 0  operands 9700112
+ token 9700112  ID           ptr  dtype  4  link 9700240
+ token 9700240  ID          john  dtype  4  link 0
+binop
+ token 9700432  OP            :=  dtype  0  link 0  operands 9700368
+ token 9700368  ID           sum  dtype  0  link 9700496
+ token 9700496  NUM            0  dtype  0  link 0
+binop
+ token 9700688  OP            :=  dtype  0  link 0  operands 9700624
+ token 9700624  ID             i  dtype  0  link 9700752
+ token 9700752  NUM            1  dtype  0  link 0
+binop
+ token 9701008  OP            <>  dtype  0  link 0  operands 9700944
+ token 9700944  ID           ptr  dtype  4  link 9701072
+ token 9701072  NUM            0  dtype  0  link 0
+dopoint
+ token 9701520  ID           ptr  dtype  4  link 0
+ token 9701584  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9701584  OP             ^  dtype  4  link 0  operands 9701520
+reducedot
+ token 9701584  OP             ^  dtype  4  link 0  operands 9701520
+ token 9701648  OP             .  dtype  0  link 0  operands 0
+ token 9701712  ID           age  dtype  0  link 0
+ token 9701776  NUM           -1  dtype  0  link 0
+makearef
+ token 9701584  OP             ^  dtype  4  link 0  operands 9701520
+ token 9701776  NUM            0  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9701840  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9701840  OP          aref  dtype  0  link 0  operands 9701584
+reducedot
+ token 9701840  OP          aref  dtype  0  link 0  operands 9701584
+ token 9701712  ID           age  dtype  4  link 0
+binop
+ token 9701456  OP             +  dtype  0  link 0  operands 9701392
+ token 9701392  ID           sum  dtype  0  link 9701840
+ token 9701840  OP          aref  dtype  0  link 0  operands 9701584
+binop
+ token 9701328  OP            :=  dtype  0  link 0  operands 9701264
+ token 9701264  ID           sum  dtype  0  link 9701456
+ token 9701456  OP             +  dtype  0  link 0  operands 9701392
+cons
+ token 9702192  ID             i  dtype  0  link 0
+ token 0  NULL
+In arrayref()
+ token 9702064  ID        people  dtype  0  link 0
+ token 0  NULL
+ token 9702192  ID             i  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9702384  OP             *  dtype  0  link 0  operands 0
+ token 9702448  NUM           48  dtype  0  link 0
+ token 9702512  NUM          -48  dtype  0  link 0
+In makeplus()
+ token 9702512  NUM          -48  dtype  0  link 9702384
+ token 9702384  OP             *  dtype  0  link 0  operands 9702448
+ token 0  NULL
+makeop
+ token 9702576  OP             +  dtype  0  link 0  operands 0
+ Finished makeplus().
+ token 9702576  OP             +  dtype  0  link 0  operands 9702512
+makearef
+ token 9702064  ID        people  dtype  0  link 0
+ token 9702576  OP             +  dtype  0  link 0  operands 9702512
+ token 0  NULL
+makeop
+ token 9702640  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9702640  OP          aref  dtype  0  link 0  operands 9702064
+ Finished arrayref().
+ token 9702640  OP          aref  dtype  0  link 0  operands 9702064
+reducedot
+ token 9702640  OP          aref  dtype  0  link 0  operands 9702064
+ token 9702320  OP             .  dtype  0  link 0  operands 0
+ token 9702800  ID           age  dtype  0  link 0
+ token 9702864  NUM           -1  dtype  0  link 0
+reducedot
+ token 9702640  OP          aref  dtype  0  link 0  operands 9702064
+ token 9702800  ID           age  dtype  0  link 0
+dopoint
+ token 9702992  ID           ptr  dtype  4  link 0
+ token 9703056  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9703056  OP             ^  dtype  4  link 0  operands 9702992
+reducedot
+ token 9703056  OP             ^  dtype  4  link 0  operands 9702992
+ token 9703120  OP             .  dtype  0  link 0  operands 0
+ token 9703184  ID           age  dtype  0  link 0
+ token 9703248  NUM           -1  dtype  0  link 0
+makearef
+ token 9703056  OP             ^  dtype  4  link 0  operands 9702992
+ token 9703248  NUM            0  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9703312  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9703312  OP          aref  dtype  0  link 0  operands 9703056
+reducedot
+ token 9703312  OP          aref  dtype  0  link 0  operands 9703056
+ token 9703184  ID           age  dtype  4  link 0
+binop
+ token 9702928  OP            :=  dtype  0  link 0  operands 9702640
+ token 9702640  OP          aref  dtype  0  link 9703312  operands 9702064
+ token 9703312  OP          aref  dtype  0  link 0  operands 9703056
+cons
+ token 9703792  NUM            1  dtype  0  link 0
+ token 0  NULL
+cons
+ token 9703664  ID             i  dtype  0  link 9703792
+ token 9703792  NUM            1  dtype  0  link 0
+In arrayref()
+ token 9703536  ID           aco  dtype  0  link 0
+ token 0  NULL
+ token 9703664  ID             i  dtype  0  link 9703792
+ token 0  NULL
+makeop
+ token 9703984  OP             *  dtype  0  link 0  operands 0
+ token 9704048  NUM           12  dtype  0  link 0
+ token 9704112  NUM          -12  dtype  0  link 0
+In makeplus()
+ token 9704112  NUM          -12  dtype  0  link 9703984
+ token 9703984  OP             *  dtype  0  link 0  operands 9704048
+ token 0  NULL
+makeop
+ token 9704176  OP             +  dtype  0  link 0  operands 0
+ Finished makeplus().
+ token 9704176  OP             +  dtype  0  link 0  operands 9704112
+makearef
+ token 9703536  ID           aco  dtype  0  link 0
+ token 9704176  OP             +  dtype  0  link 0  operands 9704112
+ token 0  NULL
+makeop
+ token 9704240  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9704240  OP          aref  dtype  0  link 0  operands 9703536
+ token 9704400  NUM            4  dtype  0  link 0
+In addint()
+ Adding 4 to -12
+ token 9704112  NUM          -12  dtype  0  link 9703984
+ token 9704400  NUM            4  dtype  0  link 0
+ token 0  NULL
+ New value of exp: -8
+ token 9704112  NUM           -8  dtype  0  link 9703984
+ Finished arrayref().
+ token 9704240  OP          aref  dtype  0  link 0  operands 9703536
+dopoint
+ token 9704464  ID          john  dtype  4  link 0
+ token 9704528  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9704528  OP             ^  dtype  4  link 0  operands 9704464
+reducedot
+ token 9704528  OP             ^  dtype  4  link 0  operands 9704464
+ token 9704592  OP             .  dtype  0  link 0  operands 0
+ token 9704656  ID      favorite  dtype  0  link 0
+ token 9704720  NUM           -1  dtype  0  link 0
+makearef
+ token 9704528  OP             ^  dtype  4  link 0  operands 9704464
+ token 9704720  NUM           32  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9704784  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9704784  OP          aref  dtype  0  link 0  operands 9704528
+reducedot
+ token 9704784  OP          aref  dtype  0  link 0  operands 9704528
+ token 9704656  ID      favorite  dtype  4  link 0
+binop
+ token 9703920  OP            :=  dtype  0  link 0  operands 9704240
+ token 9704240  OP          aref  dtype  0  link 9704784  operands 9703536
+ token 9704784  OP          aref  dtype  0  link 0  operands 9704528
+dopoint
+ token 9705136  ID           ptr  dtype  4  link 0
+ token 9705200  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9705200  OP             ^  dtype  4  link 0  operands 9705136
+reducedot
+ token 9705200  OP             ^  dtype  4  link 0  operands 9705136
+ token 9705264  OP             .  dtype  0  link 0  operands 0
+ token 9705328  ID        friend  dtype  0  link 0
+ token 9705392  NUM           -1  dtype  0  link 0
+makearef
+ token 9705200  OP             ^  dtype  4  link 0  operands 9705136
+ token 9705392  NUM            8  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9705456  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9705456  OP          aref  dtype  0  link 0  operands 9705200
+reducedot
+ token 9705456  OP          aref  dtype  0  link 0  operands 9705200
+ token 9705328  ID        friend  dtype  4  link 0
+binop
+ token 9705072  OP            :=  dtype  0  link 0  operands 9705008
+ token 9705008  ID           ptr  dtype  4  link 9705456
+ token 9705456  OP          aref  dtype  0  link 0  operands 9705200
+binop
+ token 9705872  OP             +  dtype  0  link 0  operands 9705808
+ token 9705808  ID             i  dtype  0  link 9705936
+ token 9705936  NUM            1  dtype  0  link 0
+binop
+ token 9705744  OP            :=  dtype  0  link 0  operands 9705680
+ token 9705680  ID             i  dtype  0  link 9705872
+ token 9705872  OP             +  dtype  0  link 0  operands 9705808
+cons
+ token 9705744  OP            :=  dtype  0  link 0  operands 9705680
+ token 0  NULL
+cons
+ token 9705072  OP            :=  dtype  0  link 9705744  operands 9705008
+ token 9705744  OP            :=  dtype  0  link 0  operands 9705680
+cons
+ token 9703920  OP            :=  dtype  0  link 9705072  operands 9704240
+ token 9705072  OP            :=  dtype  0  link 9705744  operands 9705008
+cons
+ token 9702928  OP            :=  dtype  0  link 9703920  operands 9702640
+ token 9703920  OP            :=  dtype  0  link 9705072  operands 9704240
+cons
+ token 9701328  OP            :=  dtype  0  link 9702928  operands 9701264
+ token 9702928  OP            :=  dtype  0  link 9703920  operands 9702640
+In makepnb(); transferring to makeprogn()...
+makeprogn
+ token 9701200  OP         progn  dtype  0  link 0  operands 9701328
+ token 9701328  OP            :=  dtype  0  link 9702928  operands 9701264
+In makewhile()
+ token 9700880  typ  2  whic  28  dty   0  sty 0 lnk 0  opnds 0
+ token 9701008  OP            <>  dtype  0  link 0  operands 9700944
+ token 9701136  typ  2  whic   5  dty   0  sty 0 lnk 0  opnds 0
+ token 9701200  OP         progn  dtype  0  link 0  operands 9701328
+ token 9706128  NUM            2  dtype  0  link 0
+makelabel
+ token 9706064  OP         label  dtype  0  link 0  operands 9706128
+makeop
+ token 9706192  OP          goto  dtype  0  link 0  operands 0
+ token 9706256  NUM            2  dtype  0  link 0
+makegoto
+ token 9706192  OP          goto  dtype  0  link 0  operands 9706256
+In makepnb(); transferring to makeprogn()...
+makeprogn
+ token 9706320  OP         progn  dtype  0  link 0  operands 9706064
+ token 9706064  OP         label  dtype  0  link 0  operands 9706128
+makeop
+ token 9706384  OP            if  dtype  0  link 0  operands 0
+makeif
+ token 9706384  OP            if  dtype  0  link 0  operands 9701008
+ token 9701008  OP            <>  dtype  0  link 9701200  operands 9700944
+ token 9701200  OP         progn  dtype  0  link 0  operands 9701328
+ token 0  NULL
+ Finished makewhile().
+ token 9706320  OP         progn  dtype  0  link 0  operands 9706064
+cons
+ token 9706640  STR         i =   dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9706896  OP       funcall  dtype  0  link 0  operands 0
 makefuncall
- token 32409296  OP       funcall  dtype  0  link 0  operands 32409040
- token 32409040  ID           new  dtype  0  link 32409168
- token 32409168  ID          john  dtype  4  link 0
+ token 9706896  OP       funcall  dtype  0  link 0  operands 9706512
+ token 9706512  ID         write  dtype  0  link 9706640
+ token 9706640  STR         i =   dtype  0  link 0
+cons
+ token 9707088  ID             i  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9707344  OP       funcall  dtype  0  link 0  operands 0
+FOUND WRITE AND WRITELN
+ARGS SYMTYPE
+ 9654384     integer  BASIC  basicdt   0          siz     4
 makefuncall
- token 32409680  OP       funcall  dtype  0  link 0  operands 32409424
- token 32409424  ID           new  dtype  0  link 32409552
- token 32409552  ID          mary  dtype  4  link 0
+ token 9707344  OP       funcall  dtype  0  link 0  operands 9706960
+ token 9706960  ID      writelni  dtype  0  link 9707088
+ token 9707088  ID             i  dtype  0  link 0
+cons
+ token 9707536  STR Sum of ages =   dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9707792  OP       funcall  dtype  0  link 0  operands 0
 makefuncall
- token 32410064  OP       funcall  dtype  0  link 0  operands 32409808
- token 32409808  ID           new  dtype  0  link 32409936
- token 32409936  ID          fred  dtype  4  link 0
+ token 9707792  OP       funcall  dtype  0  link 0  operands 9707408
+ token 9707408  ID         write  dtype  0  link 9707536
+ token 9707536  STR Sum of ages =   dtype  0  link 0
+cons
+ token 9707984  ID           sum  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9708240  OP       funcall  dtype  0  link 0  operands 0
+FOUND WRITE AND WRITELN
+ARGS SYMTYPE
+ 9654384     integer  BASIC  basicdt   0          siz     4
+makefuncall
+ token 9708240  OP       funcall  dtype  0  link 0  operands 9707856
+ token 9707856  ID      writelni  dtype  0  link 9707984
+ token 9707984  ID           sum  dtype  0  link 0
+cons
+ token 9708432  STR Fred loc im =   dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9708688  OP       funcall  dtype  0  link 0  operands 0
+makefuncall
+ token 9708688  OP       funcall  dtype  0  link 0  operands 9708304
+ token 9708304  ID         write  dtype  0  link 9708432
+ token 9708432  STR Fred loc im =   dtype  0  link 0
+dopoint
+ token 9708880  ID          fred  dtype  4  link 0
+ token 9708944  OP             ^  dtype  0  link 0  operands 0
+dopoint
+ token 9708944  OP             ^  dtype  4  link 0  operands 9708880
+reducedot
+ token 9708944  OP             ^  dtype  4  link 0  operands 9708880
+ token 9709008  OP             .  dtype  0  link 0  operands 0
+ token 9709072  ID      location  dtype  0  link 0
+ token 9709136  NUM           -1  dtype  0  link 0
+makearef
+ token 9708944  OP             ^  dtype  4  link 0  operands 9708880
+ token 9709136  NUM           16  dtype  0  link 0
+ token 0  NULL
+makeop
+ token 9709200  OP          aref  dtype  0  link 0  operands 0
+makearef().
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+reducedot
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+ token 9709072  ID      location  dtype  4  link 0
+reducedot
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+ token 9709360  OP             .  dtype  0  link 0  operands 0
+ token 9709424  ID            im  dtype  0  link 0
+ token 9709488  NUM           -1  dtype  0  link 0
+reducedot
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+ token 9709424  ID            im  dtype  0  link 0
+cons
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+ token 0  NULL
+makeop
+ token 9709744  OP       funcall  dtype  0  link 0  operands 0
+FOUND WRITE AND WRITELN
+ARGS SYMTYPE
+makefuncall
+ token 9709744  OP       funcall  dtype  0  link 0  operands 9708752
+ token 9708752  ID      writelni  dtype  0  link 9709200
+ token 9709200  OP          aref  dtype  0  link 0  operands 9708944
+binop
+ token 9709936  OP             <  dtype  0  link 0  operands 9709872
+ token 9709872  ID           sum  dtype  0  link 9710000
+ token 9710000  NUM            3  dtype  0  link 0
+In dogoto()
+ token 9710128  typ  2  whic  12  dty   0  sty 0 lnk 0  opnds 0
+ token 9710192  NUM         1776  dtype  0  link 0
+LABEL NUMBER 0-1776
+ Finished dogoto().
+  Found internal label number 0 corresponding to user label number 1776
+  Transferring to makegoto()...
+
+makeop
+ token 9710256  OP          goto  dtype  0  link 0  operands 0
+ token 9710320  NUM            0  dtype  0  link 0
+makegoto
+ token 9710256  OP          goto  dtype  0  link 0  operands 9710320
+makeif
+ token 9709808  OP            if  dtype  0  link 0  operands 9709936
+ token 9709936  OP             <  dtype  0  link 9710256  operands 9709872
+ token 9710256  OP          goto  dtype  0  link 0  operands 9710320
+ token 0  NULL
+cons
+ token 9709808  OP            if  dtype  0  link 0  operands 9709936
+ token 0  NULL
+cons
+ token 9709744  OP       funcall  dtype  0  link 9709808  operands 9708752
+ token 9709808  OP            if  dtype  0  link 0  operands 9709936
+cons
+ token 9708688  OP       funcall  dtype  0  link 9709744  operands 9708304
+ token 9709744  OP       funcall  dtype  0  link 9709808  operands 9708752
+cons
+ token 9708240  OP       funcall  dtype  0  link 9708688  operands 9707856
+ token 9708688  OP       funcall  dtype  0  link 9709744  operands 9708304
+cons
+ token 9707792  OP       funcall  dtype  0  link 9708240  operands 9707408
+ token 9708240  OP       funcall  dtype  0  link 9708688  operands 9707856
+cons
+ token 9707344  OP       funcall  dtype  0  link 9707792  operands 9706960
+ token 9707792  OP       funcall  dtype  0  link 9708240  operands 9707408
+cons
+ token 9706896  OP       funcall  dtype  0  link 9707344  operands 9706512
+ token 9707344  OP       funcall  dtype  0  link 9707792  operands 9706960
+cons
+ token 9706320  OP         progn  dtype  0  link 9706896  operands 9706064
+ token 9706896  OP       funcall  dtype  0  link 9707344  operands 9706512
+cons
+ token 9700688  OP            :=  dtype  0  link 9706320  operands 9700624
+ token 9706320  OP         progn  dtype  0  link 9706896  operands 9706064
+cons
+ token 9700432  OP            :=  dtype  0  link 9700688  operands 9700368
+ token 9700688  OP            :=  dtype  0  link 9706320  operands 9700624
+cons
+ token 9700176  OP            :=  dtype  0  link 9700432  operands 9700112
+ token 9700432  OP            :=  dtype  0  link 9700688  operands 9700368
+cons
+ token 9699504  OP            :=  dtype  0  link 9700176  operands 9699216
+ token 9700176  OP            :=  dtype  0  link 9700432  operands 9700112
+cons
+ token 9698640  OP            :=  dtype  0  link 9699504  operands 9698288
+ token 9699504  OP            :=  dtype  0  link 9700176  operands 9699216
+cons
+ token 9696944  OP            :=  dtype  0  link 9698640  operands 9696784
+ token 9698640  OP            :=  dtype  0  link 9699504  operands 9698288
+cons
+ token 9696272  OP         progn  dtype  0  link 9696944  operands 9696336
+ token 9696944  OP            :=  dtype  0  link 9698640  operands 9696784
+cons
+ token 9695280  OP            :=  dtype  0  link 9696272  operands 9695120
+ token 9696272  OP         progn  dtype  0  link 9696944  operands 9696336
+cons
+ token 9694608  OP            :=  dtype  0  link 9695280  operands 9694448
+ token 9695280  OP            :=  dtype  0  link 9696272  operands 9695120
+cons
+ token 9693936  OP            :=  dtype  0  link 9694608  operands 9693584
+ token 9694608  OP            :=  dtype  0  link 9695280  operands 9694448
+cons
+ token 9693072  OP            :=  dtype  0  link 9693936  operands 9692912
+ token 9693936  OP            :=  dtype  0  link 9694608  operands 9693584
+cons
+ token 9692400  OP         progn  dtype  0  link 9693072  operands 9692464
+ token 9693072  OP            :=  dtype  0  link 9693936  operands 9692912
+cons
+ token 9691408  OP            :=  dtype  0  link 9692400  operands 9691248
+ token 9692400  OP         progn  dtype  0  link 9693072  operands 9692464
+cons
+ token 9690736  OP            :=  dtype  0  link 9691408  operands 9690576
+ token 9691408  OP            :=  dtype  0  link 9692400  operands 9691248
+cons
+ token 9690064  OP            :=  dtype  0  link 9690736  operands 9689808
+ token 9690736  OP            :=  dtype  0  link 9691408  operands 9690576
+cons
+ token 9689488  OP            :=  dtype  0  link 9690064  operands 9689232
+ token 9690064  OP            :=  dtype  0  link 9690736  operands 9689808
+cons
+ token 9688912  OP            :=  dtype  0  link 9689488  operands 9688656
+ token 9689488  OP            :=  dtype  0  link 9690064  operands 9689232
+In makepnb(); transferring to makeprogn()...
+makeprogn
+ token 9688464  OP         progn  dtype  0  link 0  operands 9688912
+ token 9688912  OP            :=  dtype  0  link 9689488  operands 9688656
+makeprogn
+ token 9710576  OP         progn  dtype  0  link 0  operands 9677136
+ token 9677136  ID        output  dtype  0  link 0
+makeprogram
+ token 9710512  OP       program  dtype  0  link 0  operands 9677008
+ token 9677008  ID        graph1  dtype  0  link 9710576
+ token 9710576  OP         progn  dtype  0  link 9688464  operands 9677136
+ token 9677136  ID        output  dtype  0  link 0
 Symbol table level 0
- 32374800        real  BASIC  basicdt   1          siz     8
- 32374896     integer  BASIC  basicdt   0          siz     4
- 32374992        char  BASIC  basicdt   2          siz     1
- 32375088     boolean  BASIC  basicdt   3          siz     4
- 32375184         exp  knd 5 0  typ 32375280  lvl  0  siz     0  off     0
+ 9654288        real  BASIC  basicdt   1          siz     8
+ 9654384     integer  BASIC  basicdt   0          siz     4
+ 9654480        char  BASIC  basicdt   2          siz     1
+ 9654576     boolean  BASIC  basicdt   3          siz     4
+ 9654672         exp  knd 5 0  typ 9654768  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32375472       trexp  knd 5 0  typ 32375568  lvl  0  siz     0  off     0
+ 9654960       trexp  knd 5 0  typ 9655056  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32375760         sin  knd 5 0  typ 32375856  lvl  0  siz     0  off     0
+ 9655248         sin  knd 5 0  typ 9655344  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32376048         cos  knd 5 0  typ 32376144  lvl  0  siz     0  off     0
+ 9655536         cos  knd 5 0  typ 9655632  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32376336       trsin  knd 5 0  typ 32376432  lvl  0  siz     0  off     0
+ 9655824       trsin  knd 5 0  typ 9655920  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32376624        sqrt  knd 5 0  typ 32376720  lvl  0  siz     0  off     0
+ 9656112        sqrt  knd 5 0  typ 9656208  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32376912       round  knd 5 0  typ 32377008  lvl  0  siz     0  off     0
+ 9656400       round  knd 5 0  typ 9656496  lvl  0  siz     0  off     0
 (FUNCTION real
           real)
- 32377200      iround  knd 5 0  typ 32377296  lvl  0  siz     0  off     0
+ 9656688      iround  knd 5 0  typ 9656784  lvl  0  siz     0  off     0
 (FUNCTION integer
           real)
- 32377488         ord  knd 5 0  typ 32377584  lvl  0  siz     0  off     0
-(FUNCTION integer
-          integer)
- 32377776         new  knd 5 0  typ 32377872  lvl  0  siz     0  off     0
+ 9656976         ord  knd 5 0  typ 9657072  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 32378064       trnew  knd 5 0  typ 32378160  lvl  0  siz     0  off     0
+ 9657264         new  knd 5 0  typ 9657360  lvl  0  siz     0  off     0
 (FUNCTION integer
           integer)
- 32378352       write  knd 5 0  typ 32378448  lvl  0  siz     0  off     0
+ 9657552       trnew  knd 5 0  typ 9657648  lvl  0  siz     0  off     0
+(FUNCTION integer
+          integer)
+ 9657840       write  knd 5 0  typ 9657936  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 32378640     writeln  knd 5 0  typ 32378736  lvl  0  siz     0  off     0
+ 9658128     writeln  knd 5 0  typ 9658224  lvl  0  siz     0  off     0
 (FUNCTION NULL
           char)
- 32378928      writef  knd 5 0  typ 32379024  lvl  0  siz     0  off     0
+ 9658416      writef  knd 5 0  typ 9658512  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 32379216    writelnf  knd 5 0  typ 32379312  lvl  0  siz     0  off     0
+ 9658704    writelnf  knd 5 0  typ 9658800  lvl  0  siz     0  off     0
 (FUNCTION NULL
           real)
- 32379504      writei  knd 5 0  typ 32379600  lvl  0  siz     0  off     0
+ 9658992      writei  knd 5 0  typ 9659088  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 32379792    writelni  knd 5 0  typ 32379888  lvl  0  siz     0  off     0
+ 9659280    writelni  knd 5 0  typ 9659376  lvl  0  siz     0  off     0
 (FUNCTION NULL
           integer)
- 32380080        read  knd 5 0  typ 32380176  lvl  0  siz     0  off     0
+ 9659568        read  knd 5 0  typ 9659664  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 32380368      readln  knd 5 0  typ 32380464  lvl  0  siz     0  off     0
+ 9659856      readln  knd 5 0  typ 9659952  lvl  0  siz     0  off     0
 (FUNCTION NULL
           NULL)
- 32380656         eof  knd 5 0  typ 32380752  lvl  0  siz     0  off     0
+ 9660144         eof  knd 5 0  typ 9660240  lvl  0  siz     0  off     0
 (FUNCTION boolean
           NULL)
 Symbol table level 1
- 32399088     complex  TYPE   typ 32398992  lvl  1  siz    16  off     0
+ 9678576     complex  TYPE   typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32399888         red  CONST  typ INTEGER  val  0
- 32400048       white  CONST  typ INTEGER  val  1
- 32400208        blue  CONST  typ INTEGER  val  2
- 32400464       color  TYPE   typ 32400368  lvl  1  siz     4  off     0
+ 9679376         red  CONST  typ INTEGER  val  0
+ 9679536       white  CONST  typ INTEGER  val  1
+ 9679696        blue  CONST  typ INTEGER  val  2
+ 9679952       color  TYPE   typ 9679856  lvl  1  siz     4  off     0
   0 ..   2
- 32400976      person  TYPE   typ 32403184  lvl  1  siz    48  off     0
+ 9680464      person  TYPE   typ 9682672  lvl  1  siz    48  off     0
 (RECORD (age integer)
         (friend (^ person))
         (location (RECORD (re real)
                           (im real)))
         (favorite   0 ..   2)
         (salary real))
- 32401072          pp  TYPE   typ 32400880  lvl  1  siz     8  off     0
+ 9680560          pp  TYPE   typ 9680368  lvl  1  siz     8  off     0
 (^ person)
- 32403728           c  VAR    0 typ 32399088  lvl  1  siz    16  off     0
+ 9683216           c  VAR    0 typ 9678480  lvl  1  siz    16  off     0
 (RECORD (re real)
         (im real))
- 32403824           d  VAR    0 typ 32399088  lvl  1  siz    16  off    16
+ 9683312           d  VAR    0 typ 9678480  lvl  1  siz    16  off    16
 (RECORD (re real)
         (im real))
- 32404304           i  VAR    0 typ integer  lvl  1  siz     4  off    32
- 32404400         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
- 32405456          ac  VAR    0 typ 32405360  lvl  1  siz   160  off    48
+ 9683792           i  VAR    0 typ integer  lvl  1  siz     4  off    32
+ 9683888         sum  VAR    0 typ integer  lvl  1  siz     4  off    36
+ 9684944          ac  VAR    0 typ 9684848  lvl  1  siz   160  off    48
 (ARRAY   1 ..  10 (RECORD (re real)
                           (im real)))
- 32406736         aco  VAR    0 typ 32406640  lvl  1  siz    40  off   208
-(ARRAY   1 ..  10 (ARRAY   0 ..   0   0 ..   2))
- 32407472        john  VAR    4 typ 32401072  lvl  1  siz     8  off   248
+ 9686224         aco  VAR    0 typ 9686128  lvl  1  siz   120  off   208
+(ARRAY   1 ..  10 (ARRAY   0 ..   2   0 ..   2))
+ 9686960        john  VAR    4 typ 9680368  lvl  1  siz     8  off   328
 (^ person)
- 32407568        mary  VAR    4 typ 32401072  lvl  1  siz     8  off   256
+ 9687056        mary  VAR    4 typ 9680368  lvl  1  siz     8  off   336
 (^ person)
- 32407664        fred  VAR    4 typ 32401072  lvl  1  siz     8  off   264
+ 9687152        fred  VAR    4 typ 9680368  lvl  1  siz     8  off   344
 (^ person)
- 32407760         ptr  VAR    4 typ 32401072  lvl  1  siz     8  off   272
+ 9687248         ptr  VAR    4 typ 9680368  lvl  1  siz     8  off   352
 (^ person)
- 32408816      people  VAR    0 typ 32408720  lvl  1  siz   960  off   288
+ 9688304      people  VAR    0 typ 9688208  lvl  1  siz   960  off   368
 (ARRAY   1 ..  20 (RECORD (age integer)
                           (friend (^ person))
                           (location (RECORD (re real)
                                             (im real)))
                           (favorite   0 ..   2)
                           (salary real)))
-yyparse result =        1
- token 0  NULL
-ppexpr called with bad pointer 0
+yyparse result =        0
+ token 9710512  OP       program  dtype  0  link 0  operands 9677008
+(program graph1 (progn output)
+                (progn (:= john (funcall new 48))
+                       (:= mary (funcall new 48))
+                       (:= fred (funcall new 48))
+                       (:= (aref (^ john)
+                                 32)
+                           2)
+                       (:= (aref (^ john)
+                                 0)
+                           19)
+                       (progn (label 1)
+                              (:= (aref (^ john)
+                                        8)
+                                  mary))
+                       (:= (aref (^ john)
+                                 40)
+                           4.000000e+04)
+                       (:= (aref (^ john)
+                                 16)
+                           3)
+                       (:= (aref (^ mary)
+                                 0)
+                           21)
+                       (:= (aref (^ mary)
+                                 8)
+                           fred)
+                       (progn (label 0)
+                              (:= (aref (^ fred)
+                                        0)
+                                  20))
+                       (:= (aref (^ fred)
+                                 8)
+                           0)
+                       (:= (aref (^ (aref (^ (aref (^ john)
+                                                   8))
+                                          8))
+                                 24)
+                           4.500000e+00)
+                       (:= (aref ac 96)
+                           (aref (^ john)
+                                 40))
+                       (:= ptr john)
+                       (:= sum 0)
+                       (:= i 1)
+                       (progn (label 2)
+                              (if (<> ptr 0)
+                                  (progn (:= sum (+ sum (aref (^ ptr)
+                                                              0)))
+                                         (:= (aref people (+ -48
+                                                             (* 48
+                                                                i)))
+                                             (aref (^ ptr)
+                                                   0))
+                                         (:= (aref aco (+ -8
+                                                          (* 12
+                                                             i)))
+                                             (aref (^ john)
+                                                   32))
+                                         (:= ptr (aref (^ ptr)
+                                                       8))
+                                         (:= i (+ i 1))
+                                         (goto 2))))
+                       (funcall write 'i = ')
+                       (funcall writelni i)
+                       (funcall write 'Sum of ages = ')
+                       (funcall writelni sum)
+                       (funcall write 'Fred loc im = ')
+                       (funcall writelni (aref (^ fred)
+                                               24))
+                       (if (< sum 3)
+                           (goto 0))))
